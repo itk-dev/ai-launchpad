@@ -11,6 +11,7 @@ See [keep a changelog] for information about writing changes to this log.
 ### Added
 
 - Drupal core and basic configuration.
+- Added Ollama containers to docker.
 
 [keep a changelog]: https://keepachangelog.com/en/1.1.0/
 [unreleased]: https://github.com/itk-dev/event-database-imports/compare/main...develop
