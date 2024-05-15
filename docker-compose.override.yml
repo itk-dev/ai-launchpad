@@ -1,0 +1,8 @@
+services:
+  node:
+    image: node:18
+    profiles:
+      - dev
+    working_dir: /app
+    volumes:
+      - .:/app:delegated
