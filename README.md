@@ -27,3 +27,7 @@ Import config from config files
 To login to the Drupal admin run the following
 
 `itkdev-docker-compose drush uli --uri="https://launchpad.local.itkdev.dk/"`
+
+## Open the website
+
+`itkdev-docker-compose open`
