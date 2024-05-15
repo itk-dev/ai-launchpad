@@ -1,5 +1,6 @@
 # AI Launchpad website
 
+This project provides a website for building documentation and sandboxes for learning about AI and LLM´s
 
 ## Site installation for local development
 
