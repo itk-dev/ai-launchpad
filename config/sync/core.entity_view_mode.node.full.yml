@@ -1,5 +1,5 @@
-uuid: f633c305-3dec-45e1-a060-6a2832b38d92
-langcode: da
+uuid: 6c86088c-c369-4e7c-bd97-59deb35fba26
+langcode: en
 status: false
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: QJ2aZ1xfVf59aq6Pz5X7fyUOa2HxuCoTwQ_RQjoulAU
 id: node.full
-label: 'Fuldt indhold'
+label: 'Full content'
 description: ''
 targetEntityType: node
 cache: true

@@ -1,22 +1,14 @@
-uuid: d0651524-5b0e-41f0-b553-4739d98edbc5
-langcode: da
+uuid: fb79caaa-1b27-4d48-8d84-3afaf29bdc4b
+langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
-    - comment
-    - filter
-    - search
     - system
 _core:
-  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
-label: 'Anonym bruger'
+label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'search content'
-  - 'use text format restricted_html'

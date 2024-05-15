@@ -1,28 +1,14 @@
-uuid: 95e8ad5c-c821-4039-b361-1e3eaa80bd43
-langcode: da
+uuid: b5736516-9ff7-4cb8-a79b-edba31878022
+langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.basic_html
   module:
-    - comment
-    - file
-    - filter
-    - search
-    - shortcut
     - system
 _core:
-  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
-label: 'Godkendt bruger'
+label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'access shortcuts'
-  - 'delete own files'
-  - 'post comments'
-  - 'search content'
-  - 'skip comment approval'
-  - 'use text format basic_html'

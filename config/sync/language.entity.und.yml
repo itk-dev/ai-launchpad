@@ -1,11 +1,11 @@
-uuid: 5c095779-85b5-4178-b14c-a9b95cfe9598
-langcode: da
+uuid: 4f9f54a8-ab55-4d51-853e-e0b9e57d21fb
+langcode: en
 status: true
 dependencies: {  }
 _core:
   default_config_hash: eNX6lLCKDaY83nCMh20My---y03KbiFlv802DKCCpvg
 id: und
-label: 'Ikke angivet'
+label: 'Not specified'
 direction: ltr
 weight: 2
 locked: true

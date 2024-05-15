@@ -1,5 +1,5 @@
-uuid: c6861569-13e9-410c-be01-7e76b1ee99a0
-langcode: da
+uuid: 31f897a2-95d3-4c34-91b2-55363577700e
+langcode: en
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: LhdsoZPL_pFas2fjaAWue4zvrQ_tEVofLYtcNec-JGM
 id: node_save_action
-label: 'Gem indhold'
+label: 'Save content'
 type: node
 plugin: 'entity:save_action:node'
 configuration: {  }

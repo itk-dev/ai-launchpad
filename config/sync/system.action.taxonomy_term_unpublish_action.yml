@@ -1,5 +1,5 @@
-uuid: bd2fa100-d001-40a0-be1f-8ac57fdb2f29
-langcode: da
+uuid: 41f4f26c-cf01-49c9-acb0-a32ec0a754c8
+langcode: en
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: z2sNRM3ECa7FPCGnSNje_9SmZJQgwhD_6fG_L4Mr8zI
 id: taxonomy_term_unpublish_action
-label: 'Afpublicér taksonomiterm'
+label: 'Unpublish taxonomy term'
 type: taxonomy_term
 plugin: 'entity:unpublish_action:taxonomy_term'
 configuration: {  }
