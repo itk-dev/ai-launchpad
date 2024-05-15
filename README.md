@@ -20,3 +20,9 @@ Export config created from drupal
 Import config from config files
 
 `itkdev-docker-compose drush config:export`
+
+## Drupal login
+
+To login to the Drupal admin run the following
+
+`itkdev-docker-compose drush uli --uri="https://launchpad.local.itkdev.dk/"`
