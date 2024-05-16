@@ -1,0 +1,22 @@
+uuid: 5ff99e70-70e7-492a-a378-818ea1cd5a6f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ai_launchpad
+_core:
+  default_config_hash: 2L0geP-ixCbCkEpW6BVF6H7vDUZN4ea07_Y9CociQm4
+id: ai_launchpad_secondary_local_tasks
+theme: ai_launchpad
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

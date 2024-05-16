@@ -45,4 +45,5 @@ module:
 theme:
   stark: 0
   claro: 0
+  ai_launchpad: 0
 profile: minimal
