@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+[PR-2](https://github.com/itk-dev/ai-launchpad/pull/2)
+Add custom theme
+
 ### Added
 
 - Drupal core and basic configuration.
