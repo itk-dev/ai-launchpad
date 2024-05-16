@@ -1,0 +1,13 @@
+name: Ai launchpad
+type: theme
+description: 'Theme for the Ai launchpad website'
+package: ai_launchpad
+base theme: false
+core_version_requirement: ^10
+libraries:
+  - ai_launchpad/styles
+regions:
+  header: Header
+  navigation-sidebar: Navigation-sidebar
+  content: Content
+  footer: Footer
