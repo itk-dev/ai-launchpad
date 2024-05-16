@@ -47,7 +47,7 @@
 #}
 <div class="layout-container">
 
-  {% include directory ~ '/templates/header.html.twig' %}
+  {{ include directory ~ '/templates/header.html.twig' }}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
@@ -80,7 +80,7 @@
   </main>
 
   {% if page.footer %}
-    {% include directory ~ '/templates/footer.html.twig' %}
+    {{ include directory ~ '/templates/footer.html.twig' }}
   {% endif %}
 
 </div>{# /.layout-container #}
