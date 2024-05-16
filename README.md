@@ -22,7 +22,7 @@ Import config from config files
 
 `itkdev-docker-compose drush config:export`
 
-## Drupal login
+## Login to Druapl admin
 
 To login to the Drupal admin run the following
 
