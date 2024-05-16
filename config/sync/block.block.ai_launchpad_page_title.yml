@@ -1,6 +1,6 @@
 uuid: 6032c40a-4752-41d6-a9bb-bb2cb2f8dbf2
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - ai_launchpad
