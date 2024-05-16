@@ -10,7 +10,7 @@
     "coding-standards-check": "yarn coding-standards-check/markdownlint",
     "coding-standards-apply/markdownlint": "markdownlint --fix '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
     "coding-standards-apply": "yarn coding-standards-apply/markdownlint",
-    "build": "npx tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
-    "watch": "npx tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
+    "build": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
+    "watch": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
   }
 }
