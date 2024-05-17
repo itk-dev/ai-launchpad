@@ -1,13 +1,5 @@
 services:
-  node:
-    image: node:18
-    profiles:
-      - dev
-    working_dir: /app
-    volumes:
-      - .:/app:delegated
-
-  ollama:
+  model:
     image: ollama/ollama:0.1.38
     networks:
       - app
