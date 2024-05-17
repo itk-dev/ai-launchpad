@@ -8,13 +8,13 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-[PR-2](https://github.com/itk-dev/ai-launchpad/pull/2)
-Add custom theme
-
 ### Added
 
 - Drupal core and basic configuration.
 - Added Ollama containers to docker.
+- New readme with more information about the setup.
+  [PR-2](https://github.com/itk-dev/ai-launchpad/pull/2)
+  Custom theme
 
 [keep a changelog]: https://keepachangelog.com/en/1.1.0/
 [unreleased]: https://github.com/itk-dev/event-database-imports/compare/main...develop
