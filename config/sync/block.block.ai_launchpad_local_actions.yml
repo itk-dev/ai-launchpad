@@ -1,0 +1,20 @@
+uuid: 7fdd0b1d-1171-45d1-8ad9-d254dab28299
+langcode: en
+status: false
+dependencies:
+  theme:
+    - ai_launchpad
+_core:
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
+id: ai_launchpad_local_actions
+theme: ai_launchpad
+region: header
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

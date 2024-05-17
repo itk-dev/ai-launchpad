@@ -1,0 +1,5 @@
+styles:
+  version: VERSION
+  css:
+    theme:
+      build/ai_launchpad.css: {}

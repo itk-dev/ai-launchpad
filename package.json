@@ -2,12 +2,15 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "markdownlint-cli": "^0.31.1"
+    "markdownlint-cli": "^0.31.1",
+    "tailwindcss": "^3.4.3"
   },
   "scripts": {
     "coding-standards-check/markdownlint": "markdownlint --ignore '**/node_modules/**' --ignore '**/vendor/**' '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
     "coding-standards-check": "yarn coding-standards-check/markdownlint",
     "coding-standards-apply/markdownlint": "markdownlint --fix '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
-    "coding-standards-apply": "yarn coding-standards-apply/markdownlint"
+    "coding-standards-apply": "yarn coding-standards-apply/markdownlint",
+    "build": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
+    "watch": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
   }
 }

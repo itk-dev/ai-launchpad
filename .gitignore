@@ -158,3 +158,9 @@ private-files/
 
 # Ignore VS-code
 .vscode
+
+# Ignore node_modules
+node_modules/
+
+# Ignore theme build folder
+web/themes/custom/ai_launchpad/build/
