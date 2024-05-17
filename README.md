@@ -87,10 +87,32 @@ itkdev-docker-compose drush config:export
 
 ## Large language models (LLM)
 
-Ollama
-API
+To host models locally, this project ships with [Ollama](https://ollama.com/) which is able to partially load modules as
+needed into memory and also enables one to server models without GPUs. This comes at the cost of slower response times
+and very high CPU loads, but this is the best solution at this time.
 
-Basic setup
+The project does not ship with any models, so before being able to use any models these should be downloaded. Models are
+somewhat large (+4 GB) in size. The list of Ollama supported modules can be seen her:
+[https://ollama.com/library](https://ollama.com/library)
+
+First find the port that Ollama is located at with this command:
+
+```shell
+docker compose port ollama 11434
+```
+
+The following command can be used to pull down a model:
+
+```shell
+curl http://0.0.0.0:<PORT>/api/pull -d '{
+  "name": "llama3"
+}'
+```
+
+Replacing the `<PORT>` with the port number form the first command and replacing the module name with the model you
+what to download.
+
+The complete Ollama API documentation can be found here: [https://github.com/ollama/ollama/blob/main/docs/api.md](https://github.com/ollama/ollama/blob/main/docs/api.md)
 
 ## Production setup
 
