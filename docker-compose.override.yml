@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/app:delegated
 
-  model:
+  ollama:
     image: ollama/ollama:0.1.38
     networks:
       - app
