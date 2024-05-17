@@ -6,7 +6,7 @@ This project provides a website for building documentation and sandboxes for lea
 
 ### Site installation
 
-Run the folowing commands to set up the site:
+Run the following commands to set up the site:
 
 `itkdev-docker-compose up -d`
 
