@@ -12,5 +12,10 @@
     "coding-standards-apply": "yarn coding-standards-apply/markdownlint",
     "build": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
     "watch": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2"
   }
 }
