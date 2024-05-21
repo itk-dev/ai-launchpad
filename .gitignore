@@ -165,4 +165,8 @@ node_modules/
 # Ignore theme build folder
 web/themes/custom/ai_launchpad/build/
 
+# Ignore npm generated lock files since this project uses yarn
 package-lock.json
+
+# Ignore Twig cs fixer cache
+.twig-cs-fixer.cache
