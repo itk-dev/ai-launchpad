@@ -1,15 +1,14 @@
-<header role="banner" class="bg-stone-50 dark:bg-stone-950">
+<header role="banner" class="bg-stone-50 dark:bg-stone-950 dark:text-white flex">
 
-  <div class="nav-button">
-    <i class="fa-solid fa-bars"></i>
-  </div>
+  {{ include(directory ~ '/templates/components/nav-button.html.twig') }}
 
-  <div class="brand">
+  <div class="brand dark:text-white">
+    {{ page.header.ai_launchpad_sitebranding }}
     {# TODO: AI logo #}
   </div>
 
   <div class="breadcrumb">
-    {{ page.breadcrumb }}
+    {{ page.header.ai_launchpad_breadcrumbs }}
   </div>
 
   <div class="chat-search">
@@ -20,5 +19,8 @@
     {# TODO: Secondary brand #}
   </div>
 
-  {{ page.header }}
+  <pre>
+    {{ dump(page.header) }}
+  </pre>
+
 </header>

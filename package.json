@@ -2,20 +2,33 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "markdownlint-cli": "^0.31.1",
-    "tailwindcss": "^3.4.3"
-  },
-  "scripts": {
-    "coding-standards-check/markdownlint": "markdownlint --ignore '**/node_modules/**' --ignore '**/vendor/**' '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
-    "coding-standards-check": "yarn coding-standards-check/markdownlint",
-    "coding-standards-apply/markdownlint": "markdownlint --fix '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
-    "coding-standards-apply": "yarn coding-standards-apply/markdownlint",
-    "build": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
-    "watch": "yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
-  },
-  "dependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2"
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@symfony/webpack-encore": "^4.6.1",
+    "babel-loader": "^9.1.3",
+    "eslint": "^9.3.0",
+    "eslint-config-standard": "^17.1.0",
+    "markdownlint-cli": "^0.31.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "coding-standards-check/eslint": "eslint --config .eslintrc.js 'assets/**/*.js'",
+    "coding-standards-check/prettier": "prettier",
+    "coding-standards-check/markdownlint": "markdownlint --ignore '**/node_modules/**' --ignore '**/vendor/**' '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
+    "coding-standards-check": "coding-standards-check/markdownlint && yarn coding-standards-check/stylelint && yarn coding-standards-check/eslint",
+    "coding-standards-apply/eslint": "eslint --config .eslintrc.js 'assets/**/*.js' --fix",
+    "coding-standards-apply/prettier": "prettier --fix",
+    "coding-standards-apply/markdownlint": "markdownlint --fix '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
+    "coding-standards-apply": "coding-standards-apply/markdownlint && yarn coding-standards-apply/stylelint && yarn coding-standards-apply/eslint",
+    "build": "yarn encore production --progress && yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
+    "watch": "yarn encore dev --watch & yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
   }
 }
