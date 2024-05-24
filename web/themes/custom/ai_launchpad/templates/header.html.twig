@@ -1,26 +1,27 @@
-<header role="banner" class="bg-stone-50 dark:bg-stone-950 dark:text-white flex">
+<header role="banner" class="bg-primary text-primary px-3 md:px-5 py-3 flex flex-col md:flex-row items-start md:items-center gap-5 border-b">
 
-  {{ include(directory ~ '/templates/components/nav-button.html.twig') }}
+  <div class="flex items-center place-items-start gap-5">
 
-  <div class="brand dark:text-white">
-    {{ page.header.ai_launchpad_sitebranding }}
-    {# TODO: AI logo #}
+    {{ include(directory ~ '/templates/components/nav-button.html.twig') }}
+
+    <div class="brand dark:text-white">
+      {{ page.header.ai_launchpad_sitebranding }}
+    </div>
+
+    <div class="breadcrumb">
+      {{ page.header.ai_launchpad_breadcrumbs }}
+    </div>
+
   </div>
 
-  <div class="breadcrumb">
-    {{ page.header.ai_launchpad_breadcrumbs }}
-  </div>
+  <div class="ml-auto gap-4 hidden md:flex">
 
-  <div class="chat-search">
-    {# TODO: chat-search #}
-  </div>
+    {{ include(directory ~ '/templates/components/chat.html.twig') }}
 
-  <div class="Secondary brand">
-    {# TODO: Secondary brand #}
-  </div>
+    <div class="secondary-brand">
+      {{ page.header.ai_launchpad_secondarybranding }}
+    </div>
 
-  <pre>
-    {{ dump(page.header) }}
-  </pre>
+  </div>
 
 </header>
