@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+[PR-5](https://github.com/itk-dev/ai-launchpad/pull/5)
+Add template, styling and config for sidebar
+
 [PR-4](https://github.com/itk-dev/ai-launchpad/pull/4)
 Add template and styling for header with common components.
 
