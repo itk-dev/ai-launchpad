@@ -11,7 +11,7 @@ dependencies:
 id: ai_launchpad_mainnavigation
 theme: ai_launchpad
 region: global_navigation_menu
-weight: 0
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

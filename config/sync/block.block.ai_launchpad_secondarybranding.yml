@@ -16,7 +16,7 @@ provider: null
 plugin: 'block_content:659560ab-a135-4a9f-a5db-2363831dee88'
 settings:
   id: 'block_content:659560ab-a135-4a9f-a5db-2363831dee88'
-  label: 'Secondary branding'
+  label: 'Aarhus Kommune Logo right aligned'
   label_display: '0'
   provider: block_content
   status: true
