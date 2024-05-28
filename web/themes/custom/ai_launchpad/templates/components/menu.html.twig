@@ -41,7 +41,7 @@
       <li class="px-3 py-2 mb-1 rounded hover:bg-stone-100 dark:hover:bg-stone-900">
         {# Render menu item with icon if an icon is selected in attributes #}
         {% if item.url.options.attributes.icon is defined %}
-          <a href="{{ item.url }}"><i class="fa-solid fa-fw mr-3 {{ item.url.options.attributes.icon }}"></i>{{ item.title}}</a></li>
+          <a href="{{ item.url }}"><i class="fa-solid fa-fw mr-3 {{ item.url.options.attributes.icon }}"></i>{{ item.title }}</a></li>
         {% else %}
           {{ link(item.title, item.url) }}
         {% endif %}
