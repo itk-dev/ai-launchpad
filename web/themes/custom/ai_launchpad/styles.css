@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Define common background colors */
+  .bg-primary {
+    @apply bg-stone-50 dark:bg-stone-950;
+  }
+  .bg-secondary {
+    @apply bg-stone-100 dark:bg-stone-900;
+  }
+  .bg-brand {
+    @apply bg-teal-600 dark:bg-teal-700;
+  }
+
+  /* Define common text colors */
+  .text-primary {
+    @apply text-stone-950 dark:text-stone-50;
+  }
+  .text-secondary {
+    @apply text-stone-600 dark:text-stone-300;
+  }
+  .text-brand {
+    @apply text-teal-700 dark:text-teal-600;
+  }
+}

@@ -1,3 +1,27 @@
-<header role="banner">
-  {{ page.header }}
+<header role="banner" class="bg-primary text-primary px-3 md:px-5 py-3 flex flex-col md:flex-row items-start md:items-center gap-5 border-b">
+
+  <div class="flex items-center place-items-start gap-5">
+
+    {{ include(directory ~ '/templates/components/nav-button.html.twig') }}
+
+    <div class="brand dark:text-white">
+      {{ page.header.ai_launchpad_sitebranding }}
+    </div>
+
+    <div class="breadcrumb">
+      {{ page.header.ai_launchpad_breadcrumbs }}
+    </div>
+
+  </div>
+
+  <div class="ml-auto gap-4 hidden md:flex">
+
+    {{ include(directory ~ '/templates/components/chat.html.twig') }}
+
+    <div class="secondary-brand">
+      {{ page.header.ai_launchpad_secondarybranding }}
+    </div>
+
+  </div>
+
 </header>

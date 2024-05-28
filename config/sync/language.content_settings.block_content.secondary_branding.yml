@@ -1,0 +1,11 @@
+uuid: 78f56cc6-8cdc-4ae2-be2f-ccab20b932b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.secondary_branding
+id: block_content.secondary_branding
+target_entity_type_id: block_content
+target_bundle: secondary_branding
+default_langcode: site_default
+language_alterable: false

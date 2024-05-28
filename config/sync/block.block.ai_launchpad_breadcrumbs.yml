@@ -1,6 +1,6 @@
 uuid: 612a9a92-f223-456f-bf8a-c60fb0595cd6
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -11,7 +11,7 @@ _core:
 id: ai_launchpad_breadcrumbs
 theme: ai_launchpad
 region: header
-weight: 0
+weight: -4
 provider: null
 plugin: system_breadcrumb_block
 settings:

@@ -45,42 +45,21 @@
  * @ingroup themeable
  */
 #}
-<div class="layout-container">
+{{ include(directory ~ '/templates/header.html.twig') }}
 
-  {{ include(directory ~ '/templates/header.html.twig') }}
+<div class="container mx-auto">
 
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
-
-  {{ page.breadcrumb }}
-
-  {{ page.highlighted }}
-
-  {{ page.help }}
-
-  <main role="main" class="bg-stone-100">
+  <main role="main" class="">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content">
       {{ page.content }}
     </div>{# /.layout-content #}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
-
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
-
   </main>
 
-  {% if page.footer %}
-    {{ include(directory ~ '/templates/footer.html.twig') }}
-  {% endif %}
+  {{ include(directory ~ '/templates/footer.html.twig') }}
 
 </div>{# /.layout-container #}
+
+{{ include(directory ~ '/templates/global-navigation.html.twig') }}

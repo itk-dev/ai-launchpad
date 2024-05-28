@@ -2,4 +2,7 @@ styles:
   version: VERSION
   css:
     theme:
-      build/ai_launchpad.css: {}
+      build/ai_launchpad.css: { minified: true }
+  js:
+    build/app.js: { minified: true }
+    build/runtime.js: { minified: true }

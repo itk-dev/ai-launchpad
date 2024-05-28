@@ -1,0 +1,23 @@
+uuid: 8aacce90-8bd6-42fb-9765-e7e2030111ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.secondary_branding
+    - field.field.block_content.secondary_branding.field_logo
+  module:
+    - file
+id: block_content.secondary_branding.default
+targetEntityType: block_content
+bundle: secondary_branding
+mode: default
+content:
+  field_logo:
+    type: file_url_plain
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

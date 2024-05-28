@@ -1,0 +1,25 @@
+uuid: 4c1fd191-46b4-4a00-a05b-29942ac4981b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - ai_launchpad
+id: ai_launchpad_footer
+theme: ai_launchpad
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

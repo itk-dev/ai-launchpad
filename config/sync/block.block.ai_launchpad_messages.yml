@@ -1,6 +1,6 @@
 uuid: 93134abc-4027-4da7-b24d-8d0a856ece24
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: '-Ac3ISpIT0PQ-whzD7_dw0SdKi6dAbRFNWdSjOiVDqg'
 id: ai_launchpad_messages
 theme: ai_launchpad
-region: header
-weight: 0
+region: content
+weight: -2
 provider: null
 plugin: system_messages_block
 settings:

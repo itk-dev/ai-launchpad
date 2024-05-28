@@ -8,6 +8,6 @@ libraries:
   - ai_launchpad/styles
 regions:
   header: Header
-  navigation-sidebar: Navigation-sidebar
+  global_navigation_menu: Global navigation menu
   content: Content
   footer: Footer
