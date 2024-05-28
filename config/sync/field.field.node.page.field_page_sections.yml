@@ -1,0 +1,25 @@
+uuid: ad6f32c5-2628-49e2-9df7-ef4344d8ff8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_sections
+    - node.type.page
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_sections
+field_name: field_page_sections
+entity_type: node
+bundle: page
+label: 'Page sections'
+description: 'Used to create sections on the page with the paragraphs module'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+field_type: entity_reference_revisions

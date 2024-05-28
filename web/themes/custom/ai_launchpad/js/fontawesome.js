@@ -9,6 +9,10 @@ const {
   faBars,
   faRobot,
   faXmark,
+  faImage,
+  faLanguage,
+  faVideoCamera,
+  faMicrophoneLines,
 } = require("@fortawesome/free-solid-svg-icons");
 
 // Import icons from the free brands package
@@ -22,6 +26,10 @@ library.add(
   faBars,
   faRobot,
   faXmark,
+  faImage,
+  faLanguage,
+  faVideoCamera,
+  faMicrophoneLines,
   // Brand
   // faXTwitter
 );

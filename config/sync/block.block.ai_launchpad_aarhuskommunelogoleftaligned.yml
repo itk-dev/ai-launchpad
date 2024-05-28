@@ -1,0 +1,25 @@
+uuid: 80c05b5f-7c50-494e-b695-35797722692a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:secondary_branding:ab086ff5-e3a9-44f4-8b1d-c3691f924a1a'
+  module:
+    - block_content
+  theme:
+    - ai_launchpad
+id: ai_launchpad_aarhuskommunelogoleftaligned
+theme: ai_launchpad
+region: global_navigation_menu
+weight: -4
+provider: null
+plugin: 'block_content:ab086ff5-e3a9-44f4-8b1d-c3691f924a1a'
+settings:
+  id: 'block_content:ab086ff5-e3a9-44f4-8b1d-c3691f924a1a'
+  label: 'Aarhus Kommune Logo left aligned'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

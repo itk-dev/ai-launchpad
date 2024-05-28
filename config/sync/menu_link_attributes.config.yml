@@ -1,0 +1,10 @@
+attributes:
+  icon:
+    label: 'Select icon'
+    description: 'Append menu name with an icon'
+    options:
+      fa-language: 'AI for text'
+      fa-image: 'AI for Image'
+      fa-microphone-lines: 'AI for sound'
+      fa-video-camera: 'AI for video'
+      fa-robot: 'AI for other'

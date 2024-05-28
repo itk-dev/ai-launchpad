@@ -1,0 +1,8 @@
+uuid: c0f1eb26-2334-4160-8655-c7abe3b6274c
+langcode: en
+status: true
+dependencies: {  }
+id: secondary-menu
+label: 'Secondary menu'
+description: 'Used for links to Blog, Contact etc.'
+locked: false
