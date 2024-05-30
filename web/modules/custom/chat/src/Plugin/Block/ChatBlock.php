@@ -54,6 +54,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build(): array {
+    $config = $this->getConfiguration();
 
     return [
       '#theme' => 'chat_block',

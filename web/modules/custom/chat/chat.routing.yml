@@ -1,0 +1,8 @@
+chat.stream:
+  path: '/ajax/chat'
+  defaults:
+    _controller: '\Drupal\chat\Controller\ChatStreamController::callback'
+    _title: 'Chat callback with stream'
+  requirements:
+    _method: 'POST'
+    _permission: 'access chat'
