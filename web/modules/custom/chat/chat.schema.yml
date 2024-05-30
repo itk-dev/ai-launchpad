@@ -1,0 +1,7 @@
+block.settings.chat:
+  type: block_settings
+  label: 'Chat block settings'
+  mapping:
+    hello_block_name:
+      type: string
+      label: 'Name of the person to say hello to'

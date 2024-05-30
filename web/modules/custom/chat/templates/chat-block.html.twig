@@ -1,0 +1,13 @@
+<p>Backend: {{ provider }}</p>
+
+{% for value in models %}
+  <strong>{{ value }}</strong>
+{% endfor %}
+
+<form style="width: 500px">
+  <div id="chat" style="border: 1px solid;min-height: 400px; width: 100%">
+  </div>
+  <textarea id="w3review" name="question" rows="4" cols="45">
+  </textarea>
+  <button type="button">Chat</button>
+</form>

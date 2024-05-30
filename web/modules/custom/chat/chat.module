@@ -1,0 +1,12 @@
+<?php
+
+function chat_theme(): array {
+  return [
+    'chat_block' => [
+      'variables' => [
+        'provider' => '',
+        'models' => [],
+      ],
+    ],
+  ];
+}
