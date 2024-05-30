@@ -4,8 +4,12 @@ function chat_theme(): array {
   return [
     'chat_block' => [
       'variables' => [
-        'provider' => '',
+        'provider_name' => '',
         'models' => [],
+        'system_prompt' => '',
+        'temperature' => 0.8,
+        'top_k' => 40,
+        'top_p' => 0.9,
       ],
     ],
   ];

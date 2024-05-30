@@ -55,6 +55,9 @@ class ChatStreamController extends ControllerBase {
 //    $msg->role = MessageRoles::System;
 //    $msg->content = $systemPrompt;
 //    $payLoad->messages[] = $msg;
+
+    // @todo Make session cache with previous chat messages to create context.
+
     $msg = new Message();
     $msg->role = MessageRoles::User;
     $msg->content = $data['prompt'];
@@ -67,6 +70,7 @@ class ChatStreamController extends ControllerBase {
 
           // To make the stream actual, well stream, we need to ensure buffers
           // are flushed. Thanks, Drupal, for that one.
+          // @see https://symfony.com/doc/current/components/http_foundation.html#streaming-a-response
           ob_flush();
           flush();
         }

@@ -2,6 +2,21 @@ block.settings.chat:
   type: block_settings
   label: 'Chat block settings'
   mapping:
-    hello_block_name:
+    provider_name:
       type: string
-      label: 'Name of the person to say hello to'
+      label: 'Name of the provider plugin to use'
+    models:
+      type: array
+      label: 'List of model to make available'
+    system_prompt:
+      type: string
+      label: 'System prompt to set model behaviour'
+    temperature:
+      type: float
+      label: 'Set the model temperature'
+    top_k:
+      type: int
+      label: 'Set model top-k value'
+    top_p:
+      type: float
+      label: 'Set model top-p value'
