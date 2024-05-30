@@ -1,13 +1,13 @@
-<p>Backend: {{ provider_name }}</p>
-
-{% for value in models %}
-  <strong>{{ value }}</strong>
-{% endfor %}
-
-<form style="width: 500px">
-  <div id="chat" style="border: 1px solid;min-height: 400px; width: 100%">
+<form id="chat" style="width: 600px" data-provider="{{ provider_name }}">
+  <label for="cars">Choose a model:</label>
+  <select name="models" class="model">
+    {% for value in models %}
+    <option value="{{ value }}">{{ value }}</option>
+    {% endfor %}
+  </select>
+  <div class='output' style="border: 1px solid;height: 400px; width: 100%;overflow-y: scroll">
   </div>
-  <textarea id="w3review" name="question" rows="4" cols="45">
+  <textarea class="question" name="question" rows="4" cols="45">
   </textarea>
-  <button type="button">Chat</button>
+  <button class="btn" type="button">Chat</button>
 </form>

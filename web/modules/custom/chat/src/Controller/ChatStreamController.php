@@ -66,7 +66,7 @@ class ChatStreamController extends ControllerBase {
     return new StreamedResponse(
       function () use ($provider, $payLoad) {
         foreach ($provider->chat($payLoad) as $res) {
-          echo json_encode(['content' => $res->getContent(), 'completed' => $res->getStatus()]);
+          echo $res->getContent();
 
           // To make the stream actual, well stream, we need to ensure buffers
           // are flushed. Thanks, Drupal, for that one.

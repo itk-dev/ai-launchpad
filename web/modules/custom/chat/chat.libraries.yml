@@ -3,7 +3,7 @@ chat:
   js:
     js/chat.js: {}
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
-    - core/jquery.once
+    - core/jquery
+    - core/once
