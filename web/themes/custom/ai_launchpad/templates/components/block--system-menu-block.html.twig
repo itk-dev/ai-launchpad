@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for a menu block.
+ * System menu block.
  *
  * Available variables:
  * - plugin_id: The ID of the block implementation.
@@ -35,7 +35,7 @@
  */
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby').addClass('border-b border-primary py-8') }}>
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby').addClass('py-8') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
