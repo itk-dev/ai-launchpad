@@ -28,6 +28,12 @@ command to create the network first.
 docker network create --driver=bridge --attachable --internal=false frontend
 ```
 
+### Building assets for the frontend
+
+Run `itkdev-docker-compose run node yarn watch` to continuesly build assets uppon file changes.
+
+Run `itkdev-docker-compose run node yarn build` to build assets once.
+
 ### Site installation
 
 Run the following commands to set up the site. This will run a normal Drupal site installation with the existing
@@ -117,3 +123,4 @@ The complete Ollama API documentation can be found here: [https://github.com/oll
 ## Production setup
 
 @todo Write this section.
+
