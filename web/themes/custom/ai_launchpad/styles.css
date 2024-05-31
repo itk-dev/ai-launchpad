@@ -35,4 +35,19 @@
   .border-brand {
     @apply border-teal-700 dark:border-teal-600;
   }
+
+  /* Define common typography */
+  pre {
+    @apply block bg-stone-100 border border-secondary whitespace-pre-wrap py-3 px-4 my-2;
+  }
+  code {
+    @apply border border-secondary px-2;
+  }
+
+}
+
+pre code {
+  background: initial;
+  border: initial;
+  padding: initial
 }
