@@ -1,0 +1,23 @@
+uuid: 206f2fa1-cfae-49ac-8a8b-0ae7281c0b95
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ai_launchpad
+id: ai_launchpad_sitebranding_2
+theme: ai_launchpad
+region: footer_header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

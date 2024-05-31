@@ -10,8 +10,8 @@ dependencies:
     - ai_launchpad
 id: ai_launchpad_secondarymenu_2
 theme: ai_launchpad
-region: footer
-weight: -5
+region: footer_col_2
+weight: -7
 provider: null
 plugin: 'system_menu_block:secondary-menu'
 settings:
