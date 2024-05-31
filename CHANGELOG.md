@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+[PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
+Add template, styling and config for footer
+
 [PR-5](https://github.com/itk-dev/ai-launchpad/pull/5)
 Add template, styling and config for sidebar
 
