@@ -12,14 +12,25 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Chat stram controller.
+ */
 class ChatStreamController extends ControllerBase {
 
+  /**
+   * Default constructor.
+   *
+   * @param \Drupal\llm_services\Plugin\LLModelProviderManager $providerManager
+   *   Model provider manager.
+   */
   public function __construct(
     private readonly LLModelProviderManager $providerManager,
-  )
-  {
+  ) {
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public static function create(ContainerInterface $container): static {
     return new static(
       $container->get('plugin.manager.llm_services')
@@ -27,15 +38,14 @@ class ChatStreamController extends ControllerBase {
   }
 
   /**
-   * @param \Symfony\Component\HttpFoundation\Request $request
+   * Stream callback for chat communication with LLM.
    *
-   * {
-   *   "provider":"ollama",
-   *   "model": "llama3",
-   *   "prompt": "Why is the sky blue?"
-   * }
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   *  The request from the front end.
    *
    * @return \Symfony\Component\HttpFoundation\StreamedResponse
+   *   Stream with text content from the LLM.
+   *
    * @throws \JsonException
    */
   public function callback(Request $request): StreamedResponse {

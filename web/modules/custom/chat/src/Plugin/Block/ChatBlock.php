@@ -10,6 +10,9 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\llm_services\Plugin\LLModelProviderManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Defines block to display chat interface.
+ */
 #[Block(
   id: 'chat_block',
   admin_label: new TranslatableMarkup('Chat integration block'),
@@ -26,7 +29,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin_id for the plugin instance.
    * @param array $plugin_definition
    *   The plugin implementation definition.
-   * @param LLModelProviderManager $providerManager
+   * @param Drupal\llm_services\Plugin\LLModelProviderManager $providerManager
    *   LLM provider manager.
    */
   public function __construct(
@@ -64,7 +67,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#top_p' => $this->configuration['top_p'],
       '#attached' => [
         'library' => [
-          'chat/chat'
+          'chat/chat',
         ],
       ],
     ];
