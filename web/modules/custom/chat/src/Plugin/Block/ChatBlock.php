@@ -151,6 +151,8 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#collapsed' => TRUE,
     ];
 
+    // Drupal has in their smartness removed #step, hence no support for
+    // floating numbers in their number form type.
     $form['tune']['temperature'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Temperature'),
@@ -159,7 +161,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     ];
 
     $form['tune']['top_k'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Top k'),
       '#description' => $this->t('Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers.'),
       '#default_value' => $this->configuration['top_k'],
@@ -173,10 +175,11 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     ];
 
     $form['tune']['context_expire'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Context expire'),
       '#description' => $this->t('The time before chat context should be purged from the cache.'),
       '#default_value' => $this->configuration['context_expire'],
+      '#min' => 0,
     ];
 
     return $form;
@@ -186,7 +189,15 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function blockValidate($form, FormStateInterface $form_state): void {
+    $values = $form_state->getValues();
 
+    if (!filter_var($values['tune']['temperature'], FILTER_VALIDATE_FLOAT, ['min_range' => 0.0, 'max_range' => 1.0])) {
+      $form_state->setErrorByName('tune][temperature', $this->t('The temperature must be in the range 0.0 to 1.0.'));
+    }
+
+    if (!filter_var($values['tune']['top_p'], FILTER_VALIDATE_FLOAT, ['min_range' => 0.0, 'max_range' => 1.0])) {
+      $form_state->setErrorByName('tune][top_p', $this->t('The top p must be in the range 0.0 to 1.0.'));
+    }
   }
 
   /**
