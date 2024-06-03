@@ -29,7 +29,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin_id for the plugin instance.
    * @param array $plugin_definition
    *   The plugin implementation definition.
-   * @param Drupal\llm_services\Plugin\LLModelProviderManager $providerManager
+   * @param \Drupal\llm_services\Plugin\LLModelProviderManager $providerManager
    *   LLM provider manager.
    */
   public function __construct(
@@ -65,6 +65,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#temperature' => $this->configuration['temperature'],
       '#top_k' => $this->configuration['top_k'],
       '#top_p' => $this->configuration['top_p'],
+      '#context_expire' => $this->configuration['context_expire'],
       '#attached' => [
         'library' => [
           'chat/chat',
@@ -84,6 +85,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'temperature' => 0.8,
       'top_k' => 40,
       'top_p' => 0.9,
+      'context_expire' => 3600,
     ];
   }
 
@@ -170,6 +172,13 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#default_value' => $this->configuration['top_p'],
     ];
 
+    $form['tune']['context_expire'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Context expire'),
+      '#description' => $this->t('The time before chat context should be purged from the cache.'),
+      '#default_value' => $this->configuration['context_expire'],
+    ];
+
     return $form;
   }
 
@@ -191,6 +200,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['temperature'] = $values['tune']['temperature'];
     $this->configuration['top_k'] = $values['tune']['top_k'];
     $this->configuration['top_p'] = $values['tune']['top_p'];
+    $this->configuration['context_expire'] = $values['tune']['context_expire'];
   }
 
 }

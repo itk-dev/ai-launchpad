@@ -1,4 +1,3 @@
-
 (function ($, Drupal, once) {
   Drupal.behaviors.my_custom_behavior = {
     attach: function (context) {
@@ -9,10 +8,16 @@
           // Disable chat button.
           element.disabled = !element.disabled;
 
+          let chatElement = $('#chat');
           let data = {
-            "provider": $('#chat').data('provider'),
+            "provider": chatElement.data('provider'),
             "model": $('#chat .model').find(":selected").val(),
-            "prompt": $('#chat .question').val()
+            "prompt": $('#chat .question').val(),
+            "system_prompt": chatElement.data('system_prompt'),
+            "temperature": chatElement.data('temperature'),
+            "top_k": chatElement.data('top_k'),
+            "top_p": chatElement.data('top_p'),
+            "context_expire": chatElement.data('context_expire'),
           }
           fetch("/ajax/chat", {
               method: 'POST',

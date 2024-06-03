@@ -6,3 +6,12 @@ chat.stream:
   requirements:
     _method: 'POST'
     _permission: 'access chat'
+
+chat.reset:
+  path: '/ajax/chat/reset'
+  defaults:
+    _controller: '\Drupal\chat\Controller\ChatStreamController::reset'
+    _title: 'Chat callback to reset history'
+  requirements:
+    _method: 'GET'
+    _permission: 'access chat'
