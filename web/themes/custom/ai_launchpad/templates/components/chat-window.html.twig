@@ -1,0 +1,32 @@
+<div class="chat-window border p-4 rounded my-4">
+  <header class="flex items-center gap-2 border-b border-secondary pb-4">
+    <div class="logo">
+      <i class="fa-solid fa-robot text-secondary"></i>
+    </div>
+    {% if options_language_model %}
+      <select name="" id="" class="btn-default">
+        <option value="">{{ 'Select a Language Model'|t }}</option>
+
+        {% for item in options_language_model %}
+          <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+      </select>
+    {% endif %}
+    {{ include(directory ~ '/templates/components/btn-reset.html.twig') }}
+    {% if buttons %}
+      <div class="ml-auto flex gap-2">
+        {{ include(directory ~ '/templates/components/btn-minimize.html.twig') }}
+        {{ include(directory ~ '/templates/components/btn-close.html.twig') }}
+      </div>
+    {% endif %}
+  </header>
+  <main class="min-h-24 flex flex-col gap-2 justify-end py-4">
+    {{ include(directory ~ '/templates/components/chat-message.html.twig', {message: 'OpenGPT 3.5 indlæst', time: '12.16', variant: 'info'}) }}
+    {{ include(directory ~ '/templates/components/chat-message.html.twig', {message: 'Hej, hvad vil du gerne vide?', time: '12.16', variant: 'bot'}) }}
+    {{ include(directory ~ '/templates/components/chat-message.html.twig', {message: 'Hvilke AI chat værktøjer må jeg bruge i Aarhus Kommune?', time: '12.16', variant: 'you'}) }}
+    {{ include(directory ~ '/templates/components/chat-message.html.twig', {message: 'Laaang tekst Vestibulum faucibus velit est, sed feugiat metus porta non. In maximus sodales libero, nec rutrum massa ornare id. Sed non suscipit quam. In hac habitasse platea dictumst. Pellentesque cursus elit a luctus aliquet. Aenean a dictum lorem. Mauris sagittis, magna sed accumsan commodo, eros odio tincidunt quam, non imperdiet orci sapien bibendum enim.', time: '12.16', variant: 'you'}) }}
+    {{ include(directory ~ '/templates/components/chat-message.html.twig', {message: '', time: '12.16', variant: 'bot', loading: true}) }}
+  </main>
+  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message mr-2"></i><span>Start din dialog</span></span></label>
+  <textarea id="inputMessage" class="border border-secondary w-full rounded-sm bg-primary p-2"></textarea>
+</div>

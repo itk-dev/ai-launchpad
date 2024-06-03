@@ -1,0 +1,24 @@
+
+{% if variant == 'you' %}
+  {% set container = 'flex-col items-end' %}
+  {% set myVariant = 'flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl' %}
+{% elseif variant == 'bot' %}
+  {% set container = 'flex-col items-start' %}
+  {% set myVariant = 'flex-auto rounded px-3 py-2 text-white bg-purple-700 max-w-xl' %}
+{% else %}
+  {% set container = 'items-start' %}
+  {% set myVariant = 'text-secondary' %}
+{% endif %}
+
+<div class="flex gap-1 {{ container }}">
+  <div class="text-secondary text-sm"><span class="mr-1 font-bold capitalize">{{ variant == 'info' ? message : variant }}</span><span class="time">{{ time }}</span></div>
+  {% if variant != 'info' %}
+    <span class="message min-h-9 content-center {{ myVariant }}">
+      {% if loading %}
+        {{ include(directory ~ '/templates/components/chat-message-loader.html.twig') }}
+      {% else %}
+        {{ message }}
+      {% endif %}
+    </span>
+  {% endif %}
+</div>

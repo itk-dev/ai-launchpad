@@ -36,18 +36,16 @@
     @apply border-teal-700 dark:border-teal-600;
   }
 
-  /* Define common typography */
-  pre {
-    @apply block bg-stone-100 border border-secondary whitespace-pre-wrap py-3 px-4 my-2;
+  /* Define common buttons */
+  .btn-default {
+    @apply border border-secondary bg-secondary text-secondary rounded px-3 py-2 min-h-9 hover:bg-stone-200 hover:dark:bg-stone-800;
   }
-  code {
-    @apply border border-secondary px-2;
+  .btn-icon {
+    @apply btn-default px-2 py-1;
   }
 
-}
-
-pre code {
-  background: initial;
-  border: initial;
-  padding: initial
+  /* Icons sizes */
+  .icon {
+    @apply w-5;
+  }
 }

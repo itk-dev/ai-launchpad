@@ -3,6 +3,7 @@ styles:
   css:
     theme:
       build/ai_launchpad.css: { minified: true }
+      build/app.css: { minified: true }
   js:
     build/app.js: { minified: true }
     build/runtime.js: { minified: true }

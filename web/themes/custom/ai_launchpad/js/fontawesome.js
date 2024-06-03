@@ -13,6 +13,12 @@ const {
   faLanguage,
   faVideoCamera,
   faMicrophoneLines,
+  faWindowMinimize,
+  faWindowMaximize,
+  faWindowClose,
+  faRotateLeft,
+  faMessage,
+  faCircle,
 } = require("@fortawesome/free-solid-svg-icons");
 
 // Import icons from the free brands package
@@ -30,6 +36,12 @@ library.add(
   faLanguage,
   faVideoCamera,
   faMicrophoneLines,
+  faWindowMinimize,
+  faWindowMaximize,
+  faWindowClose,
+  faRotateLeft,
+  faMessage,
+  faCircle,
   // Brand
   // faXTwitter
 );
