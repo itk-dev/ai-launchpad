@@ -32,7 +32,7 @@
     "coding-standards-apply/prettier": "yarn prettier ./web/themes/custom/ai_launchpad/**/ --write",
     "coding-standards-apply/markdownlint": "yarn markdownlint --fix '*.md' 'web/modules/custom/**/*.md' 'documentation/*.md'",
     "coding-standards-apply": "yarn coding-standards-apply/markdownlint && yarn coding-standards-apply/prettier && yarn coding-standards-apply/eslint",
-    "build": "yarn encore production --progress && yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css",
+    "build": "yarn encore production --progress && yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --minify",
     "watch": "yarn encore dev --watch & yarn tailwindcss -i ./web/themes/custom/ai_launchpad/styles.css -o ./web/themes/custom/ai_launchpad/build/ai_launchpad.css --watch"
   }
 }

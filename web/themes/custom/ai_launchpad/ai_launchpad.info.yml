@@ -8,6 +8,12 @@ libraries:
   - ai_launchpad/styles
 regions:
   header: Header
+  header_secondary_brand: Header secondary brand
   global_navigation_menu: Global navigation menu
+  global_navigation_menu_secondary_brand: Global navigation menu secondary brand
   content: Content
-  footer: Footer
+  footer_header: Footer header
+  footer_col_1: Footer col 1
+  footer_col_2: Footer col 2
+  footer_col_3: Footer col 3
+  footer_secondary_brand: Footer secondary brand

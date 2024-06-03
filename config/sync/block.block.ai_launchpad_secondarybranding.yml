@@ -10,8 +10,8 @@ dependencies:
     - ai_launchpad
 id: ai_launchpad_secondarybranding
 theme: ai_launchpad
-region: header
-weight: 0
+region: header_secondary_brand
+weight: -7
 provider: null
 plugin: 'block_content:659560ab-a135-4a9f-a5db-2363831dee88'
 settings:

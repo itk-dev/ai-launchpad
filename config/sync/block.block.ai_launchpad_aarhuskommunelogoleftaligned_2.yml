@@ -1,4 +1,4 @@
-uuid: 80c05b5f-7c50-494e-b695-35797722692a
+uuid: 799556a8-284a-45c2-b39c-1350eb067eab
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ dependencies:
     - block_content
   theme:
     - ai_launchpad
-id: ai_launchpad_aarhuskommunelogoleftaligned
+id: ai_launchpad_aarhuskommunelogoleftaligned_2
 theme: ai_launchpad
-region: global_navigation_menu_secondary_brand
-weight: -6
+region: footer_secondary_brand
+weight: -7
 provider: null
 plugin: 'block_content:ab086ff5-e3a9-44f4-8b1d-c3691f924a1a'
 settings:

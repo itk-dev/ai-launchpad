@@ -10,14 +10,14 @@ dependencies:
     - ai_launchpad
 id: ai_launchpad_footer
 theme: ai_launchpad
-region: footer
-weight: -4
+region: footer_col_3
+weight: -7
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
   id: 'system_menu_block:footer'
   label: Footer
-  label_display: visible
+  label_display: '0'
   provider: system
   level: 1
   depth: 0

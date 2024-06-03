@@ -10,7 +10,7 @@ dependencies:
     - ai_launchpad
 id: ai_launchpad_mainnavigation_2
 theme: ai_launchpad
-region: footer
+region: footer_col_1
 weight: -6
 provider: null
 plugin: 'system_menu_block:main'

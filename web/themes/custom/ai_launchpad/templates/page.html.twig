@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a single page.
+ * Display a single page.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.html.twig template in this directory.
@@ -45,21 +45,21 @@
  * @ingroup themeable
  */
 #}
-{{ include(directory ~ '/templates/header.html.twig') }}
+{{ include(directory ~ '/templates/components/header.html.twig') }}
 
-<div class="container mx-auto">
+<div class="container mx-auto px-3 md:px-8">
 
   <main role="main" class="">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
+    <div class="py-3 md:py-8">
       {{ page.content }}
     </div>{# /.layout-content #}
 
   </main>
 
-  {{ include(directory ~ '/templates/footer.html.twig') }}
+  {{ include(directory ~ '/templates/components/footer.html.twig') }}
 
 </div>{# /.layout-container #}
 
-{{ include(directory ~ '/templates/global-navigation.html.twig') }}
+{{ include(directory ~ '/templates/components/global-navigation.html.twig') }}

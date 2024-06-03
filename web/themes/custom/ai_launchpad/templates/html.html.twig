@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for the basic structure of a single Drupal page.
+ * Basic structure of a single Drupal page.
  *
  * Variables:
  * - logged_in: A flag indicating if user is logged in.
@@ -42,9 +42,11 @@
     <a href="#main-content" class="visually-hidden focusable">
       {{ 'Skip to main content'|t }}
     </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
+    <div class="relative">
+      {{ page_top }}
+      {{ page }}
+      {{ page_bottom }}
+    </div>
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
