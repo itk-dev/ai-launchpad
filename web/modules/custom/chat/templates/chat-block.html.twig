@@ -1,17 +1,29 @@
-<form id="chat" style="width: 600px" data-provider="{{ provider_name }}"
-      data-temperature="{{ temperature }}" data-top_k="{{ top_k }}"
-      data-top_p="{{ top_p }}" data-system_prompt="{{ system_prompt }}"
-      data-context_expire="{{ context_expire }}">
-  <label for="cars">Choose a model:</label>
-  <select name="models" class="model">
-    {% for value in models %}
-      <option value="{{ value }}">{{ value }}</option>
-    {% endfor %}
-  </select>
-  <div class='output'
-       style="border: 1px solid;height: 400px; width: 100%;overflow-y: scroll">
-  </div>
-  <textarea class="question" name="question" rows="4" cols="45">
-  </textarea>
-  <button class="btn" type="button">Chat</button>
-</form>
+<div class="chat-window">
+  <header>
+    <div class="logo" style="float: left;padding-right: 8px;padding-top: 8px">
+      <i class="fa-solid fa-robot text-secondary"></i>
+    </div>
+    {% if models %}
+      <select name="" id="" class="btn-default">
+        <option value="">{{ 'Select a Language Model'|t }}</option>
+
+        {% for item in models %}
+          <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+      </select>
+    {% endif %}
+    <button id="btnResetChat" class="btn-icon"><i class="icon fa-solid fa-rotate-left"></i>{{ 'Reset'|t }}</button>
+    {% if buttons %}
+      <div style="float: right">
+        <button id="btnMinimizeChat" class="btn-icon"><i class="icon fa-solid fa-window-minimize"></i></button>
+        <button id="btnOpenGlobalNavigation" class="btn-icon"><i class="icon fa-solid fa-xmark"></i></button>
+      </div>
+    {% endif %}
+  </header>
+  <main style="height: 100px;width: 100%;padding: 8px;border: 1px solid;overflow-y: scroll">
+    <!-- Chat messages -->
+    test
+  </main>
+  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message"></i><span>Start din dialog</span></span></label>
+  <textarea id="inputMessage" style="width: 100%;" rows="4"></textarea>
+</div>

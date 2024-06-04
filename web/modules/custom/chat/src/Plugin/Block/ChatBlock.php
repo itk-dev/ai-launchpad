@@ -66,6 +66,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#top_k' => $this->configuration['top_k'],
       '#top_p' => $this->configuration['top_p'],
       '#context_expire' => $this->configuration['context_expire'],
+      '#buttons' => $this->configuration['ui']['buttons'],
       '#attached' => [
         'library' => [
           'chat/chat',
@@ -86,6 +87,9 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'top_k' => 40,
       'top_p' => 0.9,
       'context_expire' => 3600,
+      'ui' => [
+        'buttons' => FALSE,
+      ]
     ];
   }
 
@@ -142,6 +146,18 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#description' => $this->t('System message to instruct the llm have to behave.'),
       '#default_value' => $this->configuration['system_prompt'],
       '#required' => TRUE,
+    ];
+
+    $form['ui'] = [
+      '#type' => 'details',
+      '#title' => $this->t('User interface tweaks'),
+      '#open' => TRUE,
+    ];
+
+    $form['ui']['buttons'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Disable minimize/close buttons'),
+      '#default_value' => $this->configuration['ui']['buttons'],
     ];
 
     $form['tune'] = [
@@ -213,6 +229,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['top_k'] = $values['tune']['top_k'];
     $this->configuration['top_p'] = $values['tune']['top_p'];
     $this->configuration['context_expire'] = $values['tune']['context_expire'];
+    $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
   }
 
 }

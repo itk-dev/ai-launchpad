@@ -12,6 +12,7 @@ function chat_theme(): array {
   return [
     'chat_block' => [
       'variables' => [
+        'buttons' => FALSE,
         'provider_name' => '',
         'models' => [],
         'system_prompt' => '',
