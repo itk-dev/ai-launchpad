@@ -1,5 +1,5 @@
 (function ($, Drupal, once) {
-  Drupal.behaviors.my_custom_behavior = {
+  Drupal.behaviors.chat_behavior = {
     attach: function (context) {
       once('chatProcessed', '#chat .btn', context).forEach((element) => {
         element.addEventListener('click', (event) => {

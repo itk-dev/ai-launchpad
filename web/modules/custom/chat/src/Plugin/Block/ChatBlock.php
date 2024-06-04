@@ -165,6 +165,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#title' => $this->t('Top k'),
       '#description' => $this->t('Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers.'),
       '#default_value' => $this->configuration['top_k'],
+      '#min' => 0,
     ];
 
     $form['tune']['top_p'] = [
