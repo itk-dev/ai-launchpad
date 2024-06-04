@@ -35,4 +35,17 @@
   .border-brand {
     @apply border-teal-700 dark:border-teal-600;
   }
+
+  /* Define common buttons */
+  .btn-default {
+    @apply border border-secondary bg-secondary text-secondary rounded px-3 py-2 min-h-9 hover:bg-stone-200 hover:dark:bg-stone-800;
+  }
+  .btn-icon {
+    @apply btn-default px-2 py-1;
+  }
+
+  /* Icons sizes */
+  .icon {
+    @apply w-5;
+  }
 }
