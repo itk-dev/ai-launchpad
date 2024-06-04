@@ -8,16 +8,16 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-[PR-8](https://github.com/itk-dev/ai-launchpad/pull/8)
+- [PR-8](https://github.com/itk-dev/ai-launchpad/pull/8)
 Add template, styling and config for Chat Ui and Body paragraph
 
-[PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
+- [PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
 Add template, styling and config for footer
 
-[PR-5](https://github.com/itk-dev/ai-launchpad/pull/5)
+- [PR-5](https://github.com/itk-dev/ai-launchpad/pull/5)
 Add template, styling and config for sidebar
 
-[PR-4](https://github.com/itk-dev/ai-launchpad/pull/4)
+- [PR-4](https://github.com/itk-dev/ai-launchpad/pull/4)
 Add template and styling for header with common components.
 
 ### Added
