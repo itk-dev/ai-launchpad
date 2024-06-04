@@ -1,13 +1,13 @@
 
 {% if variant == 'you' %}
-  {% set container = 'flex-col items-end' %}
-  {% set myVariant = 'flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl' %}
+  {% set container = 'chat-message-container-you' %}
+  {% set myVariant = 'chat-message-variant-you' %}
 {% elseif variant == 'bot' %}
-  {% set container = 'flex-col items-start' %}
-  {% set myVariant = 'flex-auto rounded px-3 py-2 text-white bg-purple-700 max-w-xl' %}
+  {% set container = 'chat-message-container-bot' %}
+  {% set myVariant = 'chat-message-variant-bot' %}
 {% else %}
-  {% set container = 'items-start' %}
-  {% set myVariant = 'text-secondary' %}
+  {% set container = 'chat-message-container-info' %}
+  {% set myVariant = 'chat-message-variant-info' %}
 {% endif %}
 
 <div class="flex gap-1 {{ container }}">
