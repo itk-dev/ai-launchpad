@@ -1,0 +1,9 @@
+chat:
+  version: 1.x
+  js:
+    js/chat.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once

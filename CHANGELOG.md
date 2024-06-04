@@ -9,19 +9,15 @@ See [keep a changelog] for information about writing changes to this log.
 ## [Unreleased]
 
 - [PR-8](https://github.com/itk-dev/ai-launchpad/pull/8)
-Add template, styling and config for Chat Ui and Body paragraph
-
+  Added template, styling and config for Chat Ui and Body paragraph
 - [PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
-Add template, styling and config for footer
-
+  Added template, styling and config for footer
 - [PR-5](https://github.com/itk-dev/ai-launchpad/pull/5)
-Add template, styling and config for sidebar
-
+  Added template, styling and config for sidebar
 - [PR-4](https://github.com/itk-dev/ai-launchpad/pull/4)
-Add template and styling for header with common components.
-
-### Added
-
+  Added template and styling for header with common components.
+- [PR-6](https://github.com/itk-dev/ai-launchpad/pull/6)
+  Added chat module with blocks and paragraphs to communicate with LLMs
 - Drupal core and basic configuration.
 - Added Ollama containers to docker.
 - New readme with more information about the setup.

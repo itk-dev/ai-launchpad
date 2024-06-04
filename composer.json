@@ -25,7 +25,8 @@
         "drupal/pathauto": "^1.12",
         "drupal/redirect": "^1.9",
         "drupal/twig_tweak": "^3.3",
-        "drush/drush": "^12.5"
+        "drush/drush": "^12.5",
+        "itkdev/llm_services": "^0.0.4"
     },
     "require-dev": {
         "drupal/coder": "^8.3",
