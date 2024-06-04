@@ -1,6 +1,6 @@
 
 {# TODO: Replace with real option from chat module #}
-{% set llm_options = ['LLM-1', 'LLM-2']%}
+{% set llm_options = ['LLM-1', 'LLM-2'] %}
 
 {% block paragraph %}
   <section class="max-w-3xl mx-auto my-8">
@@ -13,7 +13,7 @@
       Use the variable `options_language_model` to pass options for the select
       Use the variable `buttons` to show buttons for minimizing and closing window
     #}
-    {{ include(directory ~ '/templates/components/chat-window.html.twig', {options_language_model: llm_options, buttons: true }) }}
+    {{ include(directory ~ '/templates/components/chat-window.html.twig', {options_language_model: llm_options, buttons: true}) }}
 
     {% block content %}
       {{ content|without('field_title', 'field_language_model') }}
