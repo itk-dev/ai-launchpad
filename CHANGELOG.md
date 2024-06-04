@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+[PR-8](https://github.com/itk-dev/ai-launchpad/pull/8)
+Add template, styling and config for Chat Ui and Body paragraph
+
 [PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
 Add template, styling and config for footer
 
