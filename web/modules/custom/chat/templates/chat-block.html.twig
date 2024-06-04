@@ -1,13 +1,12 @@
-<div class="chat-window">
+<div id="{{ ui.id }}" class="chat-window">
   <header>
     <div class="logo" style="float: left;padding-right: 8px;padding-top: 8px">
       <i class="fa-solid fa-robot text-secondary"></i>
     </div>
-    {% if models %}
-      <select name="" id="" class="btn-default">
+    {% if ui.models %}
+      <select name="models" id="models" class="btn-default">
         <option value="">{{ 'Select a Language Model'|t }}</option>
-
-        {% for item in models %}
+        {% for item in ui.models %}
           <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
       </select>
@@ -20,9 +19,8 @@
       </div>
     {% endif %}
   </header>
-  <main style="height: 100px;width: 100%;padding: 8px;border: 1px solid;overflow-y: scroll">
+  <main style="height: 400px;width: 100%;padding: 8px;border: 1px solid;overflow-y: scroll">
     <!-- Chat messages -->
-    test
   </main>
   <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message"></i><span>Start din dialog</span></span></label>
   <textarea id="inputMessage" style="width: 100%;" rows="4"></textarea>

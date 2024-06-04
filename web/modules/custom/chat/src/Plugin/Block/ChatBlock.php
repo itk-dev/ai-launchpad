@@ -59,17 +59,25 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function build(): array {
     return [
       '#theme' => 'chat_block',
-      '#provider_name' => $this->configuration['provider_name'],
-      '#models' => $this->configuration['models'],
-      '#system_prompt' => $this->configuration['system_prompt'],
-      '#temperature' => $this->configuration['temperature'],
-      '#top_k' => $this->configuration['top_k'],
-      '#top_p' => $this->configuration['top_p'],
-      '#context_expire' => $this->configuration['context_expire'],
-      '#buttons' => $this->configuration['ui']['buttons'],
+      '#ui' => [
+        'id' => $this->configuration['ui']['id'],
+        'buttons' => $this->configuration['ui']['buttons'],
+        'models' => $this->configuration['models'],
+      ],
       '#attached' => [
         'library' => [
           'chat/chat',
+        ],
+        'drupalSettings' => [
+          'chat' => [
+            'id' => $this->configuration['ui']['id'],
+            'provider_name' => $this->configuration['provider_name'],
+            'system_prompt' => $this->configuration['system_prompt'],
+            'temperature' => $this->configuration['temperature'],
+            'top_k' => $this->configuration['top_k'],
+            'top_p' => $this->configuration['top_p'],
+            'context_expire' => $this->configuration['context_expire'],
+          ],
         ],
       ],
     ];
@@ -88,6 +96,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'top_p' => 0.9,
       'context_expire' => 3600,
       'ui' => [
+        'id' => 'jsChat',
         'buttons' => FALSE,
       ]
     ];
@@ -154,9 +163,17 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#open' => TRUE,
     ];
 
+    $form['ui']['id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Chat ID'),
+      '#description' => $this->t('If inserting more that one chat block. Set unique ID for the chat window here.'),
+      '#default_value' => $this->configuration['ui']['id'],
+    ];
+
     $form['ui']['buttons'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Disable minimize/close buttons'),
+      '#title' => $this->t('Enable minimize/close buttons'),
+      '#description' => $this->t('If checked, minimize buttons will be enabled.'),
       '#default_value' => $this->configuration['ui']['buttons'],
     ];
 

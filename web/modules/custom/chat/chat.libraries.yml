@@ -5,5 +5,4 @@ chat:
   dependencies:
     - core/drupal
     - core/drupalSettings
-    - core/jquery
     - core/once
