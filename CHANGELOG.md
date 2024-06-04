@@ -10,6 +10,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 - [PR-10](https://github.com/itk-dev/ai-launchpad/pull/10)
   Classes for chat messages
+- [PR-9](https://github.com/itk-dev/ai-launchpad/pull/9)
+  Connected theme and LLM chat services.
 - [PR-8](https://github.com/itk-dev/ai-launchpad/pull/8)
   Added template, styling and config for Chat Ui and Body paragraph
 - [PR-7](https://github.com/itk-dev/ai-launchpad/pull/7)
