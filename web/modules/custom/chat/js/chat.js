@@ -2,6 +2,12 @@
   const BOT = 'bot';
   const USER = 'you'
 
+  /**
+   * Returns the current time in HH:mm format.
+   *
+   * @returns {string}
+   *   The current time in HH:mm format.
+   */
   function getCurrentTime() {
     let date = new Date();
     let minutes = date.getMinutes();
@@ -12,14 +18,32 @@
     return date.getHours() + ':' + minutes;
   }
 
+  /**
+   * Generates a unique ID string.
+   *
+   * @returns {string}
+   *   A unique ID string in the format 'id_{timestamp}_{random}'.
+   */
   function generateUniqueID() {
     return 'id_' + new Date().getTime() + '_' + Math.random().toString(36).substr(2, 9);
   }
 
+  /**
+   * Clears the value of the given input element.
+   *
+   * @param {HTMLInputElement} element
+   *   The input element to be cleared.
+   */
   function cleanInput(element) {
     element.value = '';
   }
 
+  /**
+   * Toggles the readonly attribute of a textarea element.
+   *
+   * @param {HTMLTextAreaElement} element
+   *   The textarea element to toggle.
+   */
   function toggleTextarea(element) {
     if (element.hasAttribute('readonly')) {
       element.removeAttribute('readonly');
@@ -28,6 +52,20 @@
     }
   }
 
+  /**
+   * Creates a new chat message and appends it to the given element.
+   *
+   * @param {HTMLElement} element
+   *   The element to append the chat message to.
+   * @param {string} label
+   *   The label for the chat message.
+   * @param {string} message
+   *   The content of the chat message.
+   * @param {string} type
+   *   The type of the chat message variant.
+   * @returns {string}
+   *   The unique ID of the appended chat message.
+   */
   function addMessage(element, label, message, type) {
     let id = generateUniqueID()
     let time = getCurrentTime();
@@ -47,6 +85,12 @@
     return id;
   }
 
+  /**
+   * Generates HTML markup for a waiter animation.
+   *
+   * @returns {string}
+   *   The HTML markup for the waiter animation.
+   */
   function waiterHTML() {
     // @todo: would is be possible to create class for the styles here.
     return `
@@ -58,10 +102,28 @@
       </div>`
   }
 
+  /**
+   * Adds a new message to the given element.
+   *
+   * @param {HTMLElement} element
+   *   The element to which the message will be added.
+   * @param {string} label
+   *   The label or content of the new message.
+   * @returns {string}
+   *   The generated HTML string of the new message.
+   */
   function addNewMessage(element, label) {
     return addMessage(element, label, waiterHTML(), BOT)
   }
 
+  /**
+   * Removes the message waiter from the given element.
+   *
+   * @param {HTMLElement} element
+   *   The element to remove the message waiter from.
+   * @param {string} id
+   *   The ID of the container element containing the message waiter.
+   */
   function removeMessageWaiter(element, id) {
     let container = element.querySelector('#' + id);
     let el = container.querySelector(".wait");
@@ -70,6 +132,18 @@
     }
   }
 
+  /**
+   * Append a message to a specified element with the given id.
+   *
+   * @param {HTMLElement} element
+   *   The element to append the message to.
+   * @param {string} id
+   *   The id of the container element.
+   * @param {string} message
+   *   The message to be appended to the element.
+   *
+   * @return {void}
+   */
   function appendMessage(element, id, message) {
     removeMessageWaiter(element, id);
 
@@ -78,6 +152,11 @@
     container.innerHTML += waiterHTML();
   }
 
+  /**
+   * Attach javascript to the chat window.
+   *
+   * @type {{attach: Drupal.behaviors.chat_behavior.attach}}
+   */
   Drupal.behaviors.chat_behavior = {
     attach: function (context) {
       once('processed', '#' + drupalSettings.chat.id, context).forEach((element) => {
@@ -126,11 +205,18 @@
 
             // Add user's chat message to the chat window and clear input.
             addMessage(output, Drupal.t('you'), input.value, USER);
+
+            // Create a bot message with "waiter/loader" and get id for the HTML
+            // element (used later for appending stream response into the
+            // field).
             let msgId = addNewMessage(output, Drupal.t('bot'));
+
+            // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
             toggleTextarea(input);
 
             // TODO: Move path into config with getting route.
+            // Send the chat request to the backend.
             fetch("/ajax/chat", {
               method: 'POST',
               headers: {
@@ -160,13 +246,13 @@
                         let data = new TextDecoder().decode(value);
                         appendMessage(output, msgId, data);
 
+                        // @todo: better scroll with some animation?
                         // Follow content scroll.
-                        //output.animate({ scrollTop: output.prop("scrollHeight")}, 1000);
+                        output.scrollTop = output.scrollHeight;
 
                         push();
                       });
                     }
-
                     push();
                   },
                 });
