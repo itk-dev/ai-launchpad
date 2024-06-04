@@ -48,4 +48,25 @@
   .icon {
     @apply w-5;
   }
+
+  /* Chat messages */
+  .chat-message-container-you {
+    @apply flex-col items-end;
+  }
+  .chat-message-container-bot {
+    @apply flex-col items-start;
+  }
+  .chat-message-container-info {
+    @apply items-start;
+  }
+  .chat-message-variant-you {
+    @apply flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl;
+  }
+  .chat-message-variant-bot {
+    @apply flex-auto rounded px-3 py-2 text-white bg-purple-700 max-w-xl;
+  }
+  .chat-message-variant-info {
+    @apply text-secondary;
+  }
+
 }
