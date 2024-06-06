@@ -1,4 +1,4 @@
-<div id="{{ ui.id }}" class="chat-window border p-4 rounded my-4">
+<div id="{{ ui.id }}" class="chat-window border p-4 rounded my-4 max-w-3xl">
   <header class="flex items-center gap-2 border-b border-secondary pb-4">
     <div class="logo">
       <i class="fa-solid fa-robot text-secondary"></i>
@@ -12,16 +12,14 @@
       </select>
     {% endif %}
     {{ include('@chat/chat-btn-reset.html.twig') }}
-    {% if buttons %}
+    {% if ui.buttons %}
       <div class="ml-auto flex gap-2">
         {{ include('@chat/chat-btn-minimize.html.twig') }}
         {{ include('@chat/chat-btn-close.html.twig') }}
-        <button id="btnMinimizeChat" class="btn-icon"><i class="icon fa-solid fa-window-minimize"></i></button>
-        <button id="btnOpenGlobalNavigation" class="btn-icon"><i class="icon fa-solid fa-xmark"></i></button>
       </div>
     {% endif %}
   </header>
-  <main class="min-h-80 max-h-96 flex flex-col gap-2 justify-end py-4 overflow-y-auto">
+  <main class="h-96 flex flex-col gap-2 justify-end py-4 overflow-y-auto">
     <!-- Chat messages -->
   </main>
   <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message mr-2"></i><span>Start din dialog</span></span></label>
