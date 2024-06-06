@@ -156,6 +156,7 @@
       once('processed', '#' + drupalSettings.chat.id, context).forEach((element) => {
         const settings = drupalSettings.chat;
         const chatWindow = document.getElementById(settings.id);
+        const chatBtn = document.getElementById(settings.id + '-btn');
 
         // Build default payload for the post-request.
         let payload = {
@@ -271,7 +272,9 @@
           }
         }, { capture: true });
 
+        //
         // Reset chat history.
+        //
         const resetBtn = chatWindow.querySelector('#btnResetChat');
         resetBtn.addEventListener('click', function (e) {
           e.preventDefault();
@@ -283,6 +286,23 @@
             output.innerHTML = '';
           });
         }, { capture: true });
+
+        //
+        // Chat button toggle/close chat window.
+        //
+        if (chatBtn !== null) {
+          function toggleChatWindow(e) {
+            e.preventDefault();
+            chatWindow.classList.toggle('hidden');
+          }
+          chatBtn.addEventListener('click', toggleChatWindow, { capture: true });
+
+          const closeBtn = chatWindow.querySelector('#btnCloseChat');
+          closeBtn.addEventListener('click', toggleChatWindow, { capture: true });
+
+          const minBtn = chatWindow.querySelector('#btnMinimizeChat');
+          minBtn.addEventListener('click', toggleChatWindow, { capture: true });
+        }
       });
     }
   };
