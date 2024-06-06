@@ -205,6 +205,7 @@
 
             // Add user's chat message to the chat window and clear input.
             addMessage(output, Drupal.t('you'), input.value, USER);
+            output.scrollTop = output.scrollHeight;
 
             // Create a bot message with "waiter/loader" and get id for the HTML
             // element (used later for appending stream response into the

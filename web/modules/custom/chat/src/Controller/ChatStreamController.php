@@ -63,9 +63,9 @@ class ChatStreamController extends ControllerBase {
     else {
       $payload = new Payload();
       $payload->setModel($data['model'])
-        ->addOption('temperature', $data['temperature'])
-        ->addOption('top_k', $data['top_k'])
-        ->addOption('top_p', $data['top_p']);
+        ->addOption('temperature', (float) $data['temperature'])
+        ->addOption('top_k', (int) $data['top_k'])
+        ->addOption('top_p', (float) $data['top_p']);
       $msg = new Message();
       $msg->role = MessageRoles::System;
       $msg->content = $data['system_prompt'];
@@ -109,6 +109,7 @@ class ChatStreamController extends ControllerBase {
         // working.
         'Content-Type' => 'application/json',
         'X-Accel-Buffering' => 'no',
+        'Cache-Control' => 'no-cache, no-store, private'
       ]
     );
   }

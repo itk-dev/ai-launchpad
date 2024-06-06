@@ -98,7 +98,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'ui' => [
         'id' => 'jsChat',
         'buttons' => FALSE,
-      ]
+      ],
     ];
   }
 
