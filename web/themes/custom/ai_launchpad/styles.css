@@ -74,10 +74,21 @@
 
 }
 
+/* Fixed position for chat window*/
 .fixed {
   position: fixed;
 }
 
+/* Text with color gradient */
+.text-brand-gradient {
+  color: #6B21A8;
+  background-image:
+  -webkit-linear-gradient(0deg, #6B21A8 27%, #1D4ED8 58%, #0F766E 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 
 /*
 ** To have chat aligned to bottom we do this since ´justify-content: flex-end;` breaks scrolling
@@ -87,3 +98,4 @@
   margin-top: auto !important;
   /* use !important to prevent breakage from child margin settings */
 }
+

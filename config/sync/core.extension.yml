@@ -4,7 +4,6 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  chat: 0
   ckeditor5: 0
   config_ignore: 0
   config_translation: 0
@@ -23,7 +22,6 @@ module:
   layout_builder: 0
   layout_discovery: 0
   link: 0
-  llm_services: 0
   locale: 0
   media: 0
   media_library: 0
