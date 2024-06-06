@@ -39,16 +39,22 @@
   }
 
   /**
-   * Toggles the readonly attribute of a textarea element.
+   * Toggles the user interface to disable/enable it.
    *
-   * @param {HTMLTextAreaElement} element
-   *   The textarea element to toggle.
+   * @param {HTMLElement} element
+   *   The chat window element.
+   *
+   * @return {void}
    */
-  function toggleTextarea(element) {
-    if (element.hasAttribute('readonly')) {
-      element.removeAttribute('readonly');
+  function toggleUI(element) {
+    const resetBtn = element.querySelector('#btnResetChat');
+    const input = element.querySelector('#inputMessage');
+    if (input.hasAttribute('readonly')) {
+      input.removeAttribute('readonly');
+      resetBtn.disabled = false;
     } else {
-      element.setAttribute('readonly', 'readonly');
+      input.setAttribute('readonly', 'readonly');
+      resetBtn.disabled = true;
     }
   }
 
@@ -178,6 +184,11 @@
         const output = chatWindow.querySelector('main');
         const input = chatWindow.querySelector('#inputMessage');
         input.addEventListener('keypress', function (e) {
+          if (input.hasAttribute('readonly')) {
+            // Field disabled, so ignore events.
+            return;
+          }
+
           let key = e.which || e.keyCode;
           // Enter pressed (without the shift key pressed).
           if (key === 13 && !e.shiftKey) {
@@ -214,7 +225,7 @@
 
             // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
-            toggleTextarea(input);
+            toggleUI(chatWindow);
 
             // TODO: Move path into config with getting route.
             // Send the chat request to the backend.
@@ -226,50 +237,63 @@
               },
               body: JSON.stringify(data)
             })
-              .then((response) => response.body)
-              .then((rb) => {
-                const reader = rb.getReader();
-                return new ReadableStream({
-                  start(controller) {
-                    // The following function handles each data chunk
-                    function push() {
-                      reader.read().then(({ done, value }) => {
-                        // If there is no more data to read
-                        if (done) {
-                          controller.close();
-                          return;
-                        }
-                        // Get the data and send it to the browser via the
-                        // controller
-                        controller.enqueue(value);
+            .then((response) => response.body)
+            .then((rb) => {
+              const reader = rb.getReader();
+              return new ReadableStream({
+                start(controller) {
+                  // The following function handles each data chunk
+                  function push() {
+                    reader.read().then(({ done, value }) => {
+                      // If there is no more data to read
+                      if (done) {
+                        controller.close();
+                        return;
+                      }
+                      // Get the data and send it to the browser via the
+                      // controller
+                      controller.enqueue(value);
 
-                        // Decode chunk and append to HTML.
-                        let data = new TextDecoder().decode(value);
-                        appendMessage(output, msgId, data);
+                      // Decode chunk and append to HTML.
+                      let data = new TextDecoder().decode(value);
+                      appendMessage(output, msgId, data);
 
-                        // @todo: better scroll with some animation?
-                        // Follow content scroll.
-                        output.scrollTop = output.scrollHeight;
+                      // @todo: better scroll with some animation?
+                      // Follow content scroll.
+                      output.scrollTop = output.scrollHeight;
 
-                        push();
-                      });
-                    }
-                    push();
-                  },
-                });
-              })
-              .then((stream) =>
-                // Respond with our stream.
-                new Response(stream, { headers: { "Content-Type": "application/json" } }).text(),
-              )
-              .then((result) => {
-                // Remove waiter/loader.
-                removeMessageWaiter(output, msgId)
-
-                // Enable chat button for more questions.
-                toggleTextarea(input);
+                      push();
+                    });
+                  }
+                  push();
+                },
               });
+            })
+            .then((stream) =>
+              // Respond with our stream.
+              new Response(stream, { headers: { "Content-Type": "application/json" } }).text(),
+            )
+            .then((result) => {
+              // Remove waiter/loader.
+              removeMessageWaiter(output, msgId)
+
+              // Enable chat button for more questions.
+              toggleUI(chatWindow);
+            });
           }
+        }, { capture: true });
+
+        // Reset chat history.
+        const resetBtn = chatWindow.querySelector('#btnResetChat');
+        resetBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          fetch("/ajax/chat/reset", {
+            method: 'GET',
+          })
+          .then((result) => {
+            cleanInput(input);
+            output.innerHTML = '';
+          });
         }, { capture: true });
       });
     }
