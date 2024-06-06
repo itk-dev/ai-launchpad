@@ -47,6 +47,7 @@ class ChatStreamController extends ControllerBase {
    *   Stream with text content from the LLM.
    *
    * @throws \JsonException
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function callback(Request $request): StreamedResponse {
     // @todo Validate data in request.
@@ -71,47 +72,66 @@ class ChatStreamController extends ControllerBase {
       $msg->content = $data['system_prompt'];
       $payload->addMessage($msg);
     }
+
+    // Enforce context length, number of message in the payload based on
+    // configuration.
+    $this->enforceContextLength($payload, (int) $data['context_length']);
+
+    // Add the newest question.
     $msg = new Message();
     $msg->role = MessageRoles::User;
     $msg->content = $data['prompt'];
     $payload->addMessage($msg);
 
-    return new StreamedResponse(
-      function () use ($provider, $payload, $cid, $expire) {
-        $message = '';
-        foreach ($provider->chat($payload) as $res) {
-          echo $res->getContent();
+//    return new StreamedResponse(
+//      function () use ($provider, $payload, $cid, $expire) {
+//        $message = '';
+//        foreach ($provider->chat($payload) as $res) {
+//          echo $res->getContent();
+//
+//          // To make the stream actual, well stream, we need to ensure buffers
+//          // are flushed. Thanks, Drupal, for that one.
+//          // @see https://symfony.com/doc/current/components/http_foundation.html#streaming-a-response
+//          ob_flush();
+//          flush();
+//
+//          $message .= $res->getContent();
+//          if ($res->isCompleted()) {
+//            // Add the completed message to payload.
+//            $msg = new Message();
+//            $msg->role = MessageRoles::Assistant;
+//            $msg->content = $message;
+//            $payload->addMessage($msg);
+//
+//            // Save new chat session to cache.
+//            $cache = \Drupal::cache('chat');
+//            $cache->set($cid, $payload, time() + $expire);
+//          }
+//        }
+//      },
+//      Response::HTTP_OK,
+//      headers: [
+//        // For some known reason, the application type need to be json not clean
+//        // text, even though we send clean text. If changed stream stops
+//        // working.
+//        'Content-Type' => 'application/json',
+//        // Ensure nginx and proxy do not cache.
+//        'X-Accel-Buffering' => 'no',
+//        // Ensure browser do not cache.
+//        'Cache-Control' => 'no-cache, no-store, private',
+//      ]
+//    );
 
-          // To make the stream actual, well stream, we need to ensure buffers
-          // are flushed. Thanks, Drupal, for that one.
-          // @see https://symfony.com/doc/current/components/http_foundation.html#streaming-a-response
-          ob_flush();
-          flush();
+    $msg = new Message();
+    $msg->role = MessageRoles::Assistant;
+    $msg->content = 'test';
+    $payload->addMessage($msg);
 
-          $message .= $res->getContent();
-          if ($res->isCompleted()) {
-            // Add the completed message to payload.
-            $msg = new Message();
-            $msg->role = MessageRoles::Assistant;
-            $msg->content = $message;
-            $payload->addMessage($msg);
+    // Save new chat session to cache.
+    $cache = \Drupal::cache('chat');
+    $cache->set($cid, $payload, time() + $expire);
 
-            // Save new chat session to cache.
-            $cache = \Drupal::cache('chat');
-            $cache->set($cid, $payload, time() + $expire);
-          }
-        }
-      },
-      Response::HTTP_OK,
-      headers: [
-        // For some known reason, the application type need to be json not clean
-        // text, even though we send clean text. If changed stream stops
-        // working.
-        'Content-Type' => 'application/json',
-        'X-Accel-Buffering' => 'no',
-        'Cache-Control' => 'no-cache, no-store, private'
-      ]
-    );
+    return new Response('test', 200, ['Content-Type' => 'text/plain']);
   }
 
   /**
@@ -128,6 +148,46 @@ class ChatStreamController extends ControllerBase {
     \Drupal::cache('chat')->delete($cid);
 
     return new Response('', Response::HTTP_NO_CONTENT);
+  }
+
+  /**
+   * Enforce the context length of a payload's messages.
+   *
+   * @param Payload $payload
+   *   The payload to enforce the context length of.
+   * @param int $context_length
+   *   The desired context length. Default: 10.
+   *
+   * @return void
+   */
+  private function enforceContextLength(Payload $payload, int $context_length = 10): void {
+    $messages = $payload->getMessages();
+
+    // Length times two (every question has an answerer) + system prompt.
+    $max = ($context_length * 2) + 1;
+
+    // If count doesn't exceed max, no need to enforce context length.
+    if (count($messages) <= $max) {
+      return;
+    }
+
+    // Remove the system message.
+    $system = array_shift($messages);
+
+    // Remove messages exceeding the max limit. From the start of the array.
+    $messages = array_slice(
+      array: array_reverse($messages),
+      offset: 0,
+      length: $max - 1
+    );
+
+    // Reverse back to correct order and add the system message as the first
+    // message.
+    $messages = array_reverse($messages);
+    array_unshift($messages, $system);
+
+    // Override messages in the payload.
+    $payload->setMessages($messages);
   }
 
 }

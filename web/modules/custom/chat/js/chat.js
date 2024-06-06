@@ -179,6 +179,7 @@
           "top_k": settings.top_k,
           "top_p": settings.top_p,
           "context_expire": settings.context_expire,
+          "context_length": settings.context_length,
         }
 
         const output = chatWindow.querySelector('main');

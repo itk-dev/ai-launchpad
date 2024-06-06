@@ -77,6 +77,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
             'top_k' => $this->configuration['top_k'],
             'top_p' => $this->configuration['top_p'],
             'context_expire' => $this->configuration['context_expire'],
+            'context_length' => $this->configuration['context_length'],
           ],
         ],
       ],
@@ -95,6 +96,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'top_k' => 40,
       'top_p' => 0.9,
       'context_expire' => 3600,
+      'context_length' => 10,
       'ui' => [
         'id' => 'jsChat',
         'buttons' => FALSE,
@@ -216,6 +218,15 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#min' => 0,
     ];
 
+    $form['tune']['context_length'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Context length'),
+      '#description' => $this->t('The number of user message to send to the LLM as context.'),
+      '#default_value' => $this->configuration['context_length'],
+      '#min' => 0,
+      '#max' => 25,
+    ];
+
     return $form;
   }
 
@@ -246,7 +257,9 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['top_k'] = $values['tune']['top_k'];
     $this->configuration['top_p'] = $values['tune']['top_p'];
     $this->configuration['context_expire'] = $values['tune']['context_expire'];
+    $this->configuration['context_length'] = $values['tune']['context_length'];
     $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
+    $this->configuration['ui']['id'] = $values['ui']['id'];
   }
 
 }
