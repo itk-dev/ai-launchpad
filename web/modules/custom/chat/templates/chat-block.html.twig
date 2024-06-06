@@ -11,9 +11,11 @@
         {% endfor %}
       </select>
     {% endif %}
-    <button id="btnResetChat" class="btn-icon"><i class="icon fa-solid fa-rotate-left"></i>{{ 'Reset'|t }}</button>
+    {{ include('@chat/chat-btn-reset.html.twig') }}
     {% if buttons %}
       <div style="float: right">
+        {{ include('@chat/chat-btn-minimize.html.twig') }}
+        {{ include('@chat/chat-btn-close.html.twig') }}
         <button id="btnMinimizeChat" class="btn-icon"><i class="icon fa-solid fa-window-minimize"></i></button>
         <button id="btnOpenGlobalNavigation" class="btn-icon"><i class="icon fa-solid fa-xmark"></i></button>
       </div>

@@ -142,12 +142,10 @@ class ChatStreamController extends ControllerBase {
   /**
    * Enforce the context length of a payload's messages.
    *
-   * @param Payload $payload
+   * @param \Drupal\llm_services\Model\Payload $payload
    *   The payload to enforce the context length of.
    * @param int $context_length
    *   The desired context length. Default: 10.
-   *
-   * @return void
    */
   private function enforceContextLength(Payload $payload, int $context_length = 10): void {
     $messages = $payload->getMessages();
