@@ -7,6 +7,7 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
 use Drupal\llm_services\Plugin\LLModelProviderManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -57,6 +58,8 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build(): array {
+    $streamUrl = Url::fromRoute('chat.stream');
+    $resetUrl = Url::fromRoute('chat.reset');
     return [
       '#theme' => 'chat_block',
       '#ui' => [
@@ -71,6 +74,8 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
         'drupalSettings' => [
           'chat' => [
             'id' => $this->configuration['ui']['id'],
+            'callback_path' => $streamUrl->toString(),
+            'reset_path' => $resetUrl->toString(),
             'provider_name' => $this->configuration['provider_name'],
             'system_prompt' => $this->configuration['system_prompt'],
             'temperature' => $this->configuration['temperature'],

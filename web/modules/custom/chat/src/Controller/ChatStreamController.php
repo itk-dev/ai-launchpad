@@ -2,11 +2,13 @@
 
 namespace Drupal\chat\Controller;
 
+use Drupal\chat\Model\ChatCallbackData;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\llm_services\Model\Message;
 use Drupal\llm_services\Model\MessageRoles;
 use Drupal\llm_services\Model\Payload;
 use Drupal\llm_services\Plugin\LLModelProviderManager;
+use GuzzleHttp\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,12 +52,12 @@ class ChatStreamController extends ControllerBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function callback(Request $request): StreamedResponse {
-    // @todo Validate data in request.
-    $data = json_decode($request->getContent(), associative: TRUE, flags: JSON_THROW_ON_ERROR);
+    $json = json_decode($request->getContent(), associative: TRUE, flags: JSON_THROW_ON_ERROR);
+    $data = $this->mapJsonToData($json);
 
-    $provider = $this->providerManager->createInstance($data['provider']);
+    $provider = $this->providerManager->createInstance($data->provider);
 
-    $expire = $data['context_expire'];
+    $expire = $data->contextExpire;
     $cid = \Drupal::service('session')->getId();
     $cached = \Drupal::cache('chat')->get($cid);
     if ($cached) {
@@ -63,24 +65,24 @@ class ChatStreamController extends ControllerBase {
     }
     else {
       $payload = new Payload();
-      $payload->setModel($data['model'])
-        ->addOption('temperature', (float) $data['temperature'])
-        ->addOption('top_k', (int) $data['top_k'])
-        ->addOption('top_p', (float) $data['top_p']);
+      $payload->setModel($data->model)
+        ->addOption('temperature', $data->temperature)
+        ->addOption('top_k', $data->topK)
+        ->addOption('top_p', $data->topP);
       $msg = new Message();
       $msg->role = MessageRoles::System;
-      $msg->content = $data['system_prompt'];
+      $msg->content = $data->systemPrompt;
       $payload->addMessage($msg);
     }
 
     // Enforce context length, number of message in the payload based on
     // configuration.
-    $this->enforceContextLength($payload, (int) $data['context_length']);
+    $this->enforceContextLength($payload, (int) $data->contextLength);
 
     // Add the newest question.
     $msg = new Message();
     $msg->role = MessageRoles::User;
-    $msg->content = $data['prompt'];
+    $msg->content = $data->prompt;
     $payload->addMessage($msg);
 
     return new StreamedResponse(
@@ -175,6 +177,55 @@ class ChatStreamController extends ControllerBase {
 
     // Override messages in the payload.
     $payload->setMessages($messages);
+  }
+
+  /**
+   * Create a callback payload from JSON.
+   *
+   * @param array $json
+   *   The JSON data to create the callback payload from.
+   *
+   * @return \Drupal\Chat\Model\ChatCallbackData
+   *   The created callback payload object.
+   *
+   * @throws \InvalidArgumentException
+   *   If the JSON given is not valid.
+   */
+  private function mapJsonToData(array $json): ChatCallbackData {
+    $keys = [
+      'provider',
+      'model',
+      'prompt',
+      'system_prompt',
+      'temperature',
+      'top_k',
+      'top_p',
+      'context_expire',
+      'context_length',
+    ];
+
+    // All keys exist.
+    $common = array_intersect_key(array_flip($keys), $json);
+    if (count($keys) !== count($common)) {
+      throw new InvalidArgumentException('Request data is not valid');
+    }
+
+    try {
+      return new ChatCallbackData(
+        provider: $json['provider'],
+        model: $json['model'],
+        prompt: $json['prompt'],
+        systemPrompt: $json['system_prompt'],
+        temperature: (float) $json['temperature'],
+        topK: (int) $json['top_k'],
+        topP: (float) $json['top_p'],
+        contextExpire: (int) $json['context_expire'],
+        contextLength: (int) $json['context_length'],
+      );
+    }
+    catch (\TypeError $exception) {
+      throw new InvalidArgumentException('Request data is not valid: ' . $exception->getMessage(), $exception->getCode(), $exception);
+    }
   }
 
 }

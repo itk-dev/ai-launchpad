@@ -228,9 +228,8 @@
             cleanInput(input);
             toggleUI(chatWindow);
 
-            // TODO: Move path into config with getting route.
             // Send the chat request to the backend.
-            fetch("/ajax/chat", {
+            fetch(settings.callback_path, {
               method: 'POST',
               headers: {
                 'Accept': 'application/json',
@@ -288,7 +287,7 @@
         const resetBtn = chatWindow.querySelector('#btnResetChat');
         resetBtn.addEventListener('click', function (e) {
           e.preventDefault();
-          fetch("/ajax/chat/reset", {
+          fetch(settings.reset_path, {
             method: 'GET',
           })
           .then((result) => {
