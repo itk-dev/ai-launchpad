@@ -1,4 +1,6 @@
-<div id="{{ ui.id }}" class="chat-window">
+{% set classes = ['chat-window', ui.buttons ? 'hidden' : ''] %}
+
+<div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
   <header>
     <div class="logo" style="float: left;padding-right: 8px;padding-top: 8px">
       <i class="fa-solid fa-robot text-secondary"></i>
@@ -12,12 +14,10 @@
       </select>
     {% endif %}
     {{ include('@chat/chat-btn-reset.html.twig') }}
-    {% if buttons %}
+    {% if ui.buttons %}
       <div style="float: right">
         {{ include('@chat/chat-btn-minimize.html.twig') }}
         {{ include('@chat/chat-btn-close.html.twig') }}
-        <button id="btnMinimizeChat" class="btn-icon"><i class="icon fa-solid fa-window-minimize"></i></button>
-        <button id="btnOpenGlobalNavigation" class="btn-icon"><i class="icon fa-solid fa-xmark"></i></button>
       </div>
     {% endif %}
   </header>

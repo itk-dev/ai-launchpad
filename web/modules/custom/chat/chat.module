@@ -10,7 +10,7 @@
  */
 function chat_theme(): array {
   return [
-    'chat_block' => [
+    'chat' => [
       'variables' => [
         'ui' => [
           'id' => 'jsChat',

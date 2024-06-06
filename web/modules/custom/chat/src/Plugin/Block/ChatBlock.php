@@ -61,7 +61,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $streamUrl = Url::fromRoute('chat.stream');
     $resetUrl = Url::fromRoute('chat.reset');
     return [
-      '#theme' => 'chat_block',
+      '#theme' => 'chat',
       '#ui' => [
         'id' => $this->configuration['ui']['id'],
         'buttons' => $this->configuration['ui']['buttons'],
