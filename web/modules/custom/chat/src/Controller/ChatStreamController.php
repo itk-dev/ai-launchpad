@@ -83,55 +83,44 @@ class ChatStreamController extends ControllerBase {
     $msg->content = $data['prompt'];
     $payload->addMessage($msg);
 
-//    return new StreamedResponse(
-//      function () use ($provider, $payload, $cid, $expire) {
-//        $message = '';
-//        foreach ($provider->chat($payload) as $res) {
-//          echo $res->getContent();
-//
-//          // To make the stream actual, well stream, we need to ensure buffers
-//          // are flushed. Thanks, Drupal, for that one.
-//          // @see https://symfony.com/doc/current/components/http_foundation.html#streaming-a-response
-//          ob_flush();
-//          flush();
-//
-//          $message .= $res->getContent();
-//          if ($res->isCompleted()) {
-//            // Add the completed message to payload.
-//            $msg = new Message();
-//            $msg->role = MessageRoles::Assistant;
-//            $msg->content = $message;
-//            $payload->addMessage($msg);
-//
-//            // Save new chat session to cache.
-//            $cache = \Drupal::cache('chat');
-//            $cache->set($cid, $payload, time() + $expire);
-//          }
-//        }
-//      },
-//      Response::HTTP_OK,
-//      headers: [
-//        // For some known reason, the application type need to be json not clean
-//        // text, even though we send clean text. If changed stream stops
-//        // working.
-//        'Content-Type' => 'application/json',
-//        // Ensure nginx and proxy do not cache.
-//        'X-Accel-Buffering' => 'no',
-//        // Ensure browser do not cache.
-//        'Cache-Control' => 'no-cache, no-store, private',
-//      ]
-//    );
+    return new StreamedResponse(
+      function () use ($provider, $payload, $cid, $expire) {
+        $message = '';
+        foreach ($provider->chat($payload) as $res) {
+          echo $res->getContent();
 
-    $msg = new Message();
-    $msg->role = MessageRoles::Assistant;
-    $msg->content = 'test';
-    $payload->addMessage($msg);
+          // To make the stream actual, well stream, we need to ensure buffers
+          // are flushed. Thanks, Drupal, for that one.
+          // @see https://symfony.com/doc/current/components/http_foundation.html#streaming-a-response
+          ob_flush();
+          flush();
 
-    // Save new chat session to cache.
-    $cache = \Drupal::cache('chat');
-    $cache->set($cid, $payload, time() + $expire);
+          $message .= $res->getContent();
+          if ($res->isCompleted()) {
+            // Add the completed message to payload.
+            $msg = new Message();
+            $msg->role = MessageRoles::Assistant;
+            $msg->content = $message;
+            $payload->addMessage($msg);
 
-    return new Response('test', 200, ['Content-Type' => 'text/plain']);
+            // Save new chat session to cache.
+            $cache = \Drupal::cache('chat');
+            $cache->set($cid, $payload, time() + $expire);
+          }
+        }
+      },
+      Response::HTTP_OK,
+      headers: [
+        // For some known reason, the application type need to be json not clean
+        // text, even though we send clean text. If changed stream stops
+        // working.
+        'Content-Type' => 'application/json',
+        // Ensure nginx and proxy do not cache.
+        'X-Accel-Buffering' => 'no',
+        // Ensure browser do not cache.
+        'Cache-Control' => 'no-cache, no-store, private',
+      ]
+    );
   }
 
   /**
