@@ -11,11 +11,13 @@
   function getCurrentTime() {
     let date = new Date();
     let minutes = date.getMinutes();
+    let hours = date.getHours();
 
-    // Pad the minutes with '0' if less than 10.
+    // Pad the minutes and hours with '0' if less than 10.
     minutes = minutes < 10 ? '0' + minutes : minutes;
+    hours = hours < 10 ? '0' + hours : hours;
 
-    return date.getHours() + ':' + minutes;
+    return hours + ':' + minutes;
   }
 
   /**
@@ -46,7 +48,7 @@
    *
    * @return {void}
    */
-  function toggleUI(element) {
+  function toggleDisableUI(element) {
     const resetBtn = element.querySelector('#btnResetChat');
     const input = element.querySelector('#inputMessage');
     if (input.hasAttribute('readonly')) {
@@ -73,18 +75,19 @@
    *   The unique ID of the appended chat message.
    */
   function addMessage(element, label, message, type) {
+    console.log(message);
     let id = generateUniqueID()
     let time = getCurrentTime();
     let content = `
-    <div class="chat-message-container-${type}">
-      <div class="text-secondary">
-        <span>${label}</span>
-        <span class="time">${time}</span>
-      </div>
-      <span id=${id} class="message chat-message-variant-${type}">
-            ${message}
-      </span>
-    </div>`;
+      <div class="chat-message-container-${type}">
+        <div class="text-secondary">
+          <span>${label}</span>
+          <span class="time">${time}</span>
+        </div>
+        <p id="${id}" class="message chat-message-variant-${type}">
+          ${message}
+        </p>
+      </div>`;
 
     element.innerHTML += content;
 
@@ -97,29 +100,14 @@
    * @returns {string}
    *   The HTML markup for the waiter animation.
    */
-  function waiterHTML() {
+  function waiterTemplate() {
     // @todo: would is be possible to create class for the styles here.
     return `
-      <div class="wait" style="font-size: 0.5rem;">
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.0s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
+      <span id="waiter" style="font-size: 0.5rem;">
         <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.0s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
         <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.2s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
         <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.4s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-      </div>`
-  }
-
-  /**
-   * Adds a new message to the given element.
-   *
-   * @param {HTMLElement} element
-   *   The element to which the message will be added.
-   * @param {string} label
-   *   The label or content of the new message.
-   * @returns {string}
-   *   The generated HTML string of the new message.
-   */
-  function addNewMessage(element, label) {
-    return addMessage(element, label, waiterHTML(), BOT)
+      </span>`
   }
 
   /**
@@ -132,7 +120,7 @@
    */
   function removeMessageWaiter(element, id) {
     let container = element.querySelector('#' + id);
-    let el = container.querySelector(".wait");
+    let el = container.querySelector("#waiter");
     if(el) {
       el.parentNode.removeChild(el);
     }
@@ -155,7 +143,7 @@
 
     let container = element.querySelector('#' + id);
     container.innerHTML += message.replace('\n', '<br/><br/>');
-    container.innerHTML += waiterHTML();
+    container.innerHTML += waiterTemplate();
   }
 
   /**
@@ -222,11 +210,11 @@
             // Create a bot message with "waiter/loader" and get id for the HTML
             // element (used later for appending stream response into the
             // field).
-            let msgId = addNewMessage(output, Drupal.t('bot'));
+            let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(), BOT)
 
             // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
-            toggleUI(chatWindow);
+            toggleDisableUI(chatWindow);
 
             // Send the chat request to the backend.
             fetch(settings.callback_path, {
@@ -278,7 +266,7 @@
               removeMessageWaiter(output, msgId)
 
               // Enable chat button for more questions.
-              toggleUI(chatWindow);
+              toggleDisableUI(chatWindow);
             });
           }
         }, { capture: true });

@@ -9,3 +9,10 @@ services:
       - "11434"
     volumes:
       - ./.docker/data/ollama:/root/.ollama
+    # Add support for GPU on the server.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
