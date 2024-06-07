@@ -77,3 +77,13 @@
 .fixed {
   position: fixed;
 }
+
+
+/*
+** To have chat aligned to bottom we do this since ´justify-content: flex-end;` breaks scrolling
+** https://stackoverflow.com/questions/36130760/use-justify-content-flex-end-and-to-have-vertical-scrollbar
+*/
+.chat-window main > :first-child {
+  margin-top: auto !important;
+  /* use !important to prevent breakage from child margin settings */
+}

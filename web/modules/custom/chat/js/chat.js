@@ -104,8 +104,8 @@
    */
   function waiterTemplate(svg) {
     return `
-      <span id="waiter" style="padding-left: 8px;">
-        <object id="waiter" data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg"></object>
+      <span id="waiter">
+        <object data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg" style="display: inline-block; width: auto; height: 16px;"></object>
       </span>
     `
   }
