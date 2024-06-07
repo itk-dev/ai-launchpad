@@ -75,7 +75,6 @@
    *   The unique ID of the appended chat message.
    */
   function addMessage(element, label, message, type) {
-    console.log(message);
     let id = generateUniqueID()
     let time = getCurrentTime();
     let content = `
@@ -97,14 +96,16 @@
   /**
    * Generates HTML markup for a waiter animation.
    *
+   * @param svg
+   *   Path to wait svg file.
+   *
    * @returns {string}
    *   The HTML markup for the waiter animation.
    */
-  function waiterTemplate() {
-    // @todo: Create a real path to render the svg.
+  function waiterTemplate(svg) {
     return `
       <span id="waiter" style="padding-left: 8px;">
-        <object id="waiter" data="../svg/wait.svg" type="image/svg+xml" class="chat-message-wait-svg"></object>
+        <object id="waiter" data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg"></object>
       </span>
     `
   }
@@ -132,17 +133,19 @@
    *   The element to append the message to.
    * @param {string} id
    *   The id of the container element.
+   * @param svg
+   *   Path to wait svg file.
    * @param {string} message
    *   The message to be appended to the element.
    *
    * @return {void}
    */
-  function appendMessage(element, id, message) {
+  function appendMessage(element, id, svg, message) {
     removeMessageWaiter(element, id);
 
     let container = element.querySelector('#' + id);
     container.innerHTML += message.replace('\n', '<br/><br/>');
-    container.innerHTML += waiterTemplate();
+    container.innerHTML += waiterTemplate(svg);
   }
 
   /**
@@ -210,7 +213,7 @@
             // Create a bot message with "waiter/loader" and get id for the HTML
             // element (used later for appending stream response into the
             // field).
-            let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(), BOT)
+            let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(settings.waiter_svg), BOT)
 
             // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
@@ -244,7 +247,7 @@
 
                       // Decode chunk and append to HTML.
                       let data = new TextDecoder().decode(value);
-                      appendMessage(output, msgId, data);
+                      appendMessage(output, msgId, settings.waiter_svg, data);
 
                       // @todo: better scroll with some animation?
                       // Follow content scroll.

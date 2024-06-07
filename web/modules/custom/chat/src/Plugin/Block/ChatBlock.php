@@ -83,6 +83,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
             'top_p' => $this->configuration['top_p'],
             'context_expire' => $this->configuration['context_expire'],
             'context_length' => $this->configuration['context_length'],
+            'waiter_svg' => \Drupal::service('extension.list.module')->getPath('chat') . '/svg/wait.svg',
           ],
         ],
       ],
