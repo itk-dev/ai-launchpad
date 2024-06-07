@@ -1,4 +1,6 @@
-<div id="{{ ui.id }}" class="chat-window border p-4 rounded my-4 max-w-3xl">
+{% set classes = ['chat-window border p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary' : 'my-4 max-w-3xl'] %}
+
+<div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
   <header class="flex items-center gap-2 border-b border-secondary pb-4">
     <div class="logo">
       <i class="fa-solid fa-robot text-secondary"></i>
@@ -11,17 +13,17 @@
         {% endfor %}
       </select>
     {% endif %}
-    {{ include('@chat/chat-btn-reset.html.twig') }}
+    {{ include(directory ~ '/templates/chat/chat-btn-reset.html.twig') }}
     {% if ui.buttons %}
       <div class="ml-auto flex gap-2">
-        {{ include('@chat/chat-btn-minimize.html.twig') }}
-        {{ include('@chat/chat-btn-close.html.twig') }}
+        {{ include(directory ~ '/templates/chat/chat-btn-minimize.html.twig') }}
+        {{ include(directory ~ '/templates/chat/chat-btn-close.html.twig') }}
       </div>
     {% endif %}
   </header>
   <main class="h-96 flex flex-col gap-2 justify-end py-4 overflow-y-auto">
     <!-- Chat messages -->
   </main>
-  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message mr-2"></i><span>Start din dialog</span></span></label>
+  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message mr-2"></i><span>{{ 'Start your dialog'|t }}</span></span></label>
   <textarea id="inputMessage" class="border border-secondary w-full rounded-sm bg-primary p-2" rows="4"></textarea>
 </div>

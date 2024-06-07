@@ -1,12 +1,28 @@
 {% set classes = ['chat-window', ui.buttons ? 'hidden' : ''] %}
 
+<style>
+  .chat-window {
+    background: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  .chat-window main {
+    height: 400px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    overflow-y: scroll
+  }
+  .chat-window textarea {
+    width: 100%;
+  }
+</style>
+
 <div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
   <header>
-    <div class="logo" style="float: left;padding-right: 8px;padding-top: 8px">
-      <i class="fa-solid fa-robot text-secondary"></i>
-    </div>
     {% if ui.models %}
-      <select name="models" id="models" class="btn-default">
+      <select name="models" id="models">
         <option value="">{{ 'Select a Language Model'|t }}</option>
         {% for item in ui.models %}
           <option value="{{ item }}">{{ item }}</option>
@@ -21,9 +37,9 @@
       </div>
     {% endif %}
   </header>
-  <main style="height: 400px;width: 100%;padding: 8px;border: 1px solid;overflow-y: scroll">
+  <main>
     <!-- Chat messages -->
   </main>
-  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message"></i><span>Start din dialog</span></span></label>
-  <textarea id="inputMessage" style="width: 100%;" rows="4"></textarea>
+  <label for="inputMessage">Start din dialog</label>
+  <textarea id="inputMessage" rows="4"></textarea>
 </div>

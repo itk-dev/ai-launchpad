@@ -1,6 +1,8 @@
 (function (Drupal, once) {
+
   const BOT = 'bot';
   const USER = 'you'
+
 
   /**
    * Returns the current time in HH:mm format.
@@ -84,7 +86,7 @@
           <span>${label}</span>
           <span class="time">${time}</span>
         </div>
-        <p id="${id}" class="message chat-message-variant-${type}">
+        <p id="${id}" class="chat-message chat-message-variant-${type}">
           ${message}
         </p>
       </div>`;
@@ -101,12 +103,12 @@
    *   The HTML markup for the waiter animation.
    */
   function waiterTemplate() {
-    // @todo: would is be possible to create class for the styles here.
+    // @todo: Create a real path to render the svg.
     return `
-      <span id="waiter" style="font-size: 0.5rem;">
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.0s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.2s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-      </span>`
+      <span style="padding-left: 8px;">
+        <object id="waiter" data="../svg/wait.svg" type="image/svg+xml" class="chat-message-wait-svg"></object>
+      </span>
+    `
   }
 
   /**

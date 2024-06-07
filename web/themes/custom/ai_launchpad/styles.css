@@ -73,3 +73,7 @@
   }
 
 }
+
+.fixed {
+  position: fixed;
+}
