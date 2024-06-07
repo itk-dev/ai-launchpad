@@ -105,7 +105,7 @@
   function waiterTemplate() {
     // @todo: Create a real path to render the svg.
     return `
-      <span style="padding-left: 8px;">
+      <span id="waiter" style="padding-left: 8px;">
         <object id="waiter" data="../svg/wait.svg" type="image/svg+xml" class="chat-message-wait-svg"></object>
       </span>
     `
@@ -296,13 +296,20 @@
             e.preventDefault();
             chatWindow.classList.toggle('hidden');
           }
+          function minimizeChatWindow(e) {
+            e.preventDefault();
+            chatWindow.querySelector('main').classList.toggle('hidden');
+            chatWindow.querySelector('footer').classList.toggle('hidden');
+            minBtn.querySelector('#minimize').classList.toggle('hidden');
+            minBtn.querySelector('#maximize').classList.toggle('hidden');
+          }
           chatBtn.addEventListener('click', toggleChatWindow, { capture: true });
 
           const closeBtn = chatWindow.querySelector('#btnCloseChat');
           closeBtn.addEventListener('click', toggleChatWindow, { capture: true });
 
           const minBtn = chatWindow.querySelector('#btnMinimizeChat');
-          minBtn.addEventListener('click', toggleChatWindow, { capture: true });
+          minBtn.addEventListener('click', minimizeChatWindow, { capture: true });
         }
       });
     }

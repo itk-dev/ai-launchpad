@@ -63,7 +63,7 @@
     @apply min-h-9 content-center flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl;
   }
   .chat-message-variant-bot {
-    @apply min-h-9 content-center flex-auto rounded px-3 py-2 text-white bg-purple-700 max-w-xl;
+    @apply min-h-9 content-center flex-auto rounded px-3 py-2 text-black bg-purple-200 max-w-xl;
   }
   .chat-message-variant-info {
     @apply min-h-9 content-center text-secondary;
