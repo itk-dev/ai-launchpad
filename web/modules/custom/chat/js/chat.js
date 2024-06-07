@@ -75,16 +75,15 @@
    *   The unique ID of the appended chat message.
    */
   function addMessage(element, label, message, type) {
-    console.log(message);
     let id = generateUniqueID()
     let time = getCurrentTime();
     let content = `
       <div class="chat-message-container-${type}">
-        <div class="text-secondary">
-          <span>${label}</span>
-          <span class="time">${time}</span>
+        <div class="chat-message-info">
+          <span class="chat-message-info-type">${label}</span>
+          <span class="chat-message-info-time">${time}</span>
         </div>
-        <p id="${id}" class="message chat-message-variant-${type}">
+        <p id="${id}" class="chat-message chat-message-variant-${type}">
           ${message}
         </p>
       </div>`;
@@ -97,17 +96,18 @@
   /**
    * Generates HTML markup for a waiter animation.
    *
+   * @param svg
+   *   Path to wait svg file.
+   *
    * @returns {string}
    *   The HTML markup for the waiter animation.
    */
-  function waiterTemplate() {
-    // @todo: would is be possible to create class for the styles here.
+  function waiterTemplate(svg) {
     return `
-      <span id="waiter" style="font-size: 0.5rem;">
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.0s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.2s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-        <svg class="svg-inline--fa fa-circle fa-bounce fa-fw fa-xs" style="--fa-bounce-land-scale-x: 1.2;--fa-bounce-land-scale-y: .8;--fa-bounce-rebound: 1px; --fa-animation-delay: 0.4s;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"></path></svg>
-      </span>`
+      <span id="waiter">
+        <object data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg" style="display: inline-block; width: auto; height: 16px;"></object>
+      </span>
+    `
   }
 
   /**
@@ -133,17 +133,19 @@
    *   The element to append the message to.
    * @param {string} id
    *   The id of the container element.
+   * @param svg
+   *   Path to wait svg file.
    * @param {string} message
    *   The message to be appended to the element.
    *
    * @return {void}
    */
-  function appendMessage(element, id, message) {
+  function appendMessage(element, id, svg, message) {
     removeMessageWaiter(element, id);
 
     let container = element.querySelector('#' + id);
     container.innerHTML += message.replace('\n', '<br/><br/>');
-    container.innerHTML += waiterTemplate();
+    container.innerHTML += waiterTemplate(svg);
   }
 
   /**
@@ -211,7 +213,7 @@
             // Create a bot message with "waiter/loader" and get id for the HTML
             // element (used later for appending stream response into the
             // field).
-            let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(), BOT)
+            let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(settings.waiter_svg), BOT)
 
             // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
@@ -245,7 +247,7 @@
 
                       // Decode chunk and append to HTML.
                       let data = new TextDecoder().decode(value);
-                      appendMessage(output, msgId, data);
+                      appendMessage(output, msgId, settings.waiter_svg, data);
 
                       // @todo: better scroll with some animation?
                       // Follow content scroll.
@@ -295,13 +297,20 @@
             e.preventDefault();
             chatWindow.classList.toggle('hidden');
           }
+          function minimizeChatWindow(e) {
+            e.preventDefault();
+            chatWindow.querySelector('main').classList.toggle('hidden');
+            chatWindow.querySelector('footer').classList.toggle('hidden');
+            minBtn.querySelector('#minimize').classList.toggle('hidden');
+            minBtn.querySelector('#maximize').classList.toggle('hidden');
+          }
           chatBtn.addEventListener('click', toggleChatWindow, { capture: true });
 
           const closeBtn = chatWindow.querySelector('#btnCloseChat');
           closeBtn.addEventListener('click', toggleChatWindow, { capture: true });
 
           const minBtn = chatWindow.querySelector('#btnMinimizeChat');
-          minBtn.addEventListener('click', toggleChatWindow, { capture: true });
+          minBtn.addEventListener('click', minimizeChatWindow, { capture: true });
         }
       });
     }

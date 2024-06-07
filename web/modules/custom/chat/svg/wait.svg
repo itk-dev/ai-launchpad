@@ -1,0 +1,69 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 26">
+  <style type="text/css">
+    circle {
+      --bounce-land-scale-x: 1.2;
+      --bounce-land-scale-y: .8;
+      --bounce-rebound: 2px;
+    }
+    #c1 {
+      --animation-delay: 0.0s;
+      transform-origin: 5px 20px;
+    }
+    #c2 {
+      --animation-delay: 0.2s;
+      transform-origin: 17px 20px;
+    }
+    #c3 {
+      --animation-delay: 0.4s;
+      transform-origin: 29px 20px;
+    }
+    .bounce {
+      -webkit-animation-name: bounce;
+              animation-name: bounce;
+      -webkit-animation-delay: var(--animation-delay, 0s);
+              animation-delay: var(--animation-delay, 0s);
+      -webkit-animation-direction: var(--animation-direction, normal);
+              animation-direction: var(--animation-direction, normal);
+      -webkit-animation-duration: var(--animation-duration, 1s);
+              animation-duration: var(--animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--animation-iteration-count, infinite);
+              animation-iteration-count: var(--animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+              animation-timing-function: var(--animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+    }
+    @keyframes bounce {
+      0% {
+        -webkit-transform: scale(1, 1) translateY(0);
+        transform: scale(1, 1) translateY(0);
+      }
+      10% {
+        -webkit-transform: scale(1.1, 0.9) translateY(0);
+        transform: scale(1.1, 0.9) translateY(0);
+      }
+      30% {
+        -webkit-transform: scale(0.9, 1.1) translateY(-0.5em);
+        transform: scale(0.9, 1.1) translateY(-0.5em);
+      }
+      50% {
+        -webkit-transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95)) translateY(0);
+    transform: scale(var(--bounce-land-scale-x, 1.05), var(--bounce-land-scale-y, 0.95)) translateY(0);
+      }
+      57% {
+        -webkit-transform: scale(1, 1) translateY(var(--bounce-rebound, -0.125em));
+        transform: scale(1, 1) translateY(var(--bounce-rebound, -0.125em));
+      }
+      64% {
+        -webkit-transform: scale(1, 1) translateY(0);
+        transform: scale(1, 1) translateY(0);
+      }
+      100% {
+        -webkit-transform: scale(1, 1) translateY(0);
+        transform: scale(1, 1) translateY(0);
+    }
+
+  </style>
+
+  <circle cx="5" cy="20" r="5" fill="currentColor" id="c1" class="bounce"></circle>
+  <circle cx="17" cy="20" r="5" fill="currentColor" id="c2" class="bounce"></circle>
+  <circle cx="29" cy="20" r="5" fill="currentColor" id="c3" class="bounce"></circle>
+</svg>

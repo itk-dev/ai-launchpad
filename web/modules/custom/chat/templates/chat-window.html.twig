@@ -1,12 +1,71 @@
 {% set classes = ['chat-window', ui.buttons ? 'hidden' : ''] %}
 
+<style>
+  .chat-window {
+    --border: 1px solid #ccc;
+    --spacing: 8px;
+    --rounded-corners: 2px;
+
+    background: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 420px;
+    border: var(--border);
+    padding: var(--spacing);
+    border-radius: var(--rounded-corners);
+  }
+  .chat-window header {
+    display: flex;
+    gap: 4px;
+  }
+  .chat-window header select,
+  .chat-window header button {
+    flex: 0 1 auto;
+    border: var(--border);
+    padding: 2px 4px;
+    height: 30px;
+    border-radius: var(--rounded-corners);
+  }
+  .chat-window header div {
+    margin-left: auto;
+  }
+  .chat-window main {
+    height: 400px;
+    width: 100%;
+    padding-top: var(--spacing);
+    margin-top: var(--spacing);
+    border-top: var(--border);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 8px;
+  }
+  .chat-window footer textarea {
+    width: 100%;
+    border: var(--border);
+    border-radius: var(--rounded-corners);
+  }
+  .chat-message {
+    background-color: #eee;
+    border-radius: var(--rounded-corners);
+    padding: 2px 4px;
+    display: inline-block;
+  }
+  .chat-message-container-you{
+    text-align: right;
+    align-self: end;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+
 <div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
   <header>
-    <div class="logo" style="float: left;padding-right: 8px;padding-top: 8px">
-      <i class="fa-solid fa-robot text-secondary"></i>
-    </div>
     {% if ui.models %}
-      <select name="models" id="models" class="btn-default">
+      <select name="models" id="models">
         <option value="">{{ 'Select a Language Model'|t }}</option>
         {% for item in ui.models %}
           <option value="{{ item }}">{{ item }}</option>
@@ -15,15 +74,17 @@
     {% endif %}
     {{ include('@chat/chat-btn-reset.html.twig') }}
     {% if ui.buttons %}
-      <div style="float: right">
+      <div>
         {{ include('@chat/chat-btn-minimize.html.twig') }}
         {{ include('@chat/chat-btn-close.html.twig') }}
       </div>
     {% endif %}
   </header>
-  <main style="height: 400px;width: 100%;padding: 8px;border: 1px solid;overflow-y: scroll">
+  <main>
     <!-- Chat messages -->
   </main>
-  <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message"></i><span>Start din dialog</span></span></label>
-  <textarea id="inputMessage" style="width: 100%;" rows="4"></textarea>
+  <footer>
+    <label for="inputMessage">Start din dialog</label>
+    <textarea id="inputMessage" rows="4"></textarea>
+  </footer>
 </div>
