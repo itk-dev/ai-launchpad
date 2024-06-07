@@ -1,8 +1,6 @@
 (function (Drupal, once) {
-
   const BOT = 'bot';
   const USER = 'you'
-
 
   /**
    * Returns the current time in HH:mm format.
@@ -82,9 +80,9 @@
     let time = getCurrentTime();
     let content = `
       <div class="chat-message-container-${type}">
-        <div class="text-secondary">
-          <span>${label}</span>
-          <span class="time">${time}</span>
+        <div class="chat-message-info">
+          <span class="chat-message-info-type">${label}</span>
+          <span class="chat-message-info-time">${time}</span>
         </div>
         <p id="${id}" class="chat-message chat-message-variant-${type}">
           ${message}

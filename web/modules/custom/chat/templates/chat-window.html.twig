@@ -2,20 +2,63 @@
 
 <style>
   .chat-window {
+    --border: 1px solid #ccc;
+    --spacing: 8px;
+    --rounded-corners: 2px;
+
     background: white;
     position: fixed;
     bottom: 0;
     right: 0;
+    width: 420px;
+    border: var(--border);
+    padding: var(--spacing);
+    border-radius: var(--rounded-corners);
+  }
+  .chat-window header {
+    display: flex;
+    gap: 4px;
+  }
+  .chat-window header select,
+  .chat-window header button {
+    flex: 0 1 auto;
+    border: var(--border);
+    padding: 2px 4px;
+    height: 30px;
+    border-radius: var(--rounded-corners);
+  }
+  .chat-window header div {
+    margin-left: auto;
   }
   .chat-window main {
     height: 400px;
     width: 100%;
-    padding: 8px;
-    border: 1px solid;
-    overflow-y: scroll
+    padding-top: var(--spacing);
+    margin-top: var(--spacing);
+    border-top: var(--border);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 8px;
   }
-  .chat-window textarea {
+  .chat-window footer textarea {
     width: 100%;
+    border: var(--border);
+    border-radius: var(--rounded-corners);
+  }
+  .chat-message {
+    background-color: #eee;
+    border-radius: var(--rounded-corners);
+    padding: 2px 4px;
+    display: inline-block;
+  }
+  .chat-message-container-you{
+    text-align: right;
+    align-self: end;
+  }
+  .hidden {
+    display: none;
   }
 </style>
 
@@ -31,7 +74,7 @@
     {% endif %}
     {{ include('@chat/chat-btn-reset.html.twig') }}
     {% if ui.buttons %}
-      <div style="float: right">
+      <div>
         {{ include('@chat/chat-btn-minimize.html.twig') }}
         {{ include('@chat/chat-btn-close.html.twig') }}
       </div>

@@ -68,8 +68,8 @@
   .chat-message-variant-info {
     @apply min-h-9 content-center text-secondary;
   }
-  .chat-message-info {
-    @apply mr-1 font-bold capitalize;
+  .chat-message-info-type {
+    @apply font-semibold capitalize;
   }
 
 }
