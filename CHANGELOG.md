@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-12](https://github.com/itk-dev/ai-launchpad/pull/12)
+  Styling for chat module
 - [PR-10](https://github.com/itk-dev/ai-launchpad/pull/10)
   Classes for chat messages
 - [PR-9](https://github.com/itk-dev/ai-launchpad/pull/9)
