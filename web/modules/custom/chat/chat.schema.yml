@@ -20,3 +20,12 @@ block.settings.chat:
     top_p:
       type: float
       label: 'Set model top-p value'
+    context_expire:
+      type: int
+      label: 'Set context expire time in seconds'
+    context_length:
+      type: int
+      label: 'Length of context in number of max messages in payload'
+    ui:
+      type: array
+      label: 'User interface configuration'

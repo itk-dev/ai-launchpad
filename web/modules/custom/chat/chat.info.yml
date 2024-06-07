@@ -5,3 +5,6 @@ core_version_requirement: ^10
 dependencies:
   - block:block
   - llm_services:llm_services
+twig:
+  paths:
+    - templates

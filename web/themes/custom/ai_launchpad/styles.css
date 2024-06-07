@@ -51,22 +51,39 @@
 
   /* Chat messages */
   .chat-message-container-you {
-    @apply flex-col items-end;
+    @apply flex gap-1 flex-col items-end;
   }
   .chat-message-container-bot {
-    @apply flex-col items-start;
+    @apply flex gap-1 flex-col items-start;
   }
   .chat-message-container-info {
-    @apply items-start;
+    @apply flex gap-1 items-start;
   }
   .chat-message-variant-you {
-    @apply flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl;
+    @apply min-h-9 content-center flex-auto rounded px-3 py-2 text-white bg-sky-700 text-right max-w-xl;
   }
   .chat-message-variant-bot {
-    @apply flex-auto rounded px-3 py-2 text-white bg-purple-700 max-w-xl;
+    @apply min-h-9 content-center flex-auto rounded px-3 py-2 text-black bg-purple-200 max-w-xl;
   }
   .chat-message-variant-info {
-    @apply text-secondary;
+    @apply min-h-9 content-center text-secondary;
+  }
+  .chat-message-info-type {
+    @apply font-semibold capitalize;
   }
 
+}
+
+.fixed {
+  position: fixed;
+}
+
+
+/*
+** To have chat aligned to bottom we do this since ´justify-content: flex-end;` breaks scrolling
+** https://stackoverflow.com/questions/36130760/use-justify-content-flex-end-and-to-have-vertical-scrollbar
+*/
+.chat-window main > :first-child {
+  margin-top: auto !important;
+  /* use !important to prevent breakage from child margin settings */
 }
