@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_page_sections
+    - field.field.node.page.field_teaser_category
+    - field.field.node.page.field_teaser_image
     - node.type.page
   module:
     - entity_reference_revisions
@@ -20,12 +22,10 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 102
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
+  field_teaser_category: true
+  field_teaser_image: true
   langcode: true
+  links: true

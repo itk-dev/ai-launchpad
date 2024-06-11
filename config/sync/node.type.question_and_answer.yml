@@ -1,0 +1,18 @@
+uuid: 0e1c209c-cbb1-4787-a5ee-fd31338b63ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Question and answer'
+type: question_and_answer
+description: 'Used to create a Question and an answer for Frequently asked questions lists'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

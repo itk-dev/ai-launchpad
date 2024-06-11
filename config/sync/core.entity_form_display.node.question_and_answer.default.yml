@@ -1,90 +1,71 @@
-uuid: cca30d3e-9149-4839-abfe-152a0e38007e
+uuid: 1a72b72e-fb80-4413-9c4e-82d359fe6496
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.field_page_sections
-    - field.field.node.page.field_teaser_category
-    - field.field.node.page.field_teaser_image
-    - node.type.page
+    - field.field.node.question_and_answer.field_answer
+    - field.field.node.question_and_answer.field_question
+    - node.type.question_and_answer
   module:
-    - media_library
-    - paragraphs
     - path
-id: node.page.default
+    - text
+id: node.question_and_answer.default
 targetEntityType: node
-bundle: page
+bundle: question_and_answer
 mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_page_sections:
-    type: paragraphs
-    weight: 9
+  field_answer:
+    type: text_textarea
+    weight: 2
     region: content
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: closed
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: modal
-      form_display_mode: default
-      default_paragraph_type: body
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        convert: '0'
-        duplicate: duplicate
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-  field_teaser_category:
-    type: options_select
-    weight: 26
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_teaser_image:
-    type: media_library_widget
-    weight: 11
+  field_question:
+    type: string_textarea
+    weight: 1
     region: content
     settings:
-      media_types: {  }
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -99,7 +80,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS

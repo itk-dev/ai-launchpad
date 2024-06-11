@@ -97,7 +97,7 @@ settings:
         startIndex: true
       multiBlock: true
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
   max_size: ''

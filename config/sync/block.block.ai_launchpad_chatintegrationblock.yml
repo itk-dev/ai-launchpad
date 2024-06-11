@@ -1,0 +1,32 @@
+uuid: 78de21db-99e0-4e0b-9fd0-be4160b5798e
+langcode: en
+status: true
+dependencies:
+  module:
+    - chat
+  theme:
+    - ai_launchpad
+id: ai_launchpad_chatintegrationblock
+theme: ai_launchpad
+region: header
+weight: -6
+provider: null
+plugin: chat_block
+settings:
+  id: chat_block
+  label: 'Chat integration block'
+  label_display: '0'
+  provider: chat
+  provider_name: ollama
+  models:
+    'llama3:latest': 'llama3:latest'
+  system_prompt: "Use the following pieces of context to answer the users question. If you don't know the answer, just say that you don't know, don't try to make up an answer."
+  temperature: '0.8'
+  top_k: '40'
+  top_p: '0.9'
+  context_expire: '3600'
+  context_length: '5'
+  ui:
+    id: jsChat
+    buttons: 1
+visibility: {  }

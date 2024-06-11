@@ -1,0 +1,19 @@
+uuid: 829a7939-d609-4709-be0b-6b04746f0410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.question_and_answer
+id: node.question_and_answer.field_question
+field_name: field_question
+entity_type: node
+bundle: question_and_answer
+label: Question
+description: 'Used for the question'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
