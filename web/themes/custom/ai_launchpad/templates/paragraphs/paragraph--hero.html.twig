@@ -3,9 +3,15 @@
     {% block content %}
       <div class="absolute top-0 left-0 right-0 bottom-0 max-w-lg mx-auto z-10 text-center flex flex-col justify-center my-9 md:my-0">
         <div class="px-3 py-16">
-          <h1 class="text-5xl font-bold mx-4 text-balance text-white">{{ elements.field_title.0['#context'].value }}</h1>
-          <p class="text-xl text-white text-balance mt-9">{{ elements.field_abstract.0['#context'].value }}</p>
-          <a class="bg-white py-2 px-4 rounded text-black inline-block mt-9" href="{{ elements.field_button.0['#url_title'] }}">{{ elements.field_button.0['#title'] }}</a>
+          {% if elements.field_title.0['#context'].value is not empty %}
+            <h1 class="text-5xl font-bold mx-4 text-balance text-white">{{ elements.field_title.0['#context'].value }}</h1>
+          {% endif %}
+          {% if elements.field_abstract.0['#context'].value is not empty %}
+            <p class="text-xl text-white text-balance mt-9">{{ elements.field_abstract.0['#context'].value }}</p>
+          {% endif %}
+          {% if elements.field_button.0['#url_title'] is not empty %}
+            <a class="bg-white py-2 px-4 rounded text-black inline-block mt-9" href="{{ elements.field_button.0['#url_title'] }}">{{ elements.field_button.0['#title'] }}</a>
+          {% endif %}
         </div>
       </div>
       <div class="absolute top-0 left-0 right-0 bottom-0 max-w-lg mx-auto h-3/6 my-auto rounded-xl bg-black blur-3xl opacity-70"></div>

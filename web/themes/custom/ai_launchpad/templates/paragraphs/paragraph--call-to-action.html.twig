@@ -2,9 +2,15 @@
   <section class="my-9 md:my-24 lg:my-32 px-3 text-center relative">
     {% block content %}
       <div class="max-w-lg mx-auto z-10">
-        <h1 class="text-4xl font-semibold mx-4 text-balance">{{ elements.field_title.0['#context'].value }}</h1>
-        <p class="text-secondary text-balance mt-9">{{ elements.field_lead.0['#context'].value }}</p>
-        <a class="bg-brand-gradient py-2 px-4 rounded text-white inline-block mt-9" href="{{ elements.field_button.0['#url_title'] }}">{{ elements.field_button.0['#title'] }}</a>
+        {% if elements.field_title.0['#context'].value is not empty %}
+          <h1 class="text-4xl font-semibold mx-4 text-balance">{{ elements.field_title.0['#context'].value }}</h1>
+        {% endif %}
+        {% if elements.field_lead.0['#context'].value is not empty %}
+          <p class="text-secondary text-balance mt-9">{{ elements.field_lead.0['#context'].value }}</p>
+        {% endif %}
+        {% if elements.field_button.0['#url_title'] is not empty %}
+          <a class="bg-brand-gradient py-2 px-4 rounded text-white inline-block mt-9" href="{{ elements.field_button.0['#url_title'] }}">{{ elements.field_button.0['#title'] }}</a>
+        {% endif %}
       </div>
       {% if paragraph.field_background_image is not empty %}
         <img class="absolute left-0 right-0 bottom-0 -z-10" style="top: 50%; transform: translate(0%, -50%);" src="{{ file_url(paragraph.field_background_image.entity.field_media_image.entity.fileuri) }}" alt="">
