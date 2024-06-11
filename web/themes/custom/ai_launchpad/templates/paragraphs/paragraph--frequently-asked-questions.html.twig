@@ -1,0 +1,10 @@
+{% block paragraph %}
+  <section class="flex flex-col gap-4 my-9 md:my-24 lg:my-32 ">
+    {{ content.field_title }}
+    {% block content %}
+      <div class="border-y border-secondary divide-y">
+        {{ content|without('field_title') }}
+      </div>
+    {% endblock %}
+  </section>
+{% endblock paragraph %}
