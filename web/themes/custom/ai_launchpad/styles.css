@@ -89,6 +89,11 @@
     @apply text-base font-normal my-1;
   }
 
+  /* Body content image */
+  p img {
+    @apply my-2;
+  }
+
 }
 
 /* Fixed position for chat window*/
