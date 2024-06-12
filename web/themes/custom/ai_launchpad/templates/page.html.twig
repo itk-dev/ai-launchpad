@@ -47,14 +47,12 @@
 #}
 {{ include(directory ~ '/templates/components/header.html.twig') }}
 
-<div class="container mx-auto px-3 md:px-8">
+<div class="">
 
   <main role="main" class="">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="py-3 md:py-8">
-      {{ page.content }}
-    </div>{# /.layout-content #}
+    {{ page.content }}
 
   </main>
 

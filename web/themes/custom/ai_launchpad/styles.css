@@ -72,12 +72,51 @@
     @apply font-semibold capitalize;
   }
 
+  /* Common typography */
+  h2 {
+    @apply text-2xl font-semibold my-5;
+  }
+  h3 {
+    @apply text-xl font-semibold my-4;
+  }
+  h4 {
+    @apply text-lg font-semibold my-3;
+  }
+  h5 {
+    @apply text-base font-semibold my-2;
+  }
+  h6 {
+    @apply text-base font-normal my-1;
+  }
+
+  /* Body content image */
+  p img {
+    @apply my-2;
+  }
+
 }
 
+/* Fixed position for chat window*/
 .fixed {
   position: fixed;
 }
 
+/* Text with color gradient */
+.text-brand-gradient {
+  color: #6B21A8;
+  background-image:
+  -webkit-linear-gradient(0deg, #6B21A8 27%, #1D4ED8 58%, #0F766E 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button with color gradient */
+.bg-brand-gradient {
+  border-radius: 4px;
+  background: conic-gradient(from 155deg at 40.34% 96.67%, rgba(0, 0, 0, 0.00) 230.58232069015503deg, rgba(0, 0, 0, 0.55) 230.62508583068848deg), linear-gradient(91deg, #6B21A8 26.88%, #1D4ED8 57.74%, #0F766E 84.12%);
+}
 
 /*
 ** To have chat aligned to bottom we do this since ´justify-content: flex-end;` breaks scrolling
@@ -87,3 +126,4 @@
   margin-top: auto !important;
   /* use !important to prevent breakage from child margin settings */
 }
+

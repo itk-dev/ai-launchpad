@@ -1,0 +1,38 @@
+uuid: 85104476-86b6-4de5-8392-144ddac0d846
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.introduction.field_abstract
+    - field.field.paragraph.introduction.field_lead
+    - field.field.paragraph.introduction.field_title
+    - paragraphs.paragraphs_type.introduction
+id: paragraph.introduction.default
+targetEntityType: paragraph
+bundle: introduction
+mode: default
+content:
+  field_abstract:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_lead:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

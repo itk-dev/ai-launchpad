@@ -1,0 +1,31 @@
+uuid: 7e9932e7-55b5-4bef-8a58-e6ca7fcbe82d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.frequently_asked_questions.field_questions_and_answers
+    - field.field.paragraph.frequently_asked_questions.field_title
+    - paragraphs.paragraphs_type.frequently_asked_questions
+id: paragraph.frequently_asked_questions.default
+targetEntityType: paragraph
+bundle: frequently_asked_questions
+mode: default
+content:
+  field_questions_and_answers:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

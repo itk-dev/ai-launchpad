@@ -1,0 +1,11 @@
+{% block paragraph %}
+  <section class="max-w-3xl mx-auto my-9 md:my-24 lg:my-32 text-center px-3">
+    {{ content.field_lead }}
+    <h1 class="text-4xl font-semibold mb-7 text-balance">{{ elements.field_title.0['#context'].value }}</h1>
+    {{ content.field_abstract }}
+
+    {% block content %}
+      {{ content|without('field_lead', 'field_title', 'field_abstract') }}
+    {% endblock %}
+  </section>
+{% endblock paragraph %}

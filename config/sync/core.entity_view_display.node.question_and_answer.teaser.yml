@@ -1,0 +1,25 @@
+uuid: 77a0f0c3-d54a-4935-8273-91c80b7901b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.question_and_answer.field_answer
+    - field.field.node.question_and_answer.field_question
+    - node.type.question_and_answer
+  module:
+    - user
+id: node.question_and_answer.teaser
+targetEntityType: node
+bundle: question_and_answer
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_answer: true
+  field_question: true
+  langcode: true

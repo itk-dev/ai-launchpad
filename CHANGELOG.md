@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-11](https://github.com/itk-dev/ai-launchpad/pull/11)
+  Paragraph templates: Hero, Faq, Cta, Introduction, Content list
 - [PR-12](https://github.com/itk-dev/ai-launchpad/pull/12)
   Styling for chat module
 - [PR-10](https://github.com/itk-dev/ai-launchpad/pull/10)

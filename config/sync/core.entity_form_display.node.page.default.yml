@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_page_sections
+    - field.field.node.page.field_teaser_category
+    - field.field.node.page.field_teaser_image
     - node.type.page
   module:
+    - media_library
     - paragraphs
     - path
 id: node.page.default
@@ -15,13 +18,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_page_sections:
     type: paragraphs
-    weight: 122
+    weight: 9
     region: content
     settings:
       title: Paragraph
@@ -39,6 +42,19 @@ content:
         convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
+  field_teaser_category:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_teaser_image:
+    type: media_library_widget
+    weight: 11
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -48,34 +64,34 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -83,7 +99,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS

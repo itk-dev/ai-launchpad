@@ -1,0 +1,25 @@
+uuid: c3695c5a-ce69-4f3f-beaa-a49dd3d5c20c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_list.field_content_items
+    - paragraphs.paragraphs_type.content_list
+id: paragraph.content_list.default
+targetEntityType: paragraph
+bundle: content_list
+mode: default
+content:
+  field_content_items:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,24 @@
+uuid: a2969331-4784-4d64-ac31-1dc3436e0a3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_answer
+    - filter.format.body_content
+    - node.type.question_and_answer
+  module:
+    - text
+id: node.question_and_answer.field_answer
+field_name: field_answer
+entity_type: node
+bundle: question_and_answer
+label: Answer
+description: 'Used for the answer'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - body_content
+field_type: text_long

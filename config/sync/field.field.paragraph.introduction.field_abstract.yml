@@ -1,0 +1,19 @@
+uuid: 25f4d3f7-1f13-4015-beca-f77d8714b737
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_abstract
+    - paragraphs.paragraphs_type.introduction
+id: paragraph.introduction.field_abstract
+field_name: field_abstract
+entity_type: paragraph
+bundle: introduction
+label: Abstract
+description: 'Used to quickly introduce the overall article content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
