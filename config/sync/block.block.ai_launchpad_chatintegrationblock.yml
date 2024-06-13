@@ -19,6 +19,7 @@ settings:
   provider: chat
   provider_name: ollama
   models:
+    'llama2:latest': 'llama2:latest'
     'llama3:latest': 'llama3:latest'
   system_prompt: "Use the following pieces of context to answer the users question. If you don't know the answer, just say that you don't know, don't try to make up an answer."
   temperature: '0.8'
@@ -29,4 +30,5 @@ settings:
   ui:
     id: jsChat
     buttons: 1
+    preferred: 'llama3:latest'
 visibility: {  }
