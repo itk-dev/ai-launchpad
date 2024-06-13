@@ -215,7 +215,7 @@
             // field).
             let msgId = addMessage(output, Drupal.t('bot'), waiterTemplate(settings.waiter_svg), BOT)
             output.scrollTop = output.scrollHeight;
-            
+
             // Clear inout and toggle text area to prevent more input.
             cleanInput(input);
             toggleDisableUI(chatWindow);

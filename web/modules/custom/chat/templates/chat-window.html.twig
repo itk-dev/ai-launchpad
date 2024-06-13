@@ -67,8 +67,8 @@
     {% if ui.models %}
       <select name="models" id="models">
         <option value="">{{ 'Select a Language Model'|t }}</option>
-        {% for item in ui.models %}
-          <option value="{{ item }}">{{ item }}</option>
+        {% for key, item in ui.models %}
+          <option value="{{ key }}"{% if key == ui.preferred %} selected{% endif %}>{{ item }}</option>
         {% endfor %}
       </select>
     {% endif %}
