@@ -1,6 +1,6 @@
 services:
-  model:
-    image: ollama/ollama:0.1.38
+  ollama:
+    image: ollama/ollama:0.1.44
     networks:
       - app
     extra_hosts:
