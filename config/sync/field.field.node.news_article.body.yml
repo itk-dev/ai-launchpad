@@ -1,0 +1,24 @@
+uuid: 8ed73ea7-c150-41a5-b141-80358c2eade8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.news_article
+  module:
+    - text
+id: node.news_article.body
+field_name: body
+entity_type: node
+bundle: news_article
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

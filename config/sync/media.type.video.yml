@@ -1,0 +1,13 @@
+uuid: fba209a3-f86a-4123-98a1-6850f9dcc749
+langcode: en
+status: true
+dependencies: {  }
+id: video
+label: Video
+description: ''
+source: video_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_video_file
+field_map: {  }
