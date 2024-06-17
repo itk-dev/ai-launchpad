@@ -60,12 +60,19 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function build(): array {
     $streamUrl = Url::fromRoute('chat.stream');
     $resetUrl = Url::fromRoute('chat.reset');
+
+    $models = array_map(function ($name) {
+      $parts = explode(':', $name);
+      return reset($parts);
+    }, $this->configuration['models']);
+
     return [
       '#theme' => 'chat',
       '#ui' => [
         'id' => $this->configuration['ui']['id'],
         'buttons' => $this->configuration['ui']['buttons'],
-        'models' => $this->configuration['models'],
+        'preferred' => $this->configuration['ui']['preferred'],
+        'models' => $models,
       ],
       '#attached' => [
         'library' => [
@@ -106,6 +113,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'ui' => [
         'id' => 'jsChat',
         'buttons' => FALSE,
+        'preferred' => '',
       ],
     ];
   }
@@ -119,7 +127,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function blockForm($form, FormStateInterface $form_state): array {
 
     $plugins = $this->providerManager->getDefinitions();
-    $options = array_map(function ($plugin) {
+    $models = array_map(function ($plugin) {
       /** @var \Drupal\Core\StringTranslation\TranslatableMarkup $title */
       $title = $plugin['title'];
       return $title->render();
@@ -135,23 +143,23 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#type' => 'select',
       '#title' => $this->t('Model provider'),
       '#description' => $this->t('Select the provider of models. Note if changed please save and edit this block once more to update model list below.'),
-      '#options' => $options,
+      '#options' => $models,
       '#default_value' => $this->configuration['provider_name'],
       '#required' => TRUE,
     ];
 
     $provider = $this->providerManager->createInstance($this->configuration['provider_name']);
     $models = $provider->listModels();
-    $options = array_map(function ($model) {
+    $models = array_map(function ($model) {
       return sprintf('%s (%s)', $model['name'], $model['modified']);
     }, $models);
-    ksort($options);
+    ksort($models);
 
     $form['chat']['models'] = [
       '#type' => 'select',
       '#title' => $this->t('Models'),
       '#description' => $this->t('Select the models this chat should use'),
-      '#options' => $options,
+      '#options' => $models,
       '#multiple' => TRUE,
       '#default_value' => $this->configuration['models'],
       '#required' => TRUE,
@@ -176,6 +184,15 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#title' => $this->t('Chat ID'),
       '#description' => $this->t('If inserting more that one chat block. Set unique ID for the chat window here.'),
       '#default_value' => $this->configuration['ui']['id'],
+    ];
+
+    $form['ui']['preferred'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Preferred model'),
+      '#description' => $this->t('The default pre-selected/preferred model'),
+      '#options' => $models,
+      '#default_value' => $this->configuration['ui']['preferred'],
+      '#required' => TRUE,
     ];
 
     $form['ui']['buttons'] = [
@@ -266,6 +283,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['context_length'] = $values['tune']['context_length'];
     $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
     $this->configuration['ui']['id'] = $values['ui']['id'];
+    $this->configuration['ui']['preferred'] = $values['ui']['preferred'];
   }
 
 }
