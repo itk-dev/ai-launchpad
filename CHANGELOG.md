@@ -10,6 +10,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 - [PR-14](https://github.com/itk-dev/ai-launchpad/pull/14)
    Added a new domain registration module and configuration.
+   Updated Drupal core.
 - [PR-13](https://github.com/itk-dev/ai-launchpad/pull/13)
   Added preferred model (per-selected model in chat UI).
 - [PR-11](https://github.com/itk-dev/ai-launchpad/pull/11)
