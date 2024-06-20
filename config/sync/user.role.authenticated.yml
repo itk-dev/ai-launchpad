@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - chat
     - media
     - system
 _core:
@@ -12,5 +13,6 @@ label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
+  - 'access chat'
   - 'access content'
   - 'view media'

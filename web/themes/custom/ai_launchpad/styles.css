@@ -37,6 +37,9 @@
   }
 
   /* Define common buttons */
+  .btn-primary {
+    @apply border border-brand bg-brand text-white rounded px-3 py-2 min-h-9 hover:bg-teal-700 hover:dark:bg-teal-600;
+  }
   .btn-default {
     @apply border border-secondary bg-secondary text-secondary rounded px-3 py-2 min-h-9 hover:bg-stone-200 hover:dark:bg-stone-800;
   }
@@ -92,6 +95,11 @@
   /* Body content image */
   p img {
     @apply my-2;
+  }
+
+  /* Forms */
+  form .description {
+    @apply text-secondary;
   }
 
 }
