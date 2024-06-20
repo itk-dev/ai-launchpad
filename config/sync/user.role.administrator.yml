@@ -1,0 +1,12 @@
+uuid: 5b7097f7-cea7-41b8-b04b-f00c07524582
+langcode: en
+status: true
+dependencies:
+  module:
+    - domain_registration
+id: administrator
+label: Administrator
+weight: 2
+is_admin: null
+permissions:
+  - 'administer domain registration'
