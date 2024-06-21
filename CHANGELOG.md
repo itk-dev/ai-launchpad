@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-16](https://github.com/itk-dev/ai-launchpad/pull/16)
+  Styling for login and register page
 - [PR-14](https://github.com/itk-dev/ai-launchpad/pull/14)
    Added a new domain registration module and configuration.
    Updated Drupal core.
