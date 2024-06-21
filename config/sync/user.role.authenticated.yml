@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - chat
+    - contextual
     - media
     - system
 _core:
@@ -15,4 +16,6 @@ is_admin: false
 permissions:
   - 'access chat'
   - 'access content'
+  - 'access contextual links'
+  - 'change own username'
   - 'view media'

@@ -1,4 +1,4 @@
-uuid: 5b7097f7-cea7-41b8-b04b-f00c07524582
+uuid: e0025b92-2b9e-4177-b5d3-b32d210bf0c3
 langcode: en
 status: true
 dependencies:
@@ -8,16 +8,12 @@ dependencies:
     - node.type.page
     - node.type.question_and_answer
   module:
-    - block
     - config_translation
     - content_translation
-    - domain_registration
     - file
     - filter
-    - image
     - locale
     - media
-    - menu_link_attributes
     - node
     - paragraphs
     - path
@@ -25,9 +21,9 @@ dependencies:
     - system
     - toolbar
     - views_ui
-id: administrator
-label: Administrator
-weight: 2
+id: editor
+label: Editor
+weight: 3
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -38,19 +34,9 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access user profiles'
-  - 'administer blocks'
   - 'administer content types'
-  - 'administer domain registration'
-  - 'administer filters'
-  - 'administer image styles'
-  - 'administer media'
-  - 'administer media types'
   - 'administer menu'
-  - 'administer menu link attributes'
   - 'administer nodes'
-  - 'administer paragraphs settings'
-  - 'administer paragraphs types'
-  - 'administer shortcuts'
   - 'administer url aliases'
   - 'administer views'
   - 'bypass node access'
@@ -61,14 +47,12 @@ permissions:
   - 'create page content'
   - 'create question_and_answer content'
   - 'create url aliases'
-  - 'customize shortcut links'
   - 'delete all revisions'
   - 'delete any file'
-  - 'delete any image media'
-  - 'delete any image media revisions'
   - 'delete any media'
   - 'delete any page content'
   - 'delete any question_and_answer content'
+  - 'delete content translations'
   - 'delete media'
   - 'delete own files'
   - 'delete own image media'
@@ -79,26 +63,20 @@ permissions:
   - 'edit any image media'
   - 'edit any page content'
   - 'edit any question_and_answer content'
-  - 'edit behavior plugin settings'
   - 'edit own image media'
   - 'edit own page content'
   - 'edit own question_and_answer content'
   - 'revert all revisions'
-  - 'revert any image media revisions'
   - 'revert page revisions'
   - 'revert question_and_answer revisions'
-  - 'switch shortcut sets'
   - 'translate any entity'
   - 'translate configuration'
   - 'translate interface'
   - 'update any media'
   - 'update content translations'
   - 'update media'
-  - 'use menu link attributes'
   - 'use text format body_content'
-  - 'view all media revisions'
   - 'view all revisions'
-  - 'view any image media revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view question_and_answer revisions'

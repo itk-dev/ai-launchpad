@@ -4,6 +4,6 @@ method: 0
 pattern: aarhus.dk
 message: 'You are not allowed to register for this site.'
 actions: null
-form_build_id: form--jSq0g1WcMF7uCF2yNuyHjzMPWjlYmaAcY52aWGst0w
-form_token: KYekBLMIsYtRdoaGqOZjMJPJre_4sI4CpncIEnWFoVM
+form_build_id: form-n5_mT6WFTFGr6wBIoD8-P8itN5bm19JtaZcLOWTg4-M
+form_token: itP4JFR1ZYYJZN12Xm0svuNOPPQp-mR56jJjF-6JkS0
 form_id: domain_registration_admin_form
