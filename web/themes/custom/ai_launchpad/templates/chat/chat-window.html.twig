@@ -1,7 +1,7 @@
-{% set classes = ['chat-window border border-secondary p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary w-full md:w-3/5 lg:w-2/5 min-w-[470px] z-50' : 'my-4 max-w-3xl'] %}
+{% set classes = ['chat-window border border-secondary p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary w-full md:w-3/5 lg:w-2/5 md:min-w-[470px] z-50' : 'my-4 max-w-3xl'] %}
 
 <div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
-  <header class="flex items-center gap-2">
+  <header class="flex flex-wrap items-center gap-2">
     <div class="logo">
       <i class="fa-solid fa-robot text-secondary"></i>
     </div>
