@@ -99,7 +99,7 @@
 
   /* Forms */
   form .description {
-    @apply text-secondary;
+    @apply text-secondary text-sm;
   }
 
 }
