@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-18](https://github.com/itk-dev/ai-launchpad/pull/18)
+  Fixes for chat window on mobile
 - [PR-17](https://github.com/itk-dev/ai-launchpad/pull/17)
   Added "editor" role and permissions.
 - [PR-16](https://github.com/itk-dev/ai-launchpad/pull/16)
