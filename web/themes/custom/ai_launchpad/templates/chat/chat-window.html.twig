@@ -1,4 +1,4 @@
-{% set classes = ['chat-window border border-secondary p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary w-full md:w-3/5 lg:w-2/5 md:min-w-[470px] z-50' : 'my-4 max-w-3xl'] %}
+{% set classes = ['chat-window border border-secondary p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary w-full md:w-3/5 lg:w-2/5 md:min-w-[470px] z-50 max-h-screen' : 'my-4 max-w-3xl'] %}
 
 <div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
   <header class="flex flex-wrap items-center gap-2">
@@ -21,7 +21,7 @@
       </div>
     {% endif %}
   </header>
-  <main class="h-96 flex flex-col gap-2 py-4 overflow-y-scroll border-t border-secondary mt-4">
+  <main class="h-80 max-h-screen flex flex-col gap-2 py-4 overflow-y-scroll border-t border-secondary mt-4">
     <!-- Chat messages -->
   </main>
   <footer>
