@@ -7,6 +7,9 @@ services:
       - "host.docker.internal:host-gateway"
     ports:
       - "11434"
+    environment:
+      - OLLAMA_NUM_PARALLEL=12
+      - OLLAMA_MAX_LOADED_MODELS=2
     volumes:
       - ./.docker/data/ollama:/root/.ollama
     # Add support for GPU on the server.
