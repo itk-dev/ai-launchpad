@@ -27,7 +27,7 @@
    *   A unique ID string in the format 'id_{timestamp}_{random}'.
    */
   function generateUniqueID() {
-    return 'id_' + new Date().getTime() + '_' + Math.random().toString(36).substr(2, 9);
+    return 'id_' + new Date().getTime() + '_' + Math.random().toString(36).substring(2, 9);
   }
 
   /**
