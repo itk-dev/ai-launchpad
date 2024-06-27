@@ -1,6 +1,6 @@
 ollama:
-  url: 'http://ollama'
-  port: '11434'
+  url: 'http://ollama-proxy'
+  port: '8080'
   auth:
     username: ''
     password: ''
