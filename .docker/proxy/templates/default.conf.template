@@ -1,0 +1,31 @@
+upstream api {
+   # Set shared memory zone to ensure load balancing works.
+  zone backend 64k;
+
+  ${OLLAMA_BACKENDS}
+}
+
+server {
+    listen ${NGINX_PORT};
+    server_name localhost;
+
+    root ${NGINX_WEB_ROOT};
+
+    # Block access to "hidden" files and directories whose names begin with a
+    # period. This includes directories used by version control systems such
+    # as Subversion or Git to store control files.
+    location ~ (^|/)\. {
+        return 403;
+    }
+
+    location / {
+        proxy_pass http://api;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    error_log /dev/stderr;
+    access_log /dev/stdout main;
+}
