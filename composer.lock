@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13e466b7bd4dd3cc3eadf6857dc44dca",
+    "content-hash": "f008d64c95b468a253e190a9b0b16b9b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2882,16 +2882,16 @@
         },
         {
             "name": "itkdev/llm_services",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itk-dev/llm_services.git",
-                "reference": "cff0680956982d740752b5550c12a8a004a306c3"
+                "reference": "2857d018147969596ee46966f04a4455a9f2097e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itk-dev/llm_services/zipball/cff0680956982d740752b5550c12a8a004a306c3",
-                "reference": "cff0680956982d740752b5550c12a8a004a306c3",
+                "url": "https://api.github.com/repos/itk-dev/llm_services/zipball/2857d018147969596ee46966f04a4455a9f2097e",
+                "reference": "2857d018147969596ee46966f04a4455a9f2097e",
                 "shasum": ""
             },
             "require": {
@@ -2916,9 +2916,9 @@
             ],
             "description": "Drupal large language module service integration module",
             "support": {
-                "source": "https://github.com/itk-dev/llm_services/tree/0.0.6"
+                "source": "https://github.com/itk-dev/llm_services/tree/0.0.7"
             },
-            "time": "2024-06-06T09:26:18+00:00"
+            "time": "2024-07-04T10:13:19+00:00"
         },
         {
             "name": "league/container",
