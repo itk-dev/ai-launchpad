@@ -22,6 +22,13 @@ services:
       - "HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}"
     volumes:
       - ./.docker/data/vllm/:/root/.cache/huggingface:rw
+    # Add support for GPU on the server.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
 
   ollama:
     image: ollama/ollama:0.1.44
