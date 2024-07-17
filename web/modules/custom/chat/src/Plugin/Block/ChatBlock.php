@@ -127,7 +127,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function blockForm($form, FormStateInterface $form_state): array {
 
     $plugins = $this->providerManager->getDefinitions();
-    $models = array_map(function ($plugin) {
+    $providers = array_map(function ($plugin) {
       /** @var \Drupal\Core\StringTranslation\TranslatableMarkup $title */
       $title = $plugin['title'];
       return $title->render();
@@ -143,7 +143,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#type' => 'select',
       '#title' => $this->t('Model provider'),
       '#description' => $this->t('Select the provider of models. Note if changed please save and edit this block once more to update model list below.'),
-      '#options' => $models,
+      '#options' => $providers,
       '#default_value' => $this->configuration['provider_name'],
       '#required' => TRUE,
     ];
@@ -155,11 +155,19 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     }, $models);
     ksort($models);
 
+    // Drupal do not allow keys used in config to contain dots, but module names
+    // may contain dots.
+    $fixedModels = [];
+    foreach ($models as $key => $value) {
+      $newKey = str_replace('.', '_', $key);
+      $fixedModels[$newKey] = $value;
+    }
+
     $form['chat']['models'] = [
       '#type' => 'select',
       '#title' => $this->t('Models'),
       '#description' => $this->t('Select the models this chat should use'),
-      '#options' => $models,
+      '#options' => $fixedModels,
       '#multiple' => TRUE,
       '#default_value' => $this->configuration['models'],
       '#required' => TRUE,
@@ -190,7 +198,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#type' => 'select',
       '#title' => $this->t('Preferred model'),
       '#description' => $this->t('The default pre-selected/preferred model'),
-      '#options' => $models,
+      '#options' => $fixedModels,
       '#default_value' => $this->configuration['ui']['preferred'],
       '#required' => TRUE,
     ];
