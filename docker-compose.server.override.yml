@@ -13,6 +13,7 @@ services:
   vllm:
     image: vllm/vllm-openai
     command: "--model ${VLLM_MODEL:-facebook/opt-125m} ${VLLM_OPTIONS:-''}"
+    shm_size: "${SHM_SIZE:-8gb}"
     networks:
       - app
     ports:
