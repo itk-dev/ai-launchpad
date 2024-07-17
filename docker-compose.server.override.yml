@@ -1,5 +1,5 @@
 services:
-  ollama-proxy:
+  llm-proxy:
     image: haproxytech/haproxy-alpine:3.0
     networks:
       - app
@@ -9,6 +9,18 @@ services:
       - ollama
     volumes:
       - ./.docker/proxy/:/usr/local/etc/haproxy:ro
+
+  vllm:
+    image: vllm/vllm-openai
+    command: "--model ${VLLM_MODEL:-facebook/opt-125m}"
+    networks:
+      - app
+    ports:
+      - "8000"
+    environment:
+      - "HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}"
+    volumes:
+      - ./.docker/data/vllm/:/root/.cache/huggingface:rw
 
   ollama:
     image: ollama/ollama:0.1.44
