@@ -22,6 +22,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * Special char used to encode/decode model names.
+   *
+   * @var string
+   */
+  private string $modelEncoderChar = '¤';
+
+  /**
    * Constructs a new MyCustomBlock object.
    *
    * @param array $configuration
@@ -72,7 +79,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
         'id' => $this->configuration['ui']['id'],
         'buttons' => $this->configuration['ui']['buttons'],
         'preferred' => $this->configuration['ui']['preferred'],
-        'models' => $models,
+        'models' => $this->decodeModelNames($models),
       ],
       '#attached' => [
         'library' => [
@@ -155,19 +162,11 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     }, $models);
     ksort($models);
 
-    // Drupal do not allow keys used in config to contain dots, but module names
-    // may contain dots.
-    $fixedModels = [];
-    foreach ($models as $key => $value) {
-      $newKey = str_replace('.', '_', $key);
-      $fixedModels[$newKey] = $value;
-    }
-
     $form['chat']['models'] = [
       '#type' => 'select',
       '#title' => $this->t('Models'),
       '#description' => $this->t('Select the models this chat should use'),
-      '#options' => $fixedModels,
+      '#options' => $models,
       '#multiple' => TRUE,
       '#default_value' => $this->configuration['models'],
       '#required' => TRUE,
@@ -198,7 +197,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#type' => 'select',
       '#title' => $this->t('Preferred model'),
       '#description' => $this->t('The default pre-selected/preferred model'),
-      '#options' => $fixedModels,
+      '#options' => $models,
       '#default_value' => $this->configuration['ui']['preferred'],
       '#required' => TRUE,
     ];
@@ -282,7 +281,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function blockSubmit($form, FormStateInterface $form_state): void {
     $values = $form_state->getValues();
     $this->configuration['provider_name'] = $values['chat']['provider_name'];
-    $this->configuration['models'] = $values['chat']['models'];
+    $this->configuration['models'] = $this->encodeModelNames($values['chat']['models']);
     $this->configuration['system_prompt'] = $values['chat']['system_prompt'];
     $this->configuration['temperature'] = $values['tune']['temperature'];
     $this->configuration['top_k'] = $values['tune']['top_k'];
@@ -292,6 +291,45 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
     $this->configuration['ui']['id'] = $values['ui']['id'];
     $this->configuration['ui']['preferred'] = $values['ui']['preferred'];
+  }
+
+  /**
+   * Encode module names.
+   *
+   * Drupal does not allow dots in configuration keys when storing arrays. So
+   * this will fix that issue.
+   *
+   * @param array<string, string> $models
+   *   Name of the models.
+   *
+   * @return array<string, string>
+   *   Models array with encoded keys.
+   */
+  private function encodeModelNames(array $models): array {
+    $encoded = [];
+    foreach ($models as $model) {
+      $encoded[str_replace('.', $this->modelEncoderChar, $model)] = $model;
+    }
+
+    return $encoded;
+  }
+
+  /**
+   * Decodes the model names.
+   *
+   * @param array $models
+   *   The array of models to decode.
+   *
+   * @return array
+   *   The decoded model names.
+   */
+  private function decodeModelNames(array $models): array {
+    $encoded = [];
+    foreach ($models as $model) {
+      $encoded[str_replace($this->modelEncoderChar, '.', $model)] = $model;
+    }
+
+    return $encoded;
   }
 
 }
