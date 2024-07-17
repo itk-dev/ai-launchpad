@@ -28,7 +28,7 @@
         "drupal/symfony_mailer": "^1.4",
         "drupal/twig_tweak": "^3.3",
         "drush/drush": "^12.5",
-        "itkdev/llm_services": "^0.0.7"
+        "itkdev/llm_services": "^0.0.8"
     },
     "require-dev": {
         "drupal/coder": "^8.3",
