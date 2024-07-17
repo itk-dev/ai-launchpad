@@ -68,18 +68,13 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $streamUrl = Url::fromRoute('chat.stream');
     $resetUrl = Url::fromRoute('chat.reset');
 
-    $models = array_map(function ($name) {
-      $parts = explode(':', $name);
-      return reset($parts);
-    }, $this->configuration['models']);
-
     return [
       '#theme' => 'chat',
       '#ui' => [
         'id' => $this->configuration['ui']['id'],
         'buttons' => $this->configuration['ui']['buttons'],
         'preferred' => $this->configuration['ui']['preferred'],
-        'models' => $this->decodeModelNames($models),
+        'models' => $this->decodeModelNames($this->configuration['models']),
       ],
       '#attached' => [
         'library' => [

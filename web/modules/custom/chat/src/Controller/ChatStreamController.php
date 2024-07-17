@@ -65,8 +65,7 @@ class ChatStreamController extends ControllerBase {
     }
     else {
       $payload = new Payload();
-      $payload->setModel($data->model)
-        ->addOption('temperature', $data->temperature)
+      $payload->addOption('temperature', $data->temperature)
         ->addOption('top_k', $data->topK)
         ->addOption('top_p', $data->topP);
       $msg = new Message();
@@ -74,6 +73,9 @@ class ChatStreamController extends ControllerBase {
       $msg->content = $data->systemPrompt;
       $payload->addMessage($msg);
     }
+
+    // All-ways set model to support a switching model in the frontned.
+    $payload->setModel($data->model);
 
     // Enforce context length, number of message in the payload based on
     // configuration.
@@ -113,10 +115,6 @@ class ChatStreamController extends ControllerBase {
       },
       Response::HTTP_OK,
       headers: [
-        // For some known reason, the application type need to be json not clean
-        // text, even though we send clean text. If changed stream stops
-        // working.
-        'Content-Type' => 'application/json',
         // Ensure nginx and proxy do not cache.
         'X-Accel-Buffering' => 'no',
         // Ensure browser do not cache.

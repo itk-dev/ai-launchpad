@@ -103,11 +103,7 @@
    *   The HTML markup for the waiter animation.
    */
   function waiterTemplate(svg) {
-    return `
-      <span id="waiter">
-        <object data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg" style="display: inline-block; width: auto; height: 16px;"></object>
-      </span>
-    `
+    return `<span id="waiter">&nbsp;<object data="/${svg}" type="image/svg+xml" class="chat-message-wait-svg" style="display: inline-block; width: auto; height: 16px;"></object></span>`
   }
 
   /**
