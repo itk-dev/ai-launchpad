@@ -170,3 +170,6 @@ package-lock.json
 
 # Ignore Twig cs fixer cache
 .twig-cs-fixer.cache
+
+# Ignore server config
+.env.docker.local
