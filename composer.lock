@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8ba4c02b926f0114ce73e918630ea02",
+    "content-hash": "ac38609175a48fc114c805e870cf64d8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2882,16 +2882,16 @@
         },
         {
             "name": "itkdev/llm_services",
-            "version": "0.0.9",
+            "version": "0.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itk-dev/llm_services.git",
-                "reference": "32b973eababa1f18eb9ccec32e319e767f45edb4"
+                "reference": "713f1f56aaf8e6b49bbf60e60037c6095cc1b9a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itk-dev/llm_services/zipball/32b973eababa1f18eb9ccec32e319e767f45edb4",
-                "reference": "32b973eababa1f18eb9ccec32e319e767f45edb4",
+                "url": "https://api.github.com/repos/itk-dev/llm_services/zipball/713f1f56aaf8e6b49bbf60e60037c6095cc1b9a5",
+                "reference": "713f1f56aaf8e6b49bbf60e60037c6095cc1b9a5",
                 "shasum": ""
             },
             "require": {
@@ -2916,9 +2916,9 @@
             ],
             "description": "Drupal large language module service integration module",
             "support": {
-                "source": "https://github.com/itk-dev/llm_services/tree/0.0.9"
+                "source": "https://github.com/itk-dev/llm_services/tree/0.0.10"
             },
-            "time": "2024-07-17T13:54:22+00:00"
+            "time": "2024-07-18T10:16:53+00:00"
         },
         {
             "name": "league/container",
@@ -7805,7 +7805,9 @@
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-pcntl": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
