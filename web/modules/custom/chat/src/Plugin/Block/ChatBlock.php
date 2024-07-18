@@ -107,9 +107,9 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'provider_name' => 'ollama',
       'models' => [],
       'system_prompt' => 'Use the following pieces of context to answer the users question. If you don\'t know the answer, just say that you don\'t know, don\'t try to make up an answer.',
-      'temperature' => 0.8,
+      'temperature' => 0.2,
       'top_k' => 40,
-      'top_p' => 0.9,
+      'top_p' => 0.5,
       'context_expire' => 3600,
       'context_length' => 10,
       'ui' => [
