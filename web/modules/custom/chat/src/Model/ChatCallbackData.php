@@ -28,6 +28,8 @@ readonly class ChatCallbackData {
    *   The context expiration time.
    * @param int $contextLength
    *   The context length.
+   * @param string $cid
+   *   Cache id for chat session.
    */
   public function __construct(
     public string $provider,
@@ -39,6 +41,7 @@ readonly class ChatCallbackData {
     public float $topP,
     public int $contextExpire,
     public int $contextLength,
+    public string $cid,
   ) {
   }
 

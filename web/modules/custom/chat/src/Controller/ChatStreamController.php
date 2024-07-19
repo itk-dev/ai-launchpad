@@ -58,7 +58,7 @@ class ChatStreamController extends ControllerBase {
     $provider = $this->providerManager->createInstance($data->provider);
 
     $expire = $data->contextExpire;
-    $cid = \Drupal::service('session')->getId();
+    $cid = $data->cid;
     $cached = \Drupal::cache('chat')->get($cid);
     if ($cached) {
       $payload = $cached->data;
@@ -133,8 +133,8 @@ class ChatStreamController extends ControllerBase {
    *   Return 204 http respons.
    */
   public function reset(Request $request): Response {
-    $cid = \Drupal::service('session')->getId();
-    \Drupal::cache('chat')->delete($cid);
+    $json = json_decode($request->getContent(), associative: TRUE, flags: JSON_THROW_ON_ERROR);
+    \Drupal::cache('chat')->delete($json['cid']);
 
     return new Response('', Response::HTTP_NO_CONTENT);
   }
@@ -200,6 +200,7 @@ class ChatStreamController extends ControllerBase {
       'top_p',
       'context_expire',
       'context_length',
+      'cid',
     ];
 
     // All keys exist.
@@ -219,6 +220,7 @@ class ChatStreamController extends ControllerBase {
         topP: (float) $json['top_p'],
         contextExpire: (int) $json['context_expire'],
         contextLength: (int) $json['context_length'],
+        cid: $json['cid'],
       );
     }
     catch (\TypeError $exception) {

@@ -145,7 +145,30 @@
   }
 
   /**
-   * Attach javascript to the chat window.
+   * Retrieves the cache ID from the local storage.
+   *
+   * If the ID does not exist, generates a unique ID and stores it in the local
+   * storage.
+   *
+   * NOTE: This is a temporary hack to allow not logged-in user to have context
+   *       in chats, but this should be moved server side and kept there to
+   *       prevent session hijacking.
+   *
+   * @returns {string} - The cache ID.
+   */
+  function getCacheId() {
+    let cid = 'sessionCacheId';
+    let id = localStorage.getItem(cid);
+    if (id === null) {
+      id = generateUniqueID();
+      localStorage.setItem(cid, id);
+    }
+
+    return id;
+  }
+
+  /**
+   * Attach JavaScript to the chat window.
    *
    * @type {{attach: Drupal.behaviors.chat_behavior.attach}}
    */
@@ -200,6 +223,7 @@
             let data = Object.assign({}, payload, {
               "model": model,
               "prompt": input.value,
+              "cid": getCacheId(),
             });
 
             // Add user's chat message to the chat window and clear input.
@@ -278,7 +302,12 @@
         resetBtn.addEventListener('click', function (e) {
           e.preventDefault();
           fetch(settings.reset_path, {
-            method: 'GET',
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'cid': getCacheId()})
           })
           .then((result) => {
             cleanInput(input);
