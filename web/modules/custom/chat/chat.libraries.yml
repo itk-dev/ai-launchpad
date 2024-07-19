@@ -1,5 +1,5 @@
 chat:
-  version: 1.x
+  version: 2.x
   js:
     js/chat.js: {}
   dependencies:
