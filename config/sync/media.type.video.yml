@@ -1,10 +1,10 @@
-uuid: fba209a3-f86a-4123-98a1-6850f9dcc749
+uuid: 116a4d6b-290b-4868-99a9-58b28cc1cc7e
 langcode: en
 status: true
 dependencies: {  }
 id: video
 label: Video
-description: ''
+description: 'Used to play a video uploaded to the server'
 source: video_file
 queue_thumbnail_downloads: false
 new_revision: false

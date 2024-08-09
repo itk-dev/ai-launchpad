@@ -1,4 +1,4 @@
-uuid: db00068a-7469-46e7-be22-95c626b0d6f8
+uuid: 913b6d3d-cdbd-49ac-8bb8-c23a5201ab1f
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ mode: default
 content:
   field_media:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false

@@ -1,14 +1,14 @@
-uuid: 7ab3b845-72f8-4c6b-ac7f-08eb64e1ee17
+uuid: 49532515-7231-449b-9b98-bfdeefb9de20
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.media.field_media_oembed_video
-    - media.type.remote_video
-id: media.remote_video.field_media_oembed_video
+    - media.type.vimeo
+id: media.vimeo.field_media_oembed_video
 field_name: field_media_oembed_video
 entity_type: media
-bundle: remote_video
+bundle: vimeo
 label: 'Remote video URL'
 description: ''
 required: true

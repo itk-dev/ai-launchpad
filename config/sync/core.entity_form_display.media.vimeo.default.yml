@@ -1,16 +1,16 @@
-uuid: df9846e8-cff9-4fb7-8658-27b7c8e03a05
+uuid: e8781852-dc29-4cc6-ace1-1f3fe7942cf0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_video.field_media_oembed_video
-    - media.type.remote_video
+    - field.field.media.vimeo.field_media_oembed_video
+    - media.type.vimeo
   module:
     - media
     - path
-id: media.remote_video.default
+id: media.vimeo.default
 targetEntityType: media
-bundle: remote_video
+bundle: vimeo
 mode: default
 content:
   created:

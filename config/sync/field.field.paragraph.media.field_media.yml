@@ -1,17 +1,19 @@
-uuid: 1a201b9c-879c-4a9e-9ab9-38cecb9400be
+uuid: 0c3d4e8c-76e8-4906-87c1-3e4532544e9a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_media
+    - media.type.image
     - media.type.video
+    - media.type.vimeo
     - paragraphs.paragraphs_type.media
 id: paragraph.media.field_media
 field_name: field_media
 entity_type: paragraph
 bundle: media
 label: Media
-description: 'Used to select the video file'
+description: 'Select the media to insert'
 required: false
 translatable: false
 default_value: {  }
@@ -20,10 +22,12 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
+      image: image
       video: video
+      vimeo: vimeo
     sort:
-      field: _none
+      field: changed
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: image
 field_type: entity_reference

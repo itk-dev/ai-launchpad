@@ -1,4 +1,4 @@
-uuid: 29fb8987-aa95-49e1-b46d-eb67a43debc5
+uuid: 48de650b-8f07-45d1-95b0-2e1c3137d285
 langcode: en
 status: true
 dependencies:
@@ -20,9 +20,9 @@ content:
       autoplay: false
       loop: false
       multiple_file_display_type: tags
-      muted: false
-      width: 640
-      height: 480
+      muted: true
+      width: 768
+      height: 576
     third_party_settings: {  }
     weight: 0
     region: content

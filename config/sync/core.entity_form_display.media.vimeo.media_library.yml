@@ -1,14 +1,14 @@
-uuid: e10f9f1b-80b6-4a25-a4ac-a4feddbd6183
+uuid: 66960f39-90e2-4566-b69f-61462931b28d
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
-    - field.field.media.remote_video.field_media_oembed_video
-    - media.type.remote_video
-id: media.remote_video.media_library
+    - field.field.media.vimeo.field_media_oembed_video
+    - media.type.vimeo
+id: media.vimeo.media_library
 targetEntityType: media
-bundle: remote_video
+bundle: vimeo
 mode: media_library
 content:
   name:
