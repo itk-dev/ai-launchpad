@@ -1,6 +1,7 @@
 services:
   llm-proxy:
     image: haproxytech/haproxy-alpine:3.0
+    restart: unless-stopped
     networks:
       - app
     ports:
@@ -12,6 +13,7 @@ services:
 
   vllm:
     image: vllm/vllm-openai
+    restart: unless-stopped
     command: "--model ${VLLM_MODEL:-facebook/opt-125m} ${VLLM_OPTIONS:-''}"
     shm_size: "${SHM_SIZE:-8gb}"
     networks:
@@ -30,23 +32,25 @@ services:
             - driver: nvidia
               capabilities: [ gpu ]
 
-  ollama:
-    image: ollama/ollama:0.1.44
-    networks:
-      - app
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    ports:
-      - "11434"
-    environment:
-      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-12}
-      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
-    volumes:
-      - ./.docker/data/ollama:/root/.ollama
-    # Add support for GPU on the server.
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [ gpu ]
+## Removed for now 14/08/24 - jeskr
+#  ollama:
+#    image: ollama/ollama:0.1.44
+#    restart: unless-stopped
+#    networks:
+#      - app
+#    extra_hosts:
+#      - "host.docker.internal:host-gateway"
+#    ports:
+#      - "11434"
+#    environment:
+#      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-12}
+#      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
+#    volumes:
+#      - ./.docker/data/ollama:/root/.ollama
+#    # Add support for GPU on the server.
+#    deploy:
+#      resources:
+#        reservations:
+#          devices:
+#            - driver: nvidia
+#              capabilities: [ gpu ]
