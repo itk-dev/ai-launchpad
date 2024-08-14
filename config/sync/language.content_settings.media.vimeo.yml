@@ -1,0 +1,11 @@
+uuid: 0b2b4445-0dfe-47c9-9954-6420bf0612ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.vimeo
+id: media.vimeo
+target_entity_type_id: media
+target_bundle: vimeo
+default_langcode: site_default
+language_alterable: false

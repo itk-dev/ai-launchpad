@@ -5,6 +5,8 @@ dependencies:
   config:
     - filter.format.body_content
     - media.type.image
+    - media.type.video
+    - media.type.vimeo
     - node.type.page
     - node.type.question_and_answer
   module:
@@ -47,6 +49,8 @@ permissions:
   - 'create page content'
   - 'create question_and_answer content'
   - 'create url aliases'
+  - 'create video media'
+  - 'create vimeo media'
   - 'delete all revisions'
   - 'delete any file'
   - 'delete any media'
@@ -58,14 +62,20 @@ permissions:
   - 'delete own image media'
   - 'delete own page content'
   - 'delete own question_and_answer content'
+  - 'delete own video media'
+  - 'delete own vimeo media'
   - 'delete page revisions'
   - 'delete question_and_answer revisions'
   - 'edit any image media'
   - 'edit any page content'
   - 'edit any question_and_answer content'
+  - 'edit any video media'
+  - 'edit any vimeo media'
   - 'edit own image media'
   - 'edit own page content'
   - 'edit own question_and_answer content'
+  - 'edit own video media'
+  - 'edit own vimeo media'
   - 'revert all revisions'
   - 'revert page revisions'
   - 'revert question_and_answer revisions'
@@ -77,6 +87,8 @@ permissions:
   - 'update media'
   - 'use text format body_content'
   - 'view all revisions'
+  - 'view any video media revisions'
+  - 'view any vimeo media revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view question_and_answer revisions'
