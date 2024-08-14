@@ -1,0 +1,28 @@
+uuid: 66960f39-90e2-4566-b69f-61462931b28d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.vimeo.field_media_oembed_video
+    - media.type.vimeo
+id: media.vimeo.media_library
+targetEntityType: media
+bundle: vimeo
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_oembed_video: true
+  langcode: true
+  path: true
+  status: true
+  uid: true
