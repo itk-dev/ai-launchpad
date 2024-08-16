@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-23](https://github.com/itk-dev/ai-launchpad/pull/23)
+  Add cookie information script.
 - [PR-22](https://github.com/itk-dev/ai-launchpad/pull/22)
   Add paragraph for media. Create proper paragraph icons.
 - [PR-20](https://github.com/itk-dev/ai-launchpad/pull/20)
