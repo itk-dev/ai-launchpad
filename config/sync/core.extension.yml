@@ -9,6 +9,7 @@ module:
   config_ignore: 0
   config_translation: 0
   contextual: 0
+  cookieinformation: 0
   datetime: 0
   dblog: 0
   domain_registration: 0
