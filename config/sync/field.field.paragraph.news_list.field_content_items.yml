@@ -1,0 +1,29 @@
+uuid: ddd20eb9-0109-4024-91ff-e0d65534cd15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_items
+    - node.type.news_article
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.field_content_items
+field_name: field_content_items
+entity_type: paragraph
+bundle: news_list
+label: 'Content items'
+description: 'Used to select the articles to show'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news_article: news_article
+    sort:
+      field: status
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

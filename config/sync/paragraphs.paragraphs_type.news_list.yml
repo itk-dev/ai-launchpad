@@ -1,0 +1,10 @@
+uuid: 7c926e96-2b44-4099-aed4-277edda33ea1
+langcode: en
+status: true
+dependencies: {  }
+id: news_list
+label: 'News list'
+icon_uuid: null
+icon_default: null
+description: 'Used to insert a list of news articles'
+behavior_plugins: {  }

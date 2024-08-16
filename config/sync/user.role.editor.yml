@@ -7,6 +7,7 @@ dependencies:
     - media.type.image
     - media.type.video
     - media.type.vimeo
+    - node.type.news_article
     - node.type.page
     - node.type.question_and_answer
   module:
@@ -46,6 +47,7 @@ permissions:
   - 'create content translations'
   - 'create image media'
   - 'create media'
+  - 'create news_article content'
   - 'create page content'
   - 'create question_and_answer content'
   - 'create url aliases'
@@ -60,6 +62,7 @@ permissions:
   - 'delete media'
   - 'delete own files'
   - 'delete own image media'
+  - 'delete own news_article content'
   - 'delete own page content'
   - 'delete own question_and_answer content'
   - 'delete own video media'
@@ -67,16 +70,19 @@ permissions:
   - 'delete page revisions'
   - 'delete question_and_answer revisions'
   - 'edit any image media'
+  - 'edit any news_article content'
   - 'edit any page content'
   - 'edit any question_and_answer content'
   - 'edit any video media'
   - 'edit any vimeo media'
   - 'edit own image media'
+  - 'edit own news_article content'
   - 'edit own page content'
   - 'edit own question_and_answer content'
   - 'edit own video media'
   - 'edit own vimeo media'
   - 'revert all revisions'
+  - 'revert news_article revisions'
   - 'revert page revisions'
   - 'revert question_and_answer revisions'
   - 'translate any entity'
@@ -89,6 +95,7 @@ permissions:
   - 'view all revisions'
   - 'view any video media revisions'
   - 'view any vimeo media revisions'
+  - 'view news_article revisions'
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view question_and_answer revisions'
