@@ -83,9 +83,9 @@
           <span class="chat-message-info-type">${label}</span>
           <span class="chat-message-info-time">${time}</span>
         </div>
-        <p id="${id}" class="chat-message chat-message-variant-${type}">
+        <span id="${id}" class="chat-message chat-message-variant-${type}">
           ${message}
-        </p>
+        </span>
       </div>`;
 
     element.innerHTML += content;
@@ -131,16 +131,33 @@
    *   The id of the container element.
    * @param svg
    *   Path to wait svg file.
+   * @param markdown
+   *   True is output should be parsed as markdown else false.
    * @param {string} message
    *   The message to be appended to the element.
    *
    * @return {void}
    */
-  function appendMessage(element, id, svg, message) {
+  function appendMessage(element, id, svg, markdown, message) {
     removeMessageWaiter(element, id);
-
     let container = element.querySelector('#' + id);
-    container.innerHTML += message.replace('\n', '<br/><br/>');
+
+    if (markdown) {
+      // First store unparsed version to make parsing easier.
+      if (container.dataset.rawMessage === undefined) {
+        container.dataset.rawMessage = '';
+      }
+      container.dataset.rawMessage += message;
+
+      marked.use({
+        breaks: true,
+      });
+      container.innerHTML = DOMPurify.sanitize(marked.parse(container.dataset.rawMessage));
+    } else {
+      container.innerHTML += message;
+    }
+
+
     container.innerHTML += waiterTemplate(svg);
   }
 
@@ -190,6 +207,7 @@
           "top_p": settings.top_p,
           "context_expire": settings.context_expire,
           "context_length": settings.context_length,
+          "parse_markdown": settings.ui.parse_markdown
         }
 
         const output = chatWindow.querySelector('main');
@@ -268,7 +286,7 @@
 
                       // Decode chunk and append to HTML.
                       let data = new TextDecoder().decode(value);
-                      appendMessage(output, msgId, settings.waiter_svg, data);
+                      appendMessage(output, msgId, settings.waiter_svg, settings.ui.parse_markdown, data);
 
                       // @todo: better scroll with some animation?
                       // Follow content scroll.

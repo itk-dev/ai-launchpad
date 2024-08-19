@@ -1,0 +1,20 @@
+.chat-message a {
+  text-decoration: underline;
+}
+
+.chat-message ul {
+  list-style: initial;
+  margin: inherit;
+  padding: inherit;
+}
+
+.chat-message ol {
+  list-style: decimal;
+  margin: inherit;
+  padding: inherit;
+}
+
+.chat-message ol li, ul li {
+  margin: initial;
+  padding: initial;
+}

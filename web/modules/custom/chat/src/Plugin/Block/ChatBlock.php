@@ -5,9 +5,11 @@ namespace Drupal\chat\Plugin\Block;
 use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
+use Drupal\llm_services\Exceptions\CommunicationException;
 use Drupal\llm_services\Plugin\LLModelProviderManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -20,6 +22,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
   category: new TranslatableMarkup('LLM')
 )]
 class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
+
+  use MessengerTrait;
 
   /**
    * Special char used to encode/decode model names.
@@ -93,6 +97,9 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
             'context_expire' => $this->configuration['context_expire'],
             'context_length' => $this->configuration['context_length'],
             'waiter_svg' => \Drupal::service('extension.list.module')->getPath('chat') . '/svg/wait.svg',
+            'ui' => [
+              'parse_markdown' => $this->configuration['ui']['parse_markdown'],
+            ],
           ],
         ],
       ],
@@ -116,6 +123,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
         'id' => 'jsChat',
         'buttons' => FALSE,
         'preferred' => '',
+        'parse_markdown' => FALSE,
       ],
     ];
   }
@@ -150,13 +158,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#required' => TRUE,
     ];
 
-    $provider = $this->providerManager->createInstance($this->configuration['provider_name']);
-    $models = $provider->listModels();
-    $models = array_map(function ($model) {
-      return sprintf('%s (%s)', $model['name'], $model['modified']);
-    }, $models);
-    ksort($models);
-
+    $models = $this->getModelsFromProvider($this->configuration['provider_name']);
     $form['chat']['models'] = [
       '#type' => 'select',
       '#title' => $this->t('Models'),
@@ -164,7 +166,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#options' => $models,
       '#multiple' => TRUE,
       '#default_value' => $this->configuration['models'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['chat']['system_prompt'] = [
@@ -194,7 +196,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#description' => $this->t('The default pre-selected/preferred model'),
       '#options' => $models,
       '#default_value' => $this->configuration['ui']['preferred'],
-      '#required' => TRUE,
+      '#required' => FALSE,
     ];
 
     $form['ui']['buttons'] = [
@@ -202,6 +204,13 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#title' => $this->t('Enable minimize/close buttons'),
       '#description' => $this->t('If checked, minimize buttons will be enabled.'),
       '#default_value' => $this->configuration['ui']['buttons'],
+    ];
+
+    $form['ui']['parse_markdown'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable parsing of markdown'),
+      '#description' => $this->t('If checked, markdown returned from the LLM will be parsed (or tried to be parsed).'),
+      '#default_value' => $this->configuration['ui']['parse_markdown'],
     ];
 
     $form['tune'] = [
@@ -286,10 +295,40 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
     $this->configuration['ui']['id'] = $values['ui']['id'];
     $this->configuration['ui']['preferred'] = $values['ui']['preferred'];
+    $this->configuration['ui']['parse_markdown'] = $values['ui']['parse_markdown'];
   }
 
   /**
-   * Encode module names.
+   * Retrieves the models from a provider.
+   *
+   * @param string $providerName
+   *   The name of the provider.
+   *
+   * @return array
+   *   An array of models retrieved from the given provider. Each model is in
+   *   the format "model name (modified timestamp)".
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
+   */
+  private function getModelsFromProvider(string $providerName): array {
+    $provider = $this->providerManager->createInstance($providerName);
+    $models = [];
+    try {
+      $models = $provider->listModels();
+      $models = array_map(function ($model) {
+        return sprintf('%s (%s)', $model['name'], $model['modified']);
+      }, $models);
+    }
+    catch (CommunicationException $exception) {
+      $this->messenger()->addMessage('Error communicating with LLM: ' . $exception->getMessage());
+    }
+    ksort($models);
+
+    return $models;
+  }
+
+  /**
+   * Encode model names.
    *
    * Drupal does not allow dots in configuration keys when storing arrays. So
    * this will fix that issue.

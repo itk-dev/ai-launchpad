@@ -30,6 +30,8 @@ readonly class ChatCallbackData {
    *   The context length.
    * @param string $cid
    *   Cache id for chat session.
+   * @param bool $parseMarkdown
+   *   Use contents be parsed as Markdown.
    */
   public function __construct(
     public string $provider,
@@ -42,6 +44,7 @@ readonly class ChatCallbackData {
     public int $contextExpire,
     public int $contextLength,
     public string $cid,
+    public bool $parseMarkdown,
   ) {
   }
 

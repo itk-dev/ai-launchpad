@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-26](https://github.com/itk-dev/ai-launchpad/pull/26)
+  Added support for parsing a chat message as Markdown and covert them into HTML.
 - [PR-23](https://github.com/itk-dev/ai-launchpad/pull/23)
   Add cookie information script.
 - [PR-22](https://github.com/itk-dev/ai-launchpad/pull/22)

@@ -87,11 +87,20 @@ class ChatStreamController extends ControllerBase {
     $msg->content = $data->prompt;
     $payload->addMessage($msg);
 
+    $parseMarkdown = $data->parseMarkdown;
+
     return new StreamedResponse(
-      function () use ($provider, $payload, $cid, $expire) {
+      function () use ($provider, $payload, $cid, $expire, $parseMarkdown) {
         $message = '';
         foreach ($provider->chat($payload) as $res) {
-          echo $res->getContent();
+          if ($parseMarkdown) {
+            echo $res->getContent();
+          }
+          else {
+            // Markdown parser is not activated in the UI, so lets convert
+            // new-lines to simple line-breaks.
+            echo str_replace("\n", '<br />', $res->getContent());
+          }
 
           // To make the stream actual, well stream, we need to ensure buffers
           // are flushed. Thanks, Drupal, for that one.
@@ -99,6 +108,8 @@ class ChatStreamController extends ControllerBase {
           ob_flush();
           flush();
 
+          // Build a complete message to store in cache to enable context for
+          // the next chat message.
           $message .= $res->getContent();
           if ($res->isCompleted()) {
             // Add the completed message to payload.
@@ -131,6 +142,8 @@ class ChatStreamController extends ControllerBase {
    *
    * @return \Symfony\Component\HttpFoundation\Response
    *   Return 204 http respons.
+   *
+   * @throws \JsonException
    */
   public function reset(Request $request): Response {
     $json = json_decode($request->getContent(), associative: TRUE, flags: JSON_THROW_ON_ERROR);
@@ -221,6 +234,7 @@ class ChatStreamController extends ControllerBase {
         contextExpire: (int) $json['context_expire'],
         contextLength: (int) $json['context_length'],
         cid: $json['cid'],
+        parseMarkdown: $json['parse_markdown'] ?? FALSE,
       );
     }
     catch (\TypeError $exception) {
