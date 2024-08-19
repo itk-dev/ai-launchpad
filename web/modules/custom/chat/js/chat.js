@@ -2,8 +2,6 @@
   const BOT = 'bot';
   const USER = 'you'
 
-  const parseMarkdownEventTarget = new EventTarget();
-
   /**
    * Returns the current time in HH:mm format.
    *
