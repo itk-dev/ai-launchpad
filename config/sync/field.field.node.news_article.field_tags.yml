@@ -1,17 +1,17 @@
-uuid: 2d2fb48d-2b01-431f-8ee0-d225872506cd
+uuid: 1c7a5664-9bda-442b-83d6-c4033b298967
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_teaser_category
+    - field.storage.node.field_tags
     - node.type.news_article
     - taxonomy.vocabulary.news_categories
-id: node.news_article.field_teaser_category
-field_name: field_teaser_category
+id: node.news_article.field_tags
+field_name: field_tags
 entity_type: node
 bundle: news_article
-label: 'News tags'
-description: ''
+label: Tags
+description: 'Used to attach tags to content'
 required: false
 translatable: false
 default_value: {  }

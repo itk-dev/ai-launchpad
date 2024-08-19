@@ -3,19 +3,39 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_image
     - field.field.node.news_article.field_page_sections
-    - field.field.node.news_article.field_teaser_category
-    - field.field.node.news_article.field_teaser_image
-    - field.field.node.news_article.field_teaser_text
+    - field.field.node.news_article.field_tags
     - node.type.news_article
   module:
     - entity_reference_revisions
+    - media
+    - text
     - user
 id: node.news_article.default
 targetEntityType: node
 bundle: news_article
 mode: default
 content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_page_sections:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -23,22 +43,20 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 4
     region: content
-  field_teaser_category:
+  field_tags:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
 hidden:
-  field_teaser_image: true
-  field_teaser_text: true
   langcode: true

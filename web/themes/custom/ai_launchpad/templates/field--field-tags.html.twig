@@ -1,0 +1,49 @@
+
+{#
+/**
+ * @file
+ * Theme implementation for tags.
+ *
+#}
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+{%
+  set wrapper_classes = [
+    "flex flex-wrap gap-3"
+  ]
+%}
+{%
+  set item_classes = [
+    "inline text-brand-gradient font-regular"
+  ]
+%}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(wrapper_classes) }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass(item_classes) }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(wrapper_classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="flex flex-wrap gap-3 md:gap-5">
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass(item_classes) }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,17 +1,17 @@
-uuid: 35df080e-fb35-4840-aedb-803645ebd092
+uuid: 2e00c3a0-2bc5-4cb6-9627-8ffcb917d86c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_teaser_image
+    - field.storage.node.field_image
     - media.type.image
     - node.type.news_article
-id: node.news_article.field_teaser_image
-field_name: field_teaser_image
+id: node.news_article.field_image
+field_name: field_image
 entity_type: node
 bundle: news_article
-label: 'Teaser image'
-description: 'Used to add an image for the teaser view.'
+label: Image
+description: 'Used to insert an image on the article'
 required: false
 translatable: false
 default_value: {  }

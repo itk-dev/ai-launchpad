@@ -3,29 +3,47 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_image
     - field.field.node.news_article.field_page_sections
-    - field.field.node.news_article.field_teaser_category
-    - field.field.node.news_article.field_teaser_image
-    - field.field.node.news_article.field_teaser_text
+    - field.field.node.news_article.field_tags
     - node.type.news_article
   module:
     - media_library
     - paragraphs
     - path
+    - text
 id: node.news_article.default
 targetEntityType: node
 bundle: news_article
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_page_sections:
     type: paragraphs
-    weight: 3
+    weight: 6
     region: content
     settings:
       title: Paragraph
@@ -43,61 +61,42 @@ content:
         convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
-  field_teaser_category:
-    type: entity_reference_autocomplete
-    weight: 4
+  field_tags:
+    type: options_buttons
+    weight: 5
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_teaser_image:
-    type: media_library_widget
-    weight: 1
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_teaser_text:
-    type: string_textarea
-    weight: 2
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 5
+    weight: 7
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 8
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 9
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -112,7 +111,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS

@@ -4,29 +4,30 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.news_article.body
+    - field.field.node.news_article.field_image
     - field.field.node.news_article.field_page_sections
-    - field.field.node.news_article.field_teaser_category
-    - field.field.node.news_article.field_teaser_image
-    - field.field.node.news_article.field_teaser_text
+    - field.field.node.news_article.field_tags
     - image.style.content_list_teaser_image
     - node.type.news_article
   module:
     - media
+    - text
     - user
 id: node.news_article.teaser
 targetEntityType: node
 bundle: news_article
 mode: teaser
 content:
-  field_teaser_category:
-    type: entity_reference_label
+  body:
+    type: text_summary_or_trimmed
     label: hidden
     settings:
-      link: true
+      trim_length: 200
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
-  field_teaser_image:
+  field_image:
     type: media_thumbnail
     label: hidden
     settings:
@@ -35,14 +36,15 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
-  field_teaser_text:
-    type: basic_string
-    label: hidden
-    settings: {  }
+  field_tags:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   links:
     settings: {  }

@@ -1,4 +1,4 @@
-uuid: 38b6a629-1074-4387-bc65-f1bde0e6b338
+uuid: 7898f98d-8e5e-4194-ab66-0053698e3135
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ dependencies:
 id: news
 label: News
 module: views
-description: 'Show a list of news articles'
+description: 'Lists the news articles'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -142,13 +142,46 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          operator: in
           value:
             news_article: news_article
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
-        type: grid
+        type: default
       row:
         type: 'entity:node'
         options:
