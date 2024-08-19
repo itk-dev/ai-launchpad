@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6dfc70fdeb56fda663dca9aaf96a813e",
+    "content-hash": "746635fd853e2c571682b06b35edee20",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2935,6 +2935,35 @@
                 "source": "https://github.com/mtibben/html2text/tree/4.3.1"
             },
             "time": "2020-04-16T23:44:31+00:00"
+        },
+        {
+            "name": "itk-dev/itk_siteimprove",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itk-dev/siteimprove-d8.git",
+                "reference": "b9108d71fdfc5b4efd93e1e5f0b83adf18fbbb8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itk-dev/siteimprove-d8/zipball/b9108d71fdfc5b4efd93e1e5f0b83adf18fbbb8d",
+                "reference": "b9108d71fdfc5b4efd93e1e5f0b83adf18fbbb8d",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides siteimprove functionality",
+            "keywords": [
+                "drupal"
+            ],
+            "support": {
+                "issues": "https://github.com/itk-dev/siteimprove-d8/issues",
+                "source": "https://github.com/itk-dev/siteimprove-d8/tree/1.3.0"
+            },
+            "time": "2023-09-06T09:51:42+00:00"
         },
         {
             "name": "itkdev/llm_services",
