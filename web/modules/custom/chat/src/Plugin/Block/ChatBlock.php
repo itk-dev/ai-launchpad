@@ -79,7 +79,6 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
         'buttons' => $this->configuration['ui']['buttons'],
         'preferred' => $this->configuration['ui']['preferred'],
         'models' => $this->decodeModelNames($this->configuration['models']),
-        'parseMarkdown' => $this->configuration['ui']['parseMarkdown'],
       ],
       '#attached' => [
         'library' => [
@@ -98,6 +97,9 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
             'context_expire' => $this->configuration['context_expire'],
             'context_length' => $this->configuration['context_length'],
             'waiter_svg' => \Drupal::service('extension.list.module')->getPath('chat') . '/svg/wait.svg',
+            'ui' => [
+              'parse_markdown' => $this->configuration['ui']['parse_markdown'],
+            ],
           ],
         ],
       ],
@@ -121,7 +123,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
         'id' => 'jsChat',
         'buttons' => FALSE,
         'preferred' => '',
-        'parseMarkdown' => FALSE,
+        'parse_markdown' => FALSE,
       ],
     ];
   }
@@ -204,11 +206,11 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#default_value' => $this->configuration['ui']['buttons'],
     ];
 
-    $form['ui']['parseMarkdown'] = [
+    $form['ui']['parse_markdown'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Enable parsing of markdown'),
       '#description' => $this->t('If checked, markdown returned from the LLM will be parsed (or tried to be parsed).'),
-      '#default_value' => $this->configuration['ui']['parseMarkdown'],
+      '#default_value' => $this->configuration['ui']['parse_markdown'],
     ];
 
     $form['tune'] = [
@@ -293,7 +295,7 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
     $this->configuration['ui']['buttons'] = $values['ui']['buttons'];
     $this->configuration['ui']['id'] = $values['ui']['id'];
     $this->configuration['ui']['preferred'] = $values['ui']['preferred'];
-    $this->configuration['ui']['parseMarkdown'] = $values['ui']['parseMarkdown'];
+    $this->configuration['ui']['parse_markdown'] = $values['ui']['parse_markdown'];
   }
 
   /**
@@ -316,7 +318,8 @@ class ChatBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $models = array_map(function ($model) {
         return sprintf('%s (%s)', $model['name'], $model['modified']);
       }, $models);
-    } catch (CommunicationException $exception) {
+    }
+    catch (CommunicationException $exception) {
       $this->messenger()->addMessage('Error communicating with LLM: ' . $exception->getMessage());
     }
     ksort($models);

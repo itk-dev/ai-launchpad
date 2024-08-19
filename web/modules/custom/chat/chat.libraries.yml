@@ -4,6 +4,9 @@ chat:
     js/chat.js: {}
     js/contrib/marked.min.js: {}
     js/contrib/purify.min.js: {}
+  css:
+    base:
+      css/chat.css: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
