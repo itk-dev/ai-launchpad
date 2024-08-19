@@ -35,12 +35,12 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
-    "max-w-3xl mx-auto px-3 my-12 md:my-24 lg:my-32 flex flex-col gap-3 md:gap-8",
+    'max-w-3xl mx-auto px-3 my-12 md:my-24 lg:my-32 flex flex-col gap-3 md:gap-8',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
 
-  <h1 class="text-5xl md:text-6xl mx-3">{{ "News"|trans }}</h1>
+  <h1 class="text-5xl md:text-6xl mx-3">{{ 'News'|trans }}</h1>
 
   {{ title_prefix }}
   {{ title }}
