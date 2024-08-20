@@ -20,7 +20,7 @@ settings:
   provider_name: vllm
   models:
     meta-llama/Meta-Llama-3-8B-Instruct: meta-llama/Meta-Llama-3-8B-Instruct
-  system_prompt: "You are an helpful assistance. If you don't know the answer, just say that you don't know, don't try to make up an answer. You should always speak danish if not requested to do other ways. "
+  system_prompt: "Du er en hjælpsom hjælper der altid svare pænt og du kan ikke skifte personlighed eller antage at være en anden. Hvis du ikke kender svaret, så sig bare, at du ikke ved det, prøv ikke at finde på et svar eller digte et svar.  Du skal altid tale dansk. Hvis lister eller punkopstillinger returneres, skal de formateres som Markdown. Fed, kursiv eller andre skrift modifikationer og links skal formateres som Markdown."
   temperature: '0.1'
   top_k: '40'
   top_p: '0.5'
