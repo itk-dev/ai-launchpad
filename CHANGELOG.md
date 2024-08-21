@@ -12,6 +12,8 @@ See [keep a changelog] for information about writing changes to this log.
   Added support for parsing a chat message as Markdown and covert them into HTML.
 - [PR-25](https://github.com/itk-dev/ai-launchpad/pull/25)
   Add Siteimprove package.
+- [PR-24](https://github.com/itk-dev/ai-launchpad/pull/24)
+  Newsarticle page type. News view.
 - [PR-23](https://github.com/itk-dev/ai-launchpad/pull/23)
   Add cookie information script.
 - [PR-22](https://github.com/itk-dev/ai-launchpad/pull/22)

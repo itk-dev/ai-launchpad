@@ -1,0 +1,50 @@
+uuid: 44711ca2-9a99-4dfb-8a14-c1e66917fd13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_sections
+    - node.type.news_article
+  module:
+    - entity_reference_revisions
+id: node.news_article.field_page_sections
+field_name: field_page_sections
+entity_type: node
+bundle: news_article
+label: 'Page sections'
+description: 'Used to create sections on the page with the paragraphs module'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+    target_bundles_drag_drop:
+      body:
+        weight: 9
+        enabled: false
+      call_to_action:
+        weight: 10
+        enabled: false
+      chat:
+        weight: 11
+        enabled: false
+      content_list:
+        weight: 12
+        enabled: false
+      frequently_asked_questions:
+        weight: 13
+        enabled: false
+      hero:
+        weight: 14
+        enabled: false
+      introduction:
+        weight: 15
+        enabled: false
+      media:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

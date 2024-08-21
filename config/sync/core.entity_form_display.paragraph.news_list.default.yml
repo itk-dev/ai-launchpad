@@ -1,0 +1,25 @@
+uuid: f78c55ea-80d9-418f-8af5-fec10a488fd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_list.field_content_items
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.default
+targetEntityType: paragraph
+bundle: news_list
+mode: default
+content:
+  field_content_items:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

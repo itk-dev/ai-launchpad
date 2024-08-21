@@ -1,0 +1,22 @@
+uuid: 6b64d532-e2e1-4d36-98c0-daaf8be4b381
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_list.field_content_items
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.default
+targetEntityType: paragraph
+bundle: news_list
+mode: default
+content:
+  field_content_items:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
