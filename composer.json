@@ -30,6 +30,7 @@
         "drupal/symfony_mailer": "^1.4",
         "drupal/twig_tweak": "^3.3",
         "drush/drush": "^12.5",
+        "itk-dev/itk_siteimprove": "^1.3",
         "itkdev/llm_services": "^0.0.11"
     },
     "require-dev": {

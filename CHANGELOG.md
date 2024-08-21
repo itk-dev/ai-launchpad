@@ -10,6 +10,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 - [PR-26](https://github.com/itk-dev/ai-launchpad/pull/26)
   Added support for parsing a chat message as Markdown and covert them into HTML.
+- [PR-25](https://github.com/itk-dev/ai-launchpad/pull/25)
+  Add Siteimprove package.
 - [PR-23](https://github.com/itk-dev/ai-launchpad/pull/23)
   Add cookie information script.
 - [PR-22](https://github.com/itk-dev/ai-launchpad/pull/22)
@@ -25,8 +27,8 @@ See [keep a changelog] for information about writing changes to this log.
 - [PR-16](https://github.com/itk-dev/ai-launchpad/pull/16)
   Styling for login and register page.
 - [PR-14](https://github.com/itk-dev/ai-launchpad/pull/14)
-   Added a new domain registration module and configuration.
-   Updated Drupal core.
+  Added a new domain registration module and configuration.
+  Updated Drupal core.
 - [PR-13](https://github.com/itk-dev/ai-launchpad/pull/13)
   Added preferred model (per-selected model in chat UI).
 - [PR-11](https://github.com/itk-dev/ai-launchpad/pull/11)
