@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-28](https://github.com/itk-dev/ai-launchpad/pull/28)
+  Styled lists
 - [PR-27](https://github.com/itk-dev/ai-launchpad/pull/27)
   Added password policy and flood control
 - [PR-26](https://github.com/itk-dev/ai-launchpad/pull/26)
