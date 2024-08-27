@@ -102,11 +102,11 @@
     @apply text-secondary text-sm;
   }
 
-  main ul {
+  .content-wrapper ul {
     @apply list-disc my-3 pl-6;
   }
   
-  main ol {
+  .content-wrapper ol {
     @apply list-decimal my-3 pl-6;
   }
 
