@@ -10,6 +10,8 @@ dependencies:
     - node.type.news_article
     - node.type.page
     - node.type.question_and_answer
+    - taxonomy.vocabulary.news_categories
+    - taxonomy.vocabulary.page_teaser_category
   module:
     - config_translation
     - content_translation
@@ -17,11 +19,13 @@ dependencies:
     - filter
     - locale
     - media
+    - menu_link_attributes
     - node
     - paragraphs
     - path
     - shortcut
     - system
+    - taxonomy
     - toolbar
     - views_ui
 id: editor
@@ -35,6 +39,7 @@ permissions:
   - 'access media overview'
   - 'access shortcuts'
   - 'access site in maintenance mode'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
   - 'administer content types'
@@ -50,6 +55,8 @@ permissions:
   - 'create news_article content'
   - 'create page content'
   - 'create question_and_answer content'
+  - 'create terms in news_categories'
+  - 'create terms in page_teaser_category'
   - 'create url aliases'
   - 'create video media'
   - 'create vimeo media'
@@ -69,6 +76,8 @@ permissions:
   - 'delete own vimeo media'
   - 'delete page revisions'
   - 'delete question_and_answer revisions'
+  - 'delete terms in news_categories'
+  - 'delete terms in page_teaser_category'
   - 'edit any image media'
   - 'edit any news_article content'
   - 'edit any page content'
@@ -81,6 +90,8 @@ permissions:
   - 'edit own question_and_answer content'
   - 'edit own video media'
   - 'edit own vimeo media'
+  - 'edit terms in news_categories'
+  - 'edit terms in page_teaser_category'
   - 'revert all revisions'
   - 'revert news_article revisions'
   - 'revert page revisions'
@@ -91,6 +102,7 @@ permissions:
   - 'update any media'
   - 'update content translations'
   - 'update media'
+  - 'use menu link attributes'
   - 'use text format body_content'
   - 'view all revisions'
   - 'view any video media revisions'
