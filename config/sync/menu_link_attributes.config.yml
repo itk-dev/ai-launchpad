@@ -3,6 +3,7 @@ attributes:
     label: 'Select icon'
     description: 'Append menu name with an icon'
     options:
+      fa-plane-departure: 'Start her'
       fa-language: 'AI for text'
       fa-image: 'AI for Image'
       fa-microphone-lines: 'AI for sound'

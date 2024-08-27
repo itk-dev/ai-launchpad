@@ -20,6 +20,7 @@ const {
   faMessage,
   faCircle,
   faAngleRight,
+  faPlaneDeparture,
 } = require("@fortawesome/free-solid-svg-icons");
 
 // Import icons from the free brands package
@@ -44,6 +45,7 @@ library.add(
   faMessage,
   faCircle,
   faAngleRight,
+  faPlaneDeparture,
   // Brand
   // faXTwitter
 );
