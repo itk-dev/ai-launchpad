@@ -1,0 +1,20 @@
+uuid: c4ba204c-b654-475a-814f-76a6ad85dbfe
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ai_launchpad
+id: ai_launchpad_tabs
+theme: ai_launchpad
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-30](https://github.com/itk-dev/ai-launchpad/pull/30)
+  Styling of local tasks
 - [PR-29](https://github.com/itk-dev/ai-launchpad/pull/29)
   New menu icon
 - [PR-28](https://github.com/itk-dev/ai-launchpad/pull/28)
