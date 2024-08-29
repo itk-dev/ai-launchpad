@@ -1,0 +1,25 @@
+ollama:
+  url: 'http://ollama'
+  port: '11434'
+  auth:
+    username: ''
+    password: ''
+  timeouts:
+    connect: '10'
+    wait: '300'
+vllm:
+  url: 'http://llm-proxy'
+  port: '80'
+  auth:
+    username: ''
+    password: ''
+  timeouts:
+    connect: '10'
+    wait: '300'
+  tune:
+    max_tokens: 512
+    min_p: 0.1
+    repetition_penalty: 1.1
+    presence_penalty: 0.1
+    frequency_penalty: 0.1
+    seed: -1

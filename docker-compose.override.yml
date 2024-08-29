@@ -1,0 +1,45 @@
+services:
+  node:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - .:/app:delegated
+
+  vllm:
+    image: itkdev/vllm:cpu
+    command: "--model ${VLLM_MODEL:-facebook/opt-125m}"
+    shm_size: "${SHM_SIZE:-8gb}"
+    networks:
+      - app
+    ports:
+      - "8000"
+    environment:
+      - "HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN:-xxx}"
+    volumes:
+      - ./.docker/data/vllm/:/root/.cache/huggingface:rw
+
+  llm-proxy:
+    image: haproxytech/haproxy-alpine:3.0
+    networks:
+      - app
+    ports:
+      - "80"
+    depends_on:
+      - ollama
+    volumes:
+      - ./.docker/proxy/:/usr/local/etc/haproxy:ro
+
+  ollama:
+    image: ollama/ollama:0.1.44
+    networks:
+      - app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "11434"
+    environment:
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-6}
+      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
+    volumes:
+      - ./.docker/data/ollama:/root/.ollama
+

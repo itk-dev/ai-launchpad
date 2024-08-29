@@ -1,0 +1,13 @@
+uuid: 116a4d6b-290b-4868-99a9-58b28cc1cc7e
+langcode: en
+status: true
+dependencies: {  }
+id: video
+label: Video
+description: 'Used to play a video uploaded to the server'
+source: video_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_video_file
+field_map: {  }

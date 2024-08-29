@@ -1,0 +1,33 @@
+uuid: a3e21c27-486b-4d0c-85b5-6b0ef424ca4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.vimeo.field_media_oembed_video
+    - image.style.medium
+    - media.type.vimeo
+  module:
+    - image
+id: media.vimeo.media_library
+targetEntityType: media
+bundle: vimeo
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_oembed_video: true
+  langcode: true
+  name: true
+  uid: true

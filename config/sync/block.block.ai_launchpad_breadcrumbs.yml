@@ -1,0 +1,22 @@
+uuid: 612a9a92-f223-456f-bf8a-c60fb0595cd6
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ai_launchpad
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: ai_launchpad_breadcrumbs
+theme: ai_launchpad
+region: content
+weight: -3
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

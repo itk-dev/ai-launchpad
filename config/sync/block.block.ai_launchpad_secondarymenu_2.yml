@@ -1,0 +1,25 @@
+uuid: 61cfc4c8-2ae2-45e9-a09c-f3c86707d2ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-menu
+  module:
+    - system
+  theme:
+    - ai_launchpad
+id: ai_launchpad_secondarymenu_2
+theme: ai_launchpad
+region: footer_col_3
+weight: -7
+provider: null
+plugin: 'system_menu_block:secondary-menu'
+settings:
+  id: 'system_menu_block:secondary-menu'
+  label: 'Secondary menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,31 @@
+{% set classes = ['chat-window border border-secondary p-4 rounded', ui.buttons ? 'hidden fixed bottom-0 right-0 bg-primary w-full md:w-3/5 lg:w-2/5 md:min-w-[470px] z-50 max-h-screen' : 'my-4 max-w-3xl'] %}
+
+<div id="{{ ui.id }}" {{ attributes.addClass(classes) }}>
+  <header class="flex flex-wrap items-center gap-2">
+    <div class="logo">
+      <i class="fa-solid fa-robot text-secondary"></i>
+    </div>
+    {% if ui.models %}
+      <select name="models" id="models" class="btn-default">
+        <option value="">{{ 'Select a Language Model'|t }}</option>
+        {% for key, item in ui.models %}
+          <option value="{{ key }}"{% if key == ui.preferred %} selected{% endif %}>{{ item }}</option>
+        {% endfor %}
+      </select>
+    {% endif %}
+    {{ include(directory ~ '/templates/chat/chat-btn-reset.html.twig') }}
+    {% if ui.buttons %}
+      <div class="ml-auto flex gap-2">
+        {{ include(directory ~ '/templates/chat/chat-btn-minimize.html.twig') }}
+        {{ include(directory ~ '/templates/chat/chat-btn-close.html.twig') }}
+      </div>
+    {% endif %}
+  </header>
+  <main class="h-80 max-h-screen flex flex-col gap-2 py-4 overflow-y-scroll border-t border-secondary mt-4">
+    <!-- Chat messages -->
+  </main>
+  <footer>
+    <label for="inputMessage"><span class="text-secondary"><i class="fa-solid fa-message mr-2"></i><span>{{ 'Start your dialog'|t }}</span></span></label>
+    <textarea id="inputMessage" class="border border-secondary w-full rounded-sm bg-primary p-2" rows="4"></textarea>
+  </footer>
+</div>

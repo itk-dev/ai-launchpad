@@ -1,0 +1,115 @@
+uuid: e0025b92-2b9e-4177-b5d3-b32d210bf0c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.body_content
+    - media.type.image
+    - media.type.video
+    - media.type.vimeo
+    - node.type.news_article
+    - node.type.page
+    - node.type.question_and_answer
+    - taxonomy.vocabulary.news_categories
+    - taxonomy.vocabulary.page_teaser_category
+  module:
+    - config_translation
+    - content_translation
+    - file
+    - filter
+    - locale
+    - media
+    - menu_link_attributes
+    - node
+    - paragraphs
+    - path
+    - shortcut
+    - system
+    - taxonomy
+    - toolbar
+    - views_ui
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access shortcuts'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer content types'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer url aliases'
+  - 'administer views'
+  - 'bypass node access'
+  - 'change own username'
+  - 'create content translations'
+  - 'create image media'
+  - 'create media'
+  - 'create news_article content'
+  - 'create page content'
+  - 'create question_and_answer content'
+  - 'create terms in news_categories'
+  - 'create terms in page_teaser_category'
+  - 'create url aliases'
+  - 'create video media'
+  - 'create vimeo media'
+  - 'delete all revisions'
+  - 'delete any file'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete any question_and_answer content'
+  - 'delete content translations'
+  - 'delete media'
+  - 'delete own files'
+  - 'delete own image media'
+  - 'delete own news_article content'
+  - 'delete own page content'
+  - 'delete own question_and_answer content'
+  - 'delete own video media'
+  - 'delete own vimeo media'
+  - 'delete page revisions'
+  - 'delete question_and_answer revisions'
+  - 'delete terms in news_categories'
+  - 'delete terms in page_teaser_category'
+  - 'edit any image media'
+  - 'edit any news_article content'
+  - 'edit any page content'
+  - 'edit any question_and_answer content'
+  - 'edit any video media'
+  - 'edit any vimeo media'
+  - 'edit own image media'
+  - 'edit own news_article content'
+  - 'edit own page content'
+  - 'edit own question_and_answer content'
+  - 'edit own video media'
+  - 'edit own vimeo media'
+  - 'edit terms in news_categories'
+  - 'edit terms in page_teaser_category'
+  - 'revert all revisions'
+  - 'revert news_article revisions'
+  - 'revert page revisions'
+  - 'revert question_and_answer revisions'
+  - 'translate any entity'
+  - 'translate configuration'
+  - 'translate interface'
+  - 'update any media'
+  - 'update content translations'
+  - 'update media'
+  - 'use menu link attributes'
+  - 'use text format body_content'
+  - 'view all revisions'
+  - 'view any video media revisions'
+  - 'view any vimeo media revisions'
+  - 'view news_article revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view question_and_answer revisions'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

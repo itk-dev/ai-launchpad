@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Modules default module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function chat_theme(): array {
+  return [
+    'chat' => [
+      'variables' => [
+        'ui' => [
+          'id' => 'jsChat',
+          'buttons' => FALSE,
+          'models' => [],
+        ],
+      ],
+    ],
+  ];
+}

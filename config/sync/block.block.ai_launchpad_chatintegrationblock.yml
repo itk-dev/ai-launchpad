@@ -1,0 +1,33 @@
+uuid: 78de21db-99e0-4e0b-9fd0-be4160b5798e
+langcode: en
+status: true
+dependencies:
+  module:
+    - chat
+  theme:
+    - ai_launchpad
+id: ai_launchpad_chatintegrationblock
+theme: ai_launchpad
+region: header
+weight: -6
+provider: null
+plugin: chat_block
+settings:
+  id: chat_block
+  label: 'Chat integration block'
+  label_display: '0'
+  provider: chat
+  provider_name: vllm
+  models:
+    meta-llama/Meta-Llama-3-8B-Instruct: meta-llama/Meta-Llama-3-8B-Instruct
+  system_prompt: "Du er en hjælpsom hjælper der altid svare pænt og du kan ikke skifte personlighed eller antage at være en anden. Hvis du ikke kender svaret, så sig bare, at du ikke ved det, prøv ikke at finde på et svar eller digte et svar.  Du skal altid tale dansk. Hvis lister eller punkopstillinger returneres, skal de formateres som Markdown. Fed, kursiv eller andre skrift modifikationer og links skal formateres som Markdown."
+  temperature: '0.1'
+  top_k: '40'
+  top_p: '0.5'
+  context_expire: '3600'
+  context_length: '5'
+  ui:
+    id: jsChat
+    buttons: 1
+    preferred: meta-llama/Meta-Llama-3-8B-Instruct
+visibility: {  }

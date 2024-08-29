@@ -1,0 +1,30 @@
+uuid: dd012b3f-f8a7-4e8f-8c0b-9188e44389f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.chat.field_language_model
+    - field.field.paragraph.chat.field_title
+    - paragraphs.paragraphs_type.chat
+id: paragraph.chat.default
+targetEntityType: paragraph
+bundle: chat
+mode: default
+content:
+  field_language_model:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,22 @@
+uuid: b01cd3ee-4943-441f-b753-95e59c0c87e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ai_launchpad
+_core:
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
+id: ai_launchpad_content
+theme: ai_launchpad
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

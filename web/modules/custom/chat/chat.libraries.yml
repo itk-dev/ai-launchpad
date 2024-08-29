@@ -1,0 +1,13 @@
+chat:
+  version: 2.x
+  js:
+    js/chat.js: {}
+    js/contrib/marked.min.js: {}
+    js/contrib/purify.min.js: {}
+  css:
+    base:
+      css/chat.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

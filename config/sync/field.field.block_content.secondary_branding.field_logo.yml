@@ -1,0 +1,27 @@
+uuid: 18f067d7-df79-4d7b-b8c6-8dadca462c19
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.secondary_branding
+    - field.storage.block_content.field_logo
+  module:
+    - file
+id: block_content.secondary_branding.field_logo
+field_name: field_logo
+entity_type: block_content
+bundle: secondary_branding
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'svg png jpg jpeg webp'
+  max_filesize: '2 MB'
+  description_field: false
+field_type: file

@@ -1,0 +1,29 @@
+uuid: e98af037-b2ef-42c2-bf91-82ec05c9e330
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_questions_and_answers
+    - node.type.question_and_answer
+    - paragraphs.paragraphs_type.frequently_asked_questions
+id: paragraph.frequently_asked_questions.field_questions_and_answers
+field_name: field_questions_and_answers
+entity_type: paragraph
+bundle: frequently_asked_questions
+label: 'Questions and answers'
+description: 'Add the questions and answers that should be included in the section.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      question_and_answer: question_and_answer
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

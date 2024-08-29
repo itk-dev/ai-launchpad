@@ -1,0 +1,13 @@
+{% block paragraph %}
+  <section class="max-w-3xl mx-auto my-9 md:my-24 lg:my-32 px-3">
+
+    {% if content.field_title %}
+      {{ content.field_title }}
+    {% endif %}
+
+    {% block content %}
+      {{ content|without('field_title') }}
+    {% endblock %}
+
+  </section>
+{% endblock paragraph %}

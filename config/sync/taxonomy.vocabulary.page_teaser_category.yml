@@ -1,0 +1,8 @@
+uuid: bd82d95a-451c-4471-a8c1-ab1a7bfec6dd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Page teaser category'
+vid: page_teaser_category
+description: 'Used to categorize pages in content lists'
+weight: 0

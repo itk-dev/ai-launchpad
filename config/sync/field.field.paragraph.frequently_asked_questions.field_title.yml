@@ -1,0 +1,19 @@
+uuid: b14c5b04-e6fc-46f3-aba4-46728369890d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.frequently_asked_questions
+id: paragraph.frequently_asked_questions.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: frequently_asked_questions
+label: Title
+description: 'Used to show a title for the section'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

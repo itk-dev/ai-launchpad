@@ -1,0 +1,18 @@
+uuid: 9ad72e0f-d111-48ab-8d51-e7b8181dd02a
+langcode: en
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: ''
+  pass: ''
+  host: host.docker.internal
+  port: 25
+  query:
+    verify_peer: false
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null

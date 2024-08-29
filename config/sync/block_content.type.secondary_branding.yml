@@ -1,0 +1,8 @@
+uuid: 2346b0f9-7f20-4135-a809-4479f673421c
+langcode: en
+status: true
+dependencies: {  }
+id: secondary_branding
+label: 'Secondary branding'
+revision: 0
+description: 'Used to provide a secondary brand'

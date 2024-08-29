@@ -1,0 +1,21 @@
+uuid: 86fe511a-653d-47e0-9ca9-0e859a003809
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_language_model
+    - paragraphs.paragraphs_type.chat
+  module:
+    - options
+id: paragraph.chat.field_language_model
+field_name: field_language_model
+entity_type: paragraph
+bundle: chat
+label: 'Language model'
+description: 'Select the model this chat should use'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

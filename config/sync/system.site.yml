@@ -1,14 +1,15 @@
 _core:
-  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
-langcode: da
-uuid: 926d0d8c-4ece-4711-98b3-eda6dbc677c9
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: 7d7ed0eb-ccad-43c9-8e10-53db2e168caa
 name: 'AI Launchpad'
-mail: info@itkdev.dk
+mail: info@gtmai.dk
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/2
 admin_compact_mode: false
 weight_select_max: 100
-default_langcode: da
+default_langcode: en
+mail_notification: ''

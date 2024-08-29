@@ -1,5 +1,5 @@
-uuid: 4270647f-3ddf-46c9-8fd1-16c75016eb8a
-langcode: da
+uuid: 2085e9fd-c31f-4035-b773-e1affefbf50d
+langcode: en
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: N0RDBTqiK4dKoN4p4oW2j0SGWycdHyALUe9M-Ofp89U
 id: node_promote_action
-label: 'Vis indhold på forsiden'
+label: 'Promote content to front page'
 type: node
 plugin: node_promote_action
 configuration: {  }

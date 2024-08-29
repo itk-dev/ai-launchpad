@@ -1,0 +1,19 @@
+uuid: 7ebe5211-0076-4538-b089-8b909753d683
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.media
+id: paragraph.media.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: media
+label: Title
+description: 'Used to show a title for the section'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,5 +1,5 @@
-uuid: 79dc47fd-15ed-4f8d-bd59-b40434f2f1a3
-langcode: da
+uuid: dce9b8e9-8a2a-4729-85fe-3e0aa3bc7419
+langcode: en
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: h3BeHVei4Lnyqbkao3YiF4KqoY-DhRvUNfEgKG8Rgjg
 id: paragraph.preview
-label: Gennemse
+label: Preview
 description: ''
 targetEntityType: paragraph
 cache: true

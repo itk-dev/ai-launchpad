@@ -1,11 +1,143 @@
-uuid: e7a2856a-1fa3-4f12-b25b-95da6b499b4c
-langcode: da
+uuid: 5b7097f7-cea7-41b8-b04b-f00c07524582
+langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: OeKGIkmZA_c-t6QLH81WNQx8gDCc1MRmxaTuQgxBByU
+dependencies:
+  config:
+    - filter.format.body_content
+    - media.type.image
+    - media.type.video
+    - media.type.vimeo
+    - node.type.news_article
+    - node.type.page
+    - node.type.question_and_answer
+    - taxonomy.vocabulary.news_categories
+    - taxonomy.vocabulary.page_teaser_category
+  module:
+    - block
+    - config_translation
+    - content_translation
+    - domain_registration
+    - file
+    - filter
+    - image
+    - locale
+    - media
+    - menu_link_attributes
+    - node
+    - paragraphs
+    - path
+    - shortcut
+    - system
+    - taxonomy
+    - toolbar
+    - views_ui
 id: administrator
 label: Administrator
-weight: 3
-is_admin: true
-permissions: {  }
+weight: 2
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access shortcuts'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer blocks'
+  - 'administer content types'
+  - 'administer domain registration'
+  - 'administer filters'
+  - 'administer image styles'
+  - 'administer media'
+  - 'administer media types'
+  - 'administer menu'
+  - 'administer menu link attributes'
+  - 'administer nodes'
+  - 'administer paragraphs settings'
+  - 'administer paragraphs types'
+  - 'administer shortcuts'
+  - 'administer url aliases'
+  - 'administer views'
+  - 'bypass node access'
+  - 'change own username'
+  - 'create content translations'
+  - 'create image media'
+  - 'create media'
+  - 'create news_article content'
+  - 'create page content'
+  - 'create question_and_answer content'
+  - 'create terms in news_categories'
+  - 'create terms in page_teaser_category'
+  - 'create url aliases'
+  - 'create video media'
+  - 'create vimeo media'
+  - 'customize shortcut links'
+  - 'delete all revisions'
+  - 'delete any file'
+  - 'delete any image media'
+  - 'delete any image media revisions'
+  - 'delete any media'
+  - 'delete any news_article content'
+  - 'delete any page content'
+  - 'delete any question_and_answer content'
+  - 'delete any video media'
+  - 'delete any video media revisions'
+  - 'delete any vimeo media'
+  - 'delete any vimeo media revisions'
+  - 'delete media'
+  - 'delete news_article revisions'
+  - 'delete own files'
+  - 'delete own image media'
+  - 'delete own news_article content'
+  - 'delete own page content'
+  - 'delete own question_and_answer content'
+  - 'delete own video media'
+  - 'delete own vimeo media'
+  - 'delete page revisions'
+  - 'delete question_and_answer revisions'
+  - 'delete terms in news_categories'
+  - 'delete terms in page_teaser_category'
+  - 'edit any image media'
+  - 'edit any news_article content'
+  - 'edit any page content'
+  - 'edit any question_and_answer content'
+  - 'edit any video media'
+  - 'edit any vimeo media'
+  - 'edit behavior plugin settings'
+  - 'edit own image media'
+  - 'edit own news_article content'
+  - 'edit own page content'
+  - 'edit own question_and_answer content'
+  - 'edit own video media'
+  - 'edit own vimeo media'
+  - 'edit terms in news_categories'
+  - 'edit terms in page_teaser_category'
+  - 'revert all revisions'
+  - 'revert any image media revisions'
+  - 'revert any video media revisions'
+  - 'revert any vimeo media revisions'
+  - 'revert news_article revisions'
+  - 'revert page revisions'
+  - 'revert question_and_answer revisions'
+  - 'switch shortcut sets'
+  - 'translate any entity'
+  - 'translate configuration'
+  - 'translate interface'
+  - 'update any media'
+  - 'update content translations'
+  - 'update media'
+  - 'use menu link attributes'
+  - 'use text format body_content'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any image media revisions'
+  - 'view any video media revisions'
+  - 'view any vimeo media revisions'
+  - 'view news_article revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view question_and_answer revisions'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

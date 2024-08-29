@@ -1,0 +1,8 @@
+uuid: 5948b301-14b3-4140-a7b3-bb3fceabb168
+langcode: en
+status: true
+dependencies: {  }
+name: 'News tags'
+vid: news_categories
+description: 'Used to tag news articles'
+weight: 0

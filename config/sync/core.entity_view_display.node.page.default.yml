@@ -1,29 +1,31 @@
-uuid: fbb53294-82f0-425e-a529-622faccbdbcd
-langcode: da
+uuid: 5ec2d538-2609-407e-8026-941246c22459
+langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
+    - field.field.node.page.field_page_sections
+    - field.field.node.page.field_teaser_category
+    - field.field.node.page.field_teaser_image
     - node.type.page
   module:
-    - text
+    - entity_reference_revisions
     - user
-_core:
-  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    type: text_default
+  field_page_sections:
+    type: entity_reference_revisions_entity_view
     label: hidden
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 100
-    region: content
-  links:
-    weight: 101
+    weight: 0
     region: content
 hidden:
+  field_teaser_category: true
+  field_teaser_image: true
   langcode: true
+  links: true
