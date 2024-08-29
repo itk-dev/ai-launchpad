@@ -1,4 +1,13 @@
 services:
+  phpfpm:
+    environment:
+      - PHP_POST_MAX_SIZE=25M
+      - PHP_UPLOAD_MAX_FILESIZE=28M
+
+  nginx:
+    environment:
+      - NGINX_MAX_BODY_SIZE=30M
+
   llm-proxy:
     image: haproxytech/haproxy-alpine:3.0
     restart: unless-stopped
