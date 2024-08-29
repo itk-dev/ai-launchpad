@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-32](https://github.com/itk-dev/ai-launchpad/pull/32)
+  Change gtm logo to svg
 - [PR-31](https://github.com/itk-dev/ai-launchpad/pull/31)
   Remove darkmode
 - [PR-30](https://github.com/itk-dev/ai-launchpad/pull/30)
