@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.0.0] - 2024-29-08
+
 - [PR-32](https://github.com/itk-dev/ai-launchpad/pull/32)
   Change gtm logo to svg
 - [PR-31](https://github.com/itk-dev/ai-launchpad/pull/31)
@@ -71,3 +73,4 @@ See [keep a changelog] for information about writing changes to this log.
 
 [keep a changelog]: https://keepachangelog.com/en/1.1.0/
 [unreleased]: https://github.com/itk-dev/event-database-imports/compare/main...develop
+[1.0.0]: https://github.com/itk-dev/event-database-imports/compare/1.0.0...develop
