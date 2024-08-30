@@ -1,0 +1,34 @@
+uuid: 87f5a7ea-fd91-44e4-8598-82af84fe1214
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: faq
+label: faq
+type: 'canonical_entities:node'
+pattern: '/faq/[node:title]'
+selection_criteria:
+  95c8cdf6-40bd-4623-9b65-77441ec97b5e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 95c8cdf6-40bd-4623-9b65-77441ec97b5e
+    context_mapping:
+      node: node
+    bundles:
+      question_and_answer: question_and_answer
+  d13cd98c-0a50-4075-a6d8-082bfce2305d:
+    id: language
+    negate: false
+    uuid: d13cd98c-0a50-4075-a6d8-082bfce2305d
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      da: da
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
