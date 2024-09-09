@@ -10,18 +10,18 @@ label: content
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  5b833476-0b2d-4a63-9b53-8b2649530564:
+  664862d4-045b-4eeb-a724-4f74c6316df9:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 5b833476-0b2d-4a63-9b53-8b2649530564
+    uuid: 664862d4-045b-4eeb-a724-4f74c6316df9
     context_mapping:
       node: node
     bundles:
       page: page
-  02e35171-55a4-46f9-9ff7-ddcae800253c:
+  f9813718-c6d3-4823-b3ea-acfb7898121a:
     id: language
     negate: false
-    uuid: 02e35171-55a4-46f9-9ff7-ddcae800253c
+    uuid: f9813718-c6d3-4823-b3ea-acfb7898121a
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
