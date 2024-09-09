@@ -8,6 +8,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- Update permissions for **Administrator** role
 - [PR-33](https://github.com/itk-dev/ai-launchpad/pull/33)
   Enabled pathauto to get better URL's
 
