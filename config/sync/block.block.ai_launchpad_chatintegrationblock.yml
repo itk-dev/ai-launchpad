@@ -40,3 +40,5 @@ visibility:
       user: '@user.current_user_context:current_user'
     roles:
       authenticated: authenticated
+      administrator: administrator
+      editor: editor

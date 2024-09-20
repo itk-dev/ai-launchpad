@@ -218,6 +218,8 @@ display:
       menu:
         type: normal
         title: News
+        weight: -41
+        enabled: false
         menu_name: secondary-menu
         parent: ''
     cache_metadata:
