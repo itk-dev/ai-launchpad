@@ -51,9 +51,13 @@
 
   <main role="main" class="">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    
+     <div class="fixed top-20 z-10 left-0 right-0 px-1">
+      {{ page.content.ai_launchpad_messages }}
+    </div>
 
     <div class="content-wrapper">
-      {{ page.content }}
+      {{ page.content|without('ai_launchpad_messages') }}
     </div>
 
   </main>
