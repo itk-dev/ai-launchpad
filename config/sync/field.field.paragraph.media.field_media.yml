@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_media
     - media.type.image
+    - media.type.pdf
     - media.type.video
     - media.type.vimeo
     - paragraphs.paragraphs_type.media
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      pdf: pdf
       video: video
       vimeo: vimeo
     sort:

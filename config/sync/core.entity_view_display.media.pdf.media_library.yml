@@ -1,0 +1,33 @@
+uuid: 60ae24f7-5c66-4ce6-826e-6ea90471ec0f
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.pdf.field_media_file
+    - image.style.medium
+    - media.type.pdf
+  module:
+    - image
+id: media.pdf.media_library
+targetEntityType: media
+bundle: pdf
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_file: true
+  langcode: true
+  name: true
+  uid: true
