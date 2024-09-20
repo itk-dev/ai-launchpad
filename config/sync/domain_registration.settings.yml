@@ -1,9 +1,9 @@
 _core:
   default_config_hash: 0xE4emSSHTVKb88WL3yN2IahuH23p8VNAXMZNux6BKs
 method: 0
-pattern: aarhus.dk
-message: 'You are not allowed to register for this site.'
+pattern: "herning.dk\r\nholstebro.dk\r\nLemvig.dk\r\nrksk.dk\r\nranders.dk\r\nikast-brande.dk\r\nrm.dk"
+message: 'Du har ikke adgang til dette site fordi jeres arbejdsplads ikke er klar eller ikke er en del af GTM.. '
 actions: null
-form_build_id: form-n5_mT6WFTFGr6wBIoD8-P8itN5bm19JtaZcLOWTg4-M
-form_token: itP4JFR1ZYYJZN12Xm0svuNOPPQp-mR56jJjF-6JkS0
+form_build_id: form-p2Rp0Mnlg5Udtat3n8QEKbEpIWE06rq9y6h0dzGBBbc
+form_token: 4lXYC1NgVpgJ7iZzXPk--Sqym0O77vOnUXokVKEzXqI
 form_id: domain_registration_admin_form

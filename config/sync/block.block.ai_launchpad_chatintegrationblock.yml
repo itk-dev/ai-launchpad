@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - chat
+    - user
   theme:
     - ai_launchpad
 id: ai_launchpad_chatintegrationblock
@@ -31,4 +32,13 @@ settings:
     buttons: 1
     preferred: meta-llama/Meta-Llama-3-8B-Instruct
     parse_markdown: 1
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      editor: editor
