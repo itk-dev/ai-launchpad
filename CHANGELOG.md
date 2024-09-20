@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.0.2] - 2024-20-09
+
 - [PR-34](https://github.com/itk-dev/ai-launchpad/pull/34)
   Styling user create flow. Change default logo to black. Add pdf media.
 
