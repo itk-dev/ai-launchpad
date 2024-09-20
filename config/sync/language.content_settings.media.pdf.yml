@@ -1,0 +1,11 @@
+uuid: 9f280c5f-2bf1-45de-b918-fa43efb41dc8
+langcode: da
+status: true
+dependencies:
+  config:
+    - media.type.pdf
+id: media.pdf
+target_entity_type_id: media
+target_bundle: pdf
+default_langcode: site_default
+language_alterable: false
