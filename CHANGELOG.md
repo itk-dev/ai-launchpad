@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-35](https://github.com/itk-dev/ai-launchpad/pull/35)
+  Fix accessibility issues discovered with wave tool.
+
 ## [1.0.2] - 2024-20-09
 
 - [PR-34](https://github.com/itk-dev/ai-launchpad/pull/34)
