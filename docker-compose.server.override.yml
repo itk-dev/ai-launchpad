@@ -39,6 +39,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
+              count: all
               capabilities: [ gpu ]
 
 ## Removed for now 14/08/24 - jeskr
@@ -62,4 +63,5 @@ services:
 #        reservations:
 #          devices:
 #            - driver: nvidia
+#              count: all
 #              capabilities: [ gpu ]
