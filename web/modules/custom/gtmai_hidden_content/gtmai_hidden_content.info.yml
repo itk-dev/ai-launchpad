@@ -1,0 +1,5 @@
+name: 'GTMai Hidden content'
+type: module
+description: 'Hide content from anonymous users.'
+package: 'AI Launchpad'
+core_version_requirement: ^10 || ^11

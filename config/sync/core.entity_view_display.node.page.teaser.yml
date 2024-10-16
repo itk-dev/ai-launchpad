@@ -37,6 +37,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_hidden_content: true
   field_page_sections: true
   langcode: true
   links: true

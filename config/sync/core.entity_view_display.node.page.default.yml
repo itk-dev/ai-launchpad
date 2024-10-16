@@ -25,6 +25,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_hidden_content: true
   field_teaser_category: true
   field_teaser_image: true
   langcode: true
