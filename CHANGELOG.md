@@ -8,6 +8,12 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-36](https://github.com/itk-dev/ai-launchpad/pull/36)
+   - Add and enable gtmai_hidden_content module
+   - Update drupal core
+   - Update config to match new drupal core
+   - Disable forced configuration langcode through patch to allow english config on danish site
+
 - [PR-35](https://github.com/itk-dev/ai-launchpad/pull/35)
   Fix accessibility issues discovered with wave tool.
 
