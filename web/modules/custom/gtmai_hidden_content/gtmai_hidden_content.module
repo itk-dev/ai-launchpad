@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Access\AccessResultForbidden;
+use Drupal\Core\Access\AccessResultNeutral;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_access().
+ */
+function gtmai_hidden_content_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  // Default access result. (This module will not interfere with access result)
+  $access = new AccessResultNeutral();
+  if ($node->hasField('field_hidden_content')) {
+    $nodeAccessPrivate = $node->get('field_hidden_content')->getValue()[0]['value'];
+    // If content set to private and user is anonymous deny access.
+    if ($nodeAccessPrivate && $account->isAnonymous()) {
+      $access = new AccessResultForbidden();
+    }
+  }
+
+  // Merge node cache metadata.
+  $access->addCacheableDependency($node);
+
+  return $access;
+}
