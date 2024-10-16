@@ -6,3 +6,4 @@ name: 'Page teaser category'
 vid: page_teaser_category
 description: 'Used to categorize pages in content lists'
 weight: 0
+new_revision: false
