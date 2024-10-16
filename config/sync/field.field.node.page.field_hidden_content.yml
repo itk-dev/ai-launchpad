@@ -1,0 +1,21 @@
+uuid: 857392f4-f778-46dd-9c65-0ff39f4b6216
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hidden_content
+    - node.type.page
+id: node.page.field_hidden_content
+field_name: field_hidden_content
+entity_type: node
+bundle: page
+label: 'Skjult indhold'
+description: 'Make content hidden if the user is not logged in'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
