@@ -153,7 +153,7 @@
         "enable-patching": true,
         "patches": {
           "drupal/core": {
-            "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2024-07-03/drupal-3150540-42.patch"
+            "Disable forced configuration langcode (https://www.drupal.org/project/drupal/issues/3150540)": "https://www.drupal.org/files/issues/2024-08-06/3150540-43-MR9103-11.x.diff"
           }
         }
     }

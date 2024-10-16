@@ -21,6 +21,7 @@ module:
   file: 0
   filter: 0
   flood_control: 0
+  gtmai_hidden_content: 0
   image: 0
   itk_siteimprove: 0
   language: 0
