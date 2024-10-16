@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Hooks related to gtmai_hidden_content.
+ */
+
 use Drupal\Core\Access\AccessResultForbidden;
 use Drupal\Core\Access\AccessResultNeutral;
 use Drupal\Core\Session\AccountInterface;
