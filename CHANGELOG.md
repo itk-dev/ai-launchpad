@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-37](https://github.com/itk-dev/ai-launchpad/pull/37)
+  Add template for error pages.
+
 - [PR-36](https://github.com/itk-dev/ai-launchpad/pull/36)
   - Add and enable gtmai_hidden_content module
   - Update drupal core
