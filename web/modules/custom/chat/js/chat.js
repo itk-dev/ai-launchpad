@@ -3,6 +3,22 @@
   const USER = 'you'
 
   /**
+   * Tracks an event in Matomo analytics.
+   *
+   * @param {string} action
+   *   The action that occurred (e.g., 'messageSent').
+   * @param {string} name
+   *   The name or label associated with the action (e.g., 'userName').
+   * @return {void}
+   *   This function does not return a value.
+   */
+  function matomoTracking(action, name) {
+    if (typeof _paq !== 'undefined' && _paq !== null) {
+      _paq.push(['trackEvent', 'Chat', action, name]);
+    }
+  }
+
+  /**
    * Returns the current time in HH:mm format.
    *
    * @returns {string}
@@ -38,6 +54,8 @@
    */
   function cleanInput(element) {
     element.value = '';
+
+    matomoTracking('Reset', 'clicked');
   }
 
   /**
@@ -58,6 +76,8 @@
       input.setAttribute('readonly', 'readonly');
       resetBtn.disabled = true;
     }
+
+    matomoTracking('Disable UI', 'clicked');
   }
 
   /**
@@ -244,6 +264,8 @@
               "cid": getCacheId(),
             });
 
+            matomoTracking('Message', 'sent');
+
             // Add user's chat message to the chat window and clear input.
             addMessage(output, Drupal.t('you'), input.value, USER);
             output.scrollTop = output.scrollHeight;
@@ -340,6 +362,8 @@
           function toggleChatWindow(e) {
             e.preventDefault();
             chatWindow.classList.toggle('hidden');
+
+            matomoTracking('Toggle window', 'clicked');
           }
           function minimizeChatWindow(e) {
             e.preventDefault();
