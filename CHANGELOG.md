@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.0.3] - 2024-23-10
+
 - [PR-38](https://github.com/itk-dev/ai-launchpad/pull/38)
   Added Matomo tracking.
 
