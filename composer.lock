@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e5e9150979f949b60f195eb95074638",
+    "content-hash": "4f0242cc293d3f30e711ec87f6af3cc5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3211,6 +3211,29 @@
                 "source": "https://github.com/itk-dev/siteimprove-d8/tree/1.3.0"
             },
             "time": "2023-09-06T09:51:42+00:00"
+        },
+        {
+            "name": "itk-dev/web_accessibility_statement",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itk-dev/web_accessibility_statement.git",
+                "reference": "443bfc52b4ba6ffaf27317f7866ad67d097139b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itk-dev/web_accessibility_statement/zipball/443bfc52b4ba6ffaf27317f7866ad67d097139b0",
+                "reference": "443bfc52b4ba6ffaf27317f7866ad67d097139b0",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Provides path for accessibility statement",
+            "support": {
+                "issues": "https://github.com/itk-dev/web_accessibility_statement/issues",
+                "source": "https://github.com/itk-dev/web_accessibility_statement/tree/1.1.0"
+            },
+            "time": "2023-06-30T10:13:03+00:00"
         },
         {
             "name": "itkdev/llm_services",
@@ -12938,12 +12961,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "ext-pcntl": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

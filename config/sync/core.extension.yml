@@ -59,6 +59,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  web_accessibility_statement: 0
   pathauto: 1
   content_translation: 10
   password_policy: 10
