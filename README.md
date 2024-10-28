@@ -84,7 +84,7 @@ itkdev-docker-compose drush config:export
 Import config from config files:
 
 ```shell
-itkdev-docker-compose drush config:export
+itkdev-docker-compose drush config:import
 ```
 
 ### Coding standards
