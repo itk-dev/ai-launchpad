@@ -1,5 +1,5 @@
 uuid: af7a769e-5ca5-4c99-b042-8775295c2e43
-langcode: en
+langcode: da
 status: false
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: dTfAUHooYV0uOVPO3saGpgv-c5PppJXDwxvwRTJOycM
 id: media.full
-label: 'Full content'
+label: 'Fuldt indhold'
 description: ''
 targetEntityType: media
 cache: true

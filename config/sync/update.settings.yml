@@ -1,5 +1,6 @@
 _core:
   default_config_hash: xbYr66-g0FjNgVBkGypCuN46vBI2XHntXN1URawq1s4
+langcode: da
 check:
   disabled_extensions: false
   interval_days: 1

@@ -1,5 +1,5 @@
 uuid: ac203181-a19a-444e-97b3-97883038be57
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: iukUENpf8CFvjZbGGacKX_Ges0-lU9z6zvsd32P6kbo
 id: taxonomy_term.full
-label: 'Taxonomy term page'
+label: Termside
 description: ''
 targetEntityType: taxonomy_term
 cache: true

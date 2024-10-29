@@ -2,8 +2,8 @@
 
 namespace Drupal\chat\Controller;
 
-use Drupal\chat\Model\ChatCallbackData;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\chat\Model\ChatCallbackData;
 use Drupal\llm_services\Model\Message;
 use Drupal\llm_services\Model\MessageRoles;
 use Drupal\llm_services\Model\Payload;

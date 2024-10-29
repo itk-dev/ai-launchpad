@@ -1,5 +1,5 @@
 uuid: bbce3221-8255-404c-8a6a-5ee4b3da07c2
-langcode: en
+langcode: da
 status: true
 dependencies:
   config:
@@ -16,16 +16,16 @@ dependencies:
 _core:
   default_config_hash: iFhkNhGoobQ7V0PJEH_Io9Vlli35kiaeQfdqUttfQeU
 id: media_library
-label: 'Media library'
+label: 'Medie bibliotek'
 module: views
-description: 'Find and manage media.'
+description: 'Find og håndtér mediefiler.'
 tag: ''
 base_table: media_field_data
 base_field: mid
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Standard
     display_plugin: default
     position: 0
     display_options:
@@ -81,7 +81,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: Handling
           include_exclude: exclude
           selected_actions: {  }
         rendered_entity:
@@ -147,22 +147,22 @@ display:
             previous: ‹‹
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '6, 12, 24, 48'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
       exposed_form:
         type: basic
         options:
-          submit_button: 'Apply filters'
+          submit_button: 'Tilføj filtre'
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: false
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       access:
         type: perm
         options:
@@ -180,7 +180,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No media available.'
+          content: 'Ingen tilgængelige media.'
           tokenize: false
       sorts:
         created:
@@ -195,7 +195,7 @@ display:
           plugin_id: date
           order: DESC
           expose:
-            label: 'Newest first'
+            label: 'Nyeste først'
             field_identifier: created
           exposed: true
           granularity: second
@@ -211,7 +211,7 @@ display:
           plugin_id: standard
           order: ASC
           expose:
-            label: 'Name (A-Z)'
+            label: 'Navn (A-Z)'
             field_identifier: name
           exposed: true
         name_1:
@@ -226,7 +226,7 @@ display:
           plugin_id: standard
           order: DESC
           expose:
-            label: 'Name (Z-A)'
+            label: 'Navn (Z-A)'
             field_identifier: name_1
           exposed: true
       filters:
@@ -246,7 +246,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: 'Publishing status'
+            label: Publiceringsstatus
             description: null
             use_operator: false
             operator: status_op
@@ -260,7 +260,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: Published
+            label: Udgivet
             description: ''
             identifier: status
             optional: true
@@ -271,11 +271,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: Udgivet
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Ikke udgivet'
                 operator: '='
                 value: '0'
         name:
@@ -294,7 +294,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Navn
             description: ''
             use_operator: false
             operator: name_op
@@ -336,7 +336,7 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: 'Media type'
+            label: 'Medie type'
             description: ''
             use_operator: false
             operator: bundle_op
@@ -353,7 +353,7 @@ display:
             reduce: false
           is_grouped: false
           group_info:
-            label: 'Media type'
+            label: 'Medie type'
             description: null
             identifier: bundle
             optional: true
@@ -421,7 +421,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: Sprog
             description: ''
             use_operator: false
             operator: langcode_op
@@ -487,7 +487,7 @@ display:
       tags: {  }
   page:
     id: page
-    display_title: Page
+    display_title: Side
     display_plugin: page
     position: 1
     display_options:
@@ -542,7 +542,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Action
+          action_title: Handling
           include_exclude: exclude
           selected_actions: {  }
         name:
@@ -623,7 +623,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'Edit {{ name }}'
+            text: 'Redigér {{ name }}'
             make_link: true
             path: ''
             absolute: false
@@ -631,7 +631,7 @@ display:
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: 'Edit {{ name }}'
+            alt: 'Redigér {{ name }}'
             rel: ''
             link_class: ''
             prefix: ''
@@ -660,7 +660,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: Edit
+          text: Redigér
           output_url_as_text: false
           absolute: false
         delete_media:
@@ -676,7 +676,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'Delete {{ name }}'
+            text: 'Slet {{ name }}'
             make_link: true
             path: ''
             absolute: false
@@ -684,7 +684,7 @@ display:
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: 'Delete {{ name }}'
+            alt: 'Slet {{ name }}'
             rel: ''
             link_class: ''
             prefix: ''
@@ -713,7 +713,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: Delete
+          text: Slet
           output_url_as_text: false
           absolute: false
         rendered_entity:
@@ -909,7 +909,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Alle
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -992,7 +992,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Navn
             description: ''
             use_operator: false
             operator: name_op
@@ -1078,7 +1078,7 @@ display:
           table: views
           field: display_link
           plugin_id: display_link
-          label: Grid
+          label: Gitter
           empty: true
           display_id: widget
         display_link_table:
@@ -1086,7 +1086,7 @@ display:
           table: views
           field: display_link
           plugin_id: display_link
-          label: Table
+          label: Tabel
           empty: true
           display_id: widget_table
       rendering_language: '***LANGUAGE_language_interface***'
@@ -1141,7 +1141,7 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: field
-          label: Name
+          label: Navn
           type: string
           settings:
             link_to_entity: false
@@ -1153,7 +1153,7 @@ display:
           entity_type: media
           entity_field: uid
           plugin_id: field
-          label: Author
+          label: Forfatter
           type: entity_reference_label
           settings:
             link: true
@@ -1165,7 +1165,7 @@ display:
           entity_type: media
           entity_field: changed
           plugin_id: field
-          label: Updated
+          label: Opdateret
           type: timestamp
           settings:
             date_format: short
@@ -1199,7 +1199,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Alle
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -1282,7 +1282,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Navn
             description: ''
             use_operator: false
             operator: name_op
@@ -1376,7 +1376,7 @@ display:
           table: views
           field: display_link
           plugin_id: display_link
-          label: Grid
+          label: Gitter
           empty: true
           display_id: widget
         display_link_table:
@@ -1384,7 +1384,7 @@ display:
           table: views
           field: display_link
           plugin_id: display_link
-          label: Table
+          label: Tabel
           empty: true
           display_id: widget_table
       rendering_language: '***LANGUAGE_language_interface***'

@@ -1,9 +1,10 @@
 _core:
   default_config_hash: 0xE4emSSHTVKb88WL3yN2IahuH23p8VNAXMZNux6BKs
+langcode: da
 method: 0
-pattern: "herning.dk\r\nholstebro.dk\r\nLemvig.dk\r\nrksk.dk\r\nranders.dk\r\nikast-brande.dk\r\nrm.dk"
+pattern: "herning.dk\r\nholstebro.dk\r\nLemvig.dk\r\nrksk.dk\r\nranders.dk\r\nikast-brande.dk\r\nrm.dk\r\n*.rm.dk\r\nhorsens.dk\r\nstruer.dk"
 message: 'Du har ikke adgang til dette site fordi jeres arbejdsplads ikke er klar eller ikke er en del af GTM.. '
 actions: null
-form_build_id: form-p2Rp0Mnlg5Udtat3n8QEKbEpIWE06rq9y6h0dzGBBbc
-form_token: 4lXYC1NgVpgJ7iZzXPk--Sqym0O77vOnUXokVKEzXqI
+form_build_id: form-KtW_Tkxhvyoj8cWTYey7BcXEq_Ka3EbCpVujG22Y-jM
+form_token: 8411baf2vezDbtNicGWB3HdPMCkIdMi7HaAFVWm25i4
 form_id: domain_registration_admin_form

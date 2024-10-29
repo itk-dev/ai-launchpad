@@ -8,6 +8,22 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-40](https://github.com/itk-dev/ai-launchpad/pull/40)
+  Install and enable was module
+- [PR-39](https://github.com/itk-dev/ai-launchpad/pull/39)
+  Security updates
+- [PR-37](https://github.com/itk-dev/ai-launchpad/pull/37)
+  Add template for error pages.
+
+- [PR-36](https://github.com/itk-dev/ai-launchpad/pull/36)
+  - Add and enable gtmai_hidden_content module
+  - Update drupal core
+  - Update config to match new drupal core
+  - Disable forced configuration langcode through patch to allow english config on danish site
+
+- [PR-35](https://github.com/itk-dev/ai-launchpad/pull/35)
+  Fix accessibility issues discovered with wave tool.
+
 ## [1.0.3] - 2024-23-10
 
 - [PR-38](https://github.com/itk-dev/ai-launchpad/pull/38)

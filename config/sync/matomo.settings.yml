@@ -1,7 +1,7 @@
 _core:
   default_config_hash: mKwnhF-0ryfftZZP6jyqW8q9MEo9glyRkvRzSddrc0k
 langcode: da
-site_id: '2'
+site_id: '1'
 url_http: 'http://matomo.gtmai.dk/'
 url_https: 'https://matomo.gtmai.dk/'
 domain_mode: 0

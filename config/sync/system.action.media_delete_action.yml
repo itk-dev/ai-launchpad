@@ -1,5 +1,5 @@
 uuid: bd1d4ec7-8549-40d5-b3db-99e8e1c0a27a
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: FrZy1tmuXJcOxhXlBoI1Hsnen5TT-9OCC1iolWH84go
 id: media_delete_action
-label: 'Delete media'
+label: 'Slet medie'
 type: media
 plugin: 'entity:delete_action:media'
 configuration: {  }

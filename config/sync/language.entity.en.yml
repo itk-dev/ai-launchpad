@@ -1,11 +1,11 @@
 uuid: cb23d5c6-d488-4a25-a2c7-653c5f371a20
-langcode: en
+langcode: da
 status: true
 dependencies: {  }
 _core:
   default_config_hash: lBXDpdDPXQtrfTJQhr6MjRJJEEyYSoRJ0acdvHLsWeA
 id: en
-label: English
+label: Engelsk
 direction: ltr
 weight: 0
 locked: false

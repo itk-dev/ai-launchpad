@@ -1,5 +1,5 @@
 uuid: 58c4ced5-ca7a-4981-9e1b-2545a7e8d49b
-langcode: en
+langcode: da
 status: false
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: ZbXunWS_xAvMZXFfinyvClDAb_RCVLt7gAzE3v16E-Q
 id: user.full
-label: 'User account'
+label: Brugerkonto
 description: ''
 targetEntityType: user
 cache: true
