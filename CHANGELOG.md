@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-29-10
+
 - [PR-40](https://github.com/itk-dev/ai-launchpad/pull/40)
   Install and enable was module
 - [PR-39](https://github.com/itk-dev/ai-launchpad/pull/39)
