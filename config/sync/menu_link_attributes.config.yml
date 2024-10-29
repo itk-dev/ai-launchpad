@@ -1,3 +1,4 @@
+langcode: da
 attributes:
   icon:
     label: 'Select icon'

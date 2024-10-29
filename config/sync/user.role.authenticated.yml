@@ -1,16 +1,17 @@
 uuid: b5736516-9ff7-4cb8-a79b-edba31878022
-langcode: en
+langcode: da
 status: true
 dependencies:
   module:
     - chat
     - contextual
+    - matomo
     - media
     - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
-label: 'Authenticated user'
+label: 'Godkendt bruger'
 weight: 1
 is_admin: false
 permissions:
@@ -18,4 +19,5 @@ permissions:
   - 'access content'
   - 'access contextual links'
   - 'change own username'
+  - 'opt-in or out of matomo tracking'
   - 'view media'

@@ -1,5 +1,6 @@
 _core:
   default_config_hash: 2bwjZB1IjEYbppgZT3g7YW_5h_LDZYNa3DaDEfWX82U
+langcode: da
 description:
   type: textfield
   length: 128

@@ -1,5 +1,6 @@
 _core:
   default_config_hash: jtno5biznHZbrIgKwzq-ze-7XaQxLCGe6PeUOR7bRiQ
+langcode: da
 cache:
   page:
     max_age: 0
