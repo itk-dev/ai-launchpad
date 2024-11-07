@@ -1,0 +1,36 @@
+uuid: 3ce81887-ec20-4bae-a75c-788ebfad234f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_column_image_and_text.field_content
+    - field.field.paragraph.two_column_image_and_text.field_media
+    - image.style.medium
+    - paragraphs.paragraphs_type.two_column_image_and_text
+  module:
+    - media
+    - text
+id: paragraph.two_column_image_and_text.default
+targetEntityType: paragraph
+bundle: two_column_image_and_text
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

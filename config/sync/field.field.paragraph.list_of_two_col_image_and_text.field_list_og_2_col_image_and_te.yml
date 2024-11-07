@@ -1,20 +1,19 @@
-uuid: ad6f32c5-2628-49e2-9df7-ef4344d8ff8c
-langcode: en
+uuid: 57c84a58-ad16-4483-8293-ef810ad4e120
+langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_page_sections
-    - node.type.page
-    - paragraphs.paragraphs_type.chat
+    - field.storage.paragraph.field_list_og_2_col_image_and_te
+    - paragraphs.paragraphs_type.list_of_two_col_image_and_text
     - paragraphs.paragraphs_type.two_column_image_and_text
   module:
     - entity_reference_revisions
-id: node.page.field_page_sections
-field_name: field_page_sections
-entity_type: node
-bundle: page
-label: 'Page sections'
-description: 'Used to create sections on the page with the paragraphs module'
+id: paragraph.list_of_two_col_image_and_text.field_list_og_2_col_image_and_te
+field_name: field_list_og_2_col_image_and_te
+entity_type: paragraph
+bundle: list_of_two_col_image_and_text
+label: 'List of 2 col image and text'
+description: ''
 required: false
 translatable: false
 default_value: {  }
@@ -23,33 +22,32 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      chat: chat
       two_column_image_and_text: two_column_image_and_text
-    negate: 1
+    negate: 0
     target_bundles_drag_drop:
       body:
-        weight: 12
-        enabled: false
-      call_to_action:
         weight: 13
         enabled: false
-      chat:
+      call_to_action:
         weight: 14
-        enabled: true
-      content_list:
+        enabled: false
+      chat:
         weight: 15
         enabled: false
-      frequently_asked_questions:
+      content_list:
         weight: 16
         enabled: false
-      hero:
+      frequently_asked_questions:
         weight: 17
         enabled: false
-      introduction:
+      hero:
         weight: 18
         enabled: false
-      list_of_two_col_image_and_text:
+      introduction:
         weight: 19
+        enabled: false
+      list_of_two_col_image_and_text:
+        weight: 12
         enabled: false
       media:
         weight: 20

@@ -1,0 +1,10 @@
+uuid: f4f148c6-9530-45e9-ab7a-91a0797a95bc
+langcode: da
+status: true
+dependencies: {  }
+id: list_of_two_col_image_and_text
+label: 'List of two col image and text'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
