@@ -8,10 +8,13 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-## [1.1.0] - 2024-29-10
+## [1.1.1] - 2024-07-11
 
 - [PR-41](https://github.com/itk-dev/ai-launchpad/pull/41)
   Install and enable redirect_after_login module. Add paragraph type for two column image and text.
+
+## [1.1.0] - 2024-29-10
+
 - [PR-40](https://github.com/itk-dev/ai-launchpad/pull/40)
   Install and enable was module
 - [PR-39](https://github.com/itk-dev/ai-launchpad/pull/39)
@@ -109,5 +112,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 [keep a changelog]: https://keepachangelog.com/en/1.1.0/
 [unreleased]: https://github.com/itk-dev/event-database-imports/compare/main...develop
-[1.0.0]: https://github.com/itk-dev/event-database-imports/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/itk-dev/event-database-imports/compare/1.0.1...develop
+[1.1.1]: https://github.com/itk-dev/ai-launchpad/compare/1.1.0...1.1.1
+[1.1.0]: https://github.com/itk-dev/ai-launchpad/compare/1.0.3...1.1.0
+[1.0.3]: https://github.com/itk-dev/ai-launchpad/compare/1.0.2...1.0.3
+[1.0.2]: https://github.com/itk-dev/ai-launchpad/compare/1.0.1...1.0.3
+[1.0.1]: https://github.com/itk-dev/ai-launchpad/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/itk-dev/ai-launchpad/releases/tag/1.0.0
