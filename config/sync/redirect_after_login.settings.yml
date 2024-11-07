@@ -1,6 +1,6 @@
 login_redirection:
   anonymous: null
-  authenticated: /node/1
-  administrator: /node/1
-  editor: /node/1
+  authenticated: /
+  administrator: /
+  editor: /
 exclude_urls: ''
