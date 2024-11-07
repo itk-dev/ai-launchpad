@@ -1,0 +1,20 @@
+uuid: 0dbf49b0-7af0-4818-9038-37526b8e68cc
+langcode: da
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_list_og_2_col_image_and_te
+field_name: field_list_og_2_col_image_and_te
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
