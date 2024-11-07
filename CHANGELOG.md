@@ -10,6 +10,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [1.1.0] - 2024-29-10
 
+- [PR-41](https://github.com/itk-dev/ai-launchpad/pull/41)
+  Install and enable redirect_after_login module. Add paragraph type for two column image and text.
 - [PR-40](https://github.com/itk-dev/ai-launchpad/pull/40)
   Install and enable was module
 - [PR-39](https://github.com/itk-dev/ai-launchpad/pull/39)
