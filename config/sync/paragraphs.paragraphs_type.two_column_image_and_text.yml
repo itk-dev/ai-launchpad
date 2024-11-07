@@ -1,0 +1,10 @@
+uuid: cb6a7886-1ee0-4377-ab50-6058d67e02cd
+langcode: da
+status: true
+dependencies: {  }
+id: two_column_image_and_text
+label: 'Two column image and text'
+icon_uuid: null
+icon_default: null
+description: 'Used to add a section with image and text in relation'
+behavior_plugins: {  }

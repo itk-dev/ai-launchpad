@@ -1,0 +1,24 @@
+uuid: fc16df74-74da-4aca-a8a0-d7df2261f94a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - filter.format.body_content
+    - paragraphs.paragraphs_type.two_column_image_and_text
+  module:
+    - text
+id: paragraph.two_column_image_and_text.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: two_column_image_and_text
+label: Content
+description: 'Used for the content in the section'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - body_content
+field_type: text_long
