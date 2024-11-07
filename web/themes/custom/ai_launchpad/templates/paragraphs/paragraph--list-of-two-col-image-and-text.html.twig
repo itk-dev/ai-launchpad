@@ -6,6 +6,6 @@
     {% if content.field_content %}
       {{ content.field_content }}
     {% endif %}
-    {{ content|without('field_title','field_content') }}
+    {{ content|without('field_title', 'field_content') }}
   </section>
 {% endblock paragraph %}
