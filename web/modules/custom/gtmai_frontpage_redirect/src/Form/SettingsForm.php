@@ -5,6 +5,9 @@ namespace Drupal\gtmai_frontpage_redirect\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Settings form.
+ */
 class SettingsForm extends ConfigFormBase {
 
   /**
@@ -51,4 +54,5 @@ class SettingsForm extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
+
 }
