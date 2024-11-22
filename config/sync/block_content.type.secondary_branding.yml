@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: secondary_branding
 label: 'Secondary branding'
-revision: 0
+revision: false
 description: 'Used to provide a secondary brand'

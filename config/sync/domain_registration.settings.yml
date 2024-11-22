@@ -5,6 +5,6 @@ method: 0
 pattern: "herning.dk\r\nholstebro.dk\r\nLemvig.dk\r\nrksk.dk\r\nranders.dk\r\nikast-brande.dk\r\nrm.dk\r\n*.rm.dk\r\nhorsens.dk\r\nstruer.dk"
 message: 'Du har ikke adgang til dette site fordi jeres arbejdsplads ikke er klar eller ikke er en del af GTM.. '
 actions: null
-form_build_id: form-KtW_Tkxhvyoj8cWTYey7BcXEq_Ka3EbCpVujG22Y-jM
-form_token: 8411baf2vezDbtNicGWB3HdPMCkIdMi7HaAFVWm25i4
+form_build_id: form-BSChUVRqKb7Pg8w79b49Aygxi8kzg0wC54ouXDMOkao
+form_token: Vjj2DN2yb0bdHnxz7h1nLFhyVk6L-TuPFcdNs0bn0iw
 form_id: domain_registration_admin_form

@@ -1,4 +1,3 @@
-langcode: da
 attributes:
   icon:
     label: 'Select icon'
@@ -10,3 +9,6 @@ attributes:
       fa-microphone-lines: 'AI for sound'
       fa-video-camera: 'AI for video'
       fa-robot: 'AI for other'
+  container_class:
+    label: 'Container class(es)'
+    description: 'CSS class for the menu list item (&lt;li&gt;). Separate multiple classes by space.'
