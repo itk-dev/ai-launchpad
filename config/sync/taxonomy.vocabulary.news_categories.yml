@@ -6,3 +6,4 @@ name: 'News tags'
 vid: news_categories
 description: 'Used to tag news articles'
 weight: 0
+new_revision: false

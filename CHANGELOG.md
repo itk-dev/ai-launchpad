@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-42](https://github.com/itk-dev/ai-launchpad/pull/42)
+  Fixed "Undefined array key 0 in gtmai_hidden_content_node_access()".
+- [PR-42](https://github.com/itk-dev/ai-launchpad/pull/42)
+  Upgrade drupal core and contrib modules.
+
 ## [1.1.1] - 2024-07-11
 
 - [PR-41](https://github.com/itk-dev/ai-launchpad/pull/41)
