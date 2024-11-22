@@ -39,6 +39,5 @@ function gtmai_frontpage_redirect_preprocess_page(array &$variables): void {
     // We are on the frontpage and the uri is the frontpage uri, so rediretct.
     $response = new RedirectResponse($front_page->toString());
     $response->send();
-    exit();
   }
 }
