@@ -1,0 +1,5 @@
+name: 'Redirect front page'
+type: module
+description: 'Dynamically sets the front page based on user state.'
+package: 'AI Launchpad'
+core_version_requirement: ^10 || ^11

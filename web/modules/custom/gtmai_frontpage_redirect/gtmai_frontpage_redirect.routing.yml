@@ -1,0 +1,7 @@
+gtmai_frontpage_redirect.admin_settings:
+  path: '/admin/config/system/frontpage_redirect'
+  defaults:
+    _form: '\Drupal\gtmai_frontpage_redirect\Form\SettingsForm'
+    _title: 'Redirect frontpage settings'
+  requirements:
+    _permission: 'administer site configuration'

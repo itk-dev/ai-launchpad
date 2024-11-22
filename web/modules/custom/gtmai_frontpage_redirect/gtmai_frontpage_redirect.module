@@ -11,12 +11,23 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Implements hook_preprocess_page().
  */
-function role_based_frontpage_preprocess_page(array &$variables): void {
+function gtmai_frontpage_redirect_preprocess_page(array &$variables): void {
   $current_user = \Drupal::currentUser();
 
-  $front_page =  \Drupal::config('system.site')->get('page.front');
   if ($current_user->isAuthenticated()) {
-    $front_page = Url::fromRoute('entity.node.canonical', ['node' => 26]);
+    $config = \Drupal::config('gtmai_frontpage_redirect.settings');
+    $authenticated_node_id = $config->get('authenticated_node_id');
+    if (isset($authenticated_node_id)) {
+      $front_page = Url::fromRoute('entity.node.canonical', ['node' => $authenticated_node_id]);
+    }
+    else {
+      // No config set, so don't redirect.
+      return;
+    }
+  }
+  else {
+    // No authenticated, so don't redirect.
+    return;
   }
 
   // Check if it's the front page.
@@ -24,8 +35,8 @@ function role_based_frontpage_preprocess_page(array &$variables): void {
   $current_path = \Drupal::service('path.current')->getPath();
   $alias_manager = \Drupal::service('path_alias.manager');
   $current_internal_path = $alias_manager->getPathByAlias($current_path);
-
   if ($current_internal_path == $front_uri) {
+    // We are on the frontpage and the uri is the frontpage uri, so rediretct.
     $response = new RedirectResponse($front_page->toString());
     $response->send();
     exit();
