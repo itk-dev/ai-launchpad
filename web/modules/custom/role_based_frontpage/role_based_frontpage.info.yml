@@ -1,0 +1,5 @@
+name: 'Role-based front page'
+type: module
+description: 'Dynamically sets the front page based on user roles.'
+package: 'AI Launchpad'
+core_version_requirement: ^10 || ^11

@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Hooks related to this module.
+ */
+
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function role_based_frontpage_preprocess_page(array &$variables): void {
+  $current_user = \Drupal::currentUser();
+
+  $front_page =  \Drupal::config('system.site')->get('page.front');
+  if ($current_user->isAuthenticated()) {
+    $front_page = Url::fromRoute('entity.node.canonical', ['node' => 26]);
+  }
+
+  // Check if it's the front page.
+  $front_uri = \Drupal::config('system.site')->get('page.front');
+  $current_path = \Drupal::service('path.current')->getPath();
+  $alias_manager = \Drupal::service('path_alias.manager');
+  $current_internal_path = $alias_manager->getPathByAlias($current_path);
+
+  if ($current_internal_path == $front_uri) {
+    $response = new RedirectResponse($front_page->toString());
+    $response->send();
+    exit();
+  }
+}
