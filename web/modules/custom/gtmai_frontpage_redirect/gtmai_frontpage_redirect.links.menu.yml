@@ -1,0 +1,5 @@
+gtmai_frontpage_redirect.admin_settings:
+  title: 'Frontpage redirect settings'
+  parent: system.admin_config_system
+  description: 'Settings for the frontpage redirects'
+  route_name: gtmai_frontpage_redirect.admin_settings

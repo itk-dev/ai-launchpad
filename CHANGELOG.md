@@ -8,6 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-43](https://github.com/itk-dev/ai-launchpad/pull/43)
+  Added new module to redirect logged-in users to internal front page.
+
 ## [1.1.2] - 2024-22-11
 
 - [PR-42](https://github.com/itk-dev/ai-launchpad/pull/42)
