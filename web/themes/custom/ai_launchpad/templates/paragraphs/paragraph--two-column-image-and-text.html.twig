@@ -1,12 +1,12 @@
 {% block paragraph %}
-  <div class="flex flex-col md:flex-row gap-3 md:gap-6 my-3">
+  <div class="flex flex-col md:flex-row gap-2 md:gap-6 mt-3 mb-6 md:my-5">
     {% block content %}
       {% if content.field_media %}
-        <div class="md:w-1/5 flex-shrink-0">
+        <div class="w-100 md:w-1/5 flex-shrink-0 two-col-image md:mt-2">
           {{ content.field_media }}
         </div>
       {% endif %}
-      <div>
+      <div class="two-col-text">
         {{ content|without('field_media') }}
       </div>
     {% endblock %}
