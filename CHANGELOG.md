@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.1.4] - 2024-16-12
+
 - [PR-44](https://github.com/itk-dev/ai-launchpad/pull/44)
   Align image and text in two-col paragraph.
 
