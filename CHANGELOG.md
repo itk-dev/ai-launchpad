@@ -8,6 +8,8 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- [PR-44](https://github.com/itk-dev/ai-launchpad/pull/44)
+  Align image and text in two-col paragraph.
 - [PR-43](https://github.com/itk-dev/ai-launchpad/pull/43)
   Added new module to redirect logged-in users to internal front page.
 
