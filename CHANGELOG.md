@@ -8,10 +8,12 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+- Updated drupal core
+- Updated matomo module
+
 ## [1.1.5] - 2025-28-01
 
 - Added e-mail address to /admin/people
-
 
 ## [1.1.4] - 2024-16-12
 
