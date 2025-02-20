@@ -8,8 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-- Updated drupal core
-- Updated matomo module
+## [1.1.6] - 2025-20-02
+
+- [PR-45](https://github.com/itk-dev/ai-launchpad/pull/45)
+  Updated drupal core
+  Updated matomo module
 
 ## [1.1.5] - 2025-28-01
 
@@ -136,6 +139,7 @@ See [keep a changelog] for information about writing changes to this log.
 
 [keep a changelog]: https://keepachangelog.com/en/1.1.0/
 [unreleased]: https://github.com/itk-dev/event-database-imports/compare/main...develop
+[1.1.6]: https://github.com/itk-dev/ai-launchpad/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/itk-dev/ai-launchpad/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/itk-dev/ai-launchpad/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/itk-dev/ai-launchpad/compare/1.1.2...1.1.3
