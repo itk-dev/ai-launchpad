@@ -134,7 +134,7 @@ display:
           entity_type: user
           entity_field: mail
           plugin_id: field
-          label: ''
+          label: Mail
           exclude: false
           alter:
             alter_text: false
