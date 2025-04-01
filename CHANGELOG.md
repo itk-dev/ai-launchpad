@@ -8,7 +8,6 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-
 ## [1.1.6] - 2025-04-01
 
 - Updated drupal core 10.4.5
