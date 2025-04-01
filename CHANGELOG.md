@@ -8,6 +8,11 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.1.7] - 2025-04-01
+
+- Updated drupal core 10.4.5
+- Updated matomo module
+
 ## [1.1.6] - 2025-20-02
 
 - [PR-45](https://github.com/itk-dev/ai-launchpad/pull/45)
