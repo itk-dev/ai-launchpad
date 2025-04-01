@@ -891,13 +891,19 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-   include $app_root . '/' . $site_path . '/settings.local.php';
-}
-
 /**
  * Skip permissions hardening.
  */
 $settings['skip_permissions_hardening'] = TRUE;
 
+/**
+ * Set config dir.
+ */
 $settings['config_sync_directory'] = '../config/sync';
+
+ /**
+ * Set local settings file.
+ */
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+   include $app_root . '/' . $site_path . '/settings.local.php';
+}
