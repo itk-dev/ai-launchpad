@@ -8,7 +8,9 @@ See [keep a changelog] for information about writing changes to this log.
 
 ## [Unreleased]
 
-- Updated drupal core
+## [1.1.6] - 2025-04-01
+
+- Updated drupal core 10.4.5
 - Updated matomo module
 
 ## [1.1.5] - 2025-28-01
